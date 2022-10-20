@@ -1,43 +1,37 @@
---this program creates the logic of a seven segment display. 
+--this program creates the logic of a four traffic semaphores in a roundabout. 
 --To obtain the simplified data flow of the variables, multiple Karnaugh maps were used.
 
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity deco is
+entity previotres is
     port( 
-        w,x,y,z : in std_logic;
-        a,b,c,d,e,f,g: out std_logic
+        a,b,c,d : in std_logic;
+        sa,sb,sc,sd : out std_logic
     );
 end;
 
-architecture bhv of deco is
+architecture bhv of previotres is
 begin
-
-    a<=(
-        (x or not z) and (x or not y or not w) and
-        (y or z or w) and (not x or y or z)
+    -- and * , or +
+    sa<=(
+        (not a  and b and  not a) or ( not a and b and d) 
+        or ( a  and not b  and  not c) or (not a and not b and c and not d )
     );
 
-    b<=(
-        (x and (y or z)) or (y and (z xor w))
+    sb<=( 
+        (not a  and b and not d and not c) or (a and not b and d and not c)
+        or (not b and not c and d) or (not a and c and d)
     );
 
-    c<=(
-        (x and (y or z)) or (not y and z and not w)
+    sc<=( 
+        (b or c or d) and (a or c or d) and (not b or not d)
+        and (not b or not c) and (not c or not d)
     );
 
-    d<=(
-        (x and (y or z)) or (y and not( z xor w)) or
-        (not x and not y and not z and w)
-    );
-
-    e<=(
-        w or (y and not z) or (x and z)
-    );
-
-    f<=((x or z or w) and (x or not y or w) and (z or not(x xor y)));
-
-    g<=((z or not(x xor y)) and (x or y or not z) and (x or not z or w));
+    sd<=( 
+        (not a and b and not d and c) or (not a and not b and d and c)
+        or (not a and b and d and not c)
+    ); 
 		
 end;

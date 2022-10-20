@@ -4,14 +4,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity previo is
+entity previotres is
     port( 
         a,b,c,d : in std_logic;
         sa,sb,sc,sd : out std_logic
     );
 end;
 
-architecture bhv of previo is
+architecture bhv of previotres is
 begin
     -- and * , or +
     sa<=(
