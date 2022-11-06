@@ -15,23 +15,24 @@ architecture bhv of previotres is
 begin
     -- and * , or +
     sa<=(
-        (not x  and y and  not x) or ( not x and y and w) 
-        or ( x  and not y  and  not z) or (not x and not y and z and not w )
+        (not a  and b and  not a) or ( not a and b and d) 
+        or ( a  and not b  and  not c) or (not a and not b and c and not d )
     );
 
     sb<=( 
-        (not x  and y and not w and not z) or (x and not y and w and not z)
-        or (not y and not z and w) or (not x and z and w)
+        (not a  and b and not d and not c) or (a and not b and d and not c)
+        or (not b and not c and d) or (not a and c and d)
     );
 
     sc<=( 
-        (y or z or w) and (x or z or w) and (not y or not w)
-        and (not y or not z) and (not z or not w)
+        (b or c or d) and (a or c or d) and (not b or not d)
+        and (not b or not c) and (not c or not d)
     );
 
     sd<=( 
-        (not x and y and not w and z) or (not x and not y and w and z)
-        or (not x and y and w and not z)
+        (not a and b and not d and c) or (not a and not b and d and c)
+        or (not a and b and d and not c)
     ); 
 		
 end;
+ 
