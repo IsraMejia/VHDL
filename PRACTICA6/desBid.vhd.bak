@@ -1,0 +1,20 @@
+Entity desBid is
+port(Clk, SI, LR : in std_logic;
+		PO : out std_logic_vector(7 downto 0));
+End regdesp5;
+
+Architecture archi of desBid is
+ signal tmp: std_logic_vector(7 downto 0);
+ begin
+	process (Clk)
+	 begin
+		if (Clk'event and Clk='1') then
+			if (LR='0') then
+				tmp <= tmp(6 downto 0) & SI;
+			else
+				tmp <= SI & tmp(7 downto 1);
+			end if;
+		end if;
+	end process;
+	PO <= tmp;
+End archi;
