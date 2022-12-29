@@ -10,10 +10,10 @@ entity vga is
         green       :out std_logic_vector(3 downto 0);
         blue        :out std_logic_vector(3 downto 0);
 
-        hs          :out std_logic;
-        vs          :out std_logic
+        h_sync          :out std_logic;
+        v_sync          :out std_logic
     );
-end;
+end entity vga;
 
 architecture behaviorall of vga is 
     signal pixel_clock  :std_logic;
@@ -30,7 +30,7 @@ architecture behaviorall of vga is
         u1: entity work.gen25mhz(behavior) port map (input_clk, pixel_clock);
 
         u2: entity work.vga_controller(behavior) 
-            port map (pixel_clock, '1', hs, vs, disp_ena, column, row);
+            port map (pixel_clock, '1', h_sync, v_sync, disp_ena, column, row);
         
         u3: entity work.hw_image_generator(behavior)
             port map (disp_ena, row, column, re, green, blue);

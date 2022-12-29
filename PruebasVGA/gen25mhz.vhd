@@ -16,4 +16,4 @@ begin
             clk25mhz <= not clk25mhz; --convierte un reloj de 50 mhz a uno de 25
         end if;
     end process;
-end architecture
+end architecture behavior;
