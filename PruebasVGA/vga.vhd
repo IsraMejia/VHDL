@@ -4,7 +4,7 @@ use  ieee.std_logic_1164.all;
 entity vga is  
     port(
         input_clk   :in std_logic; --50mhz
-        pixel_clk   :in std_logic; --monitor del reloj a 25 mhz
+        pixel_clk   :out std_logic; --monitor del reloj a 25 mhz
 
         red         :out std_logic_vector(3 downto 0);
         green       :out std_logic_vector(3 downto 0);
@@ -33,5 +33,5 @@ architecture behaviorall of vga is
             port map (pixel_clock, '1', h_sync, v_sync, disp_ena, column, row);
         
         u3: entity work.hw_image_generator(behavior)
-            port map (disp_ena, row, column, re, green, blue);
+            port map (disp_ena, row, column, red, green, blue);
     end;
