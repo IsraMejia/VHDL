@@ -1,0 +1,113 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'gen25mhz:u1|clk25mhz~reg0'
+Slack : -4.502
+TNS   : -157.388
+
+Type  : Slow 1200mV 85C Model Setup 'vga_controller:u2|disp_ena'
+Slack : -3.612
+TNS   : -10.801
+
+Type  : Slow 1200mV 85C Model Setup 'input_clk'
+Slack : -0.976
+TNS   : -0.976
+
+Type  : Slow 1200mV 85C Model Hold 'gen25mhz:u1|clk25mhz~reg0'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'input_clk'
+Slack : 0.927
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'vga_controller:u2|disp_ena'
+Slack : 1.503
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'input_clk'
+Slack : -3.000
+TNS   : -4.403
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'gen25mhz:u1|clk25mhz~reg0'
+Slack : -1.403
+TNS   : -61.732
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'vga_controller:u2|disp_ena'
+Slack : 0.398
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'gen25mhz:u1|clk25mhz~reg0'
+Slack : -4.066
+TNS   : -141.550
+
+Type  : Slow 1200mV 0C Model Setup 'vga_controller:u2|disp_ena'
+Slack : -3.378
+TNS   : -10.103
+
+Type  : Slow 1200mV 0C Model Setup 'input_clk'
+Slack : -0.834
+TNS   : -0.834
+
+Type  : Slow 1200mV 0C Model Hold 'gen25mhz:u1|clk25mhz~reg0'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'input_clk'
+Slack : 0.816
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'vga_controller:u2|disp_ena'
+Slack : 1.474
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'input_clk'
+Slack : -3.000
+TNS   : -4.403
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'gen25mhz:u1|clk25mhz~reg0'
+Slack : -1.403
+TNS   : -61.732
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'vga_controller:u2|disp_ena'
+Slack : 0.490
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'gen25mhz:u1|clk25mhz~reg0'
+Slack : -1.360
+TNS   : -41.420
+
+Type  : Fast 1200mV 0C Model Setup 'vga_controller:u2|disp_ena'
+Slack : -1.009
+TNS   : -3.019
+
+Type  : Fast 1200mV 0C Model Setup 'input_clk'
+Slack : -0.195
+TNS   : -0.195
+
+Type  : Fast 1200mV 0C Model Hold 'gen25mhz:u1|clk25mhz~reg0'
+Slack : 0.148
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'input_clk'
+Slack : 0.411
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'vga_controller:u2|disp_ena'
+Slack : 0.718
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'input_clk'
+Slack : -3.000
+TNS   : -4.009
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'gen25mhz:u1|clk25mhz~reg0'
+Slack : -1.000
+TNS   : -44.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'vga_controller:u2|disp_ena'
+Slack : 0.327
+TNS   : 0.000
+
+------------------------------------------------------------

@@ -1,0 +1,341 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'div_gen:u5|temp'
+Slack : -11.780
+TNS   : -215.554
+
+Type  : Slow 1200mV 85C Model Setup 'encendido'
+Slack : -8.900
+TNS   : -25.704
+
+Type  : Slow 1200mV 85C Model Setup 'div_gen:U0|temp'
+Slack : -5.441
+TNS   : -328.508
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -3.973
+TNS   : -65.456
+
+Type  : Slow 1200mV 85C Model Setup 'sync_generator:u1|Hsync'
+Slack : -3.071
+TNS   : -32.150
+
+Type  : Slow 1200mV 85C Model Setup 'div_gen:u3|temp'
+Slack : -2.260
+TNS   : -42.427
+
+Type  : Slow 1200mV 85C Model Hold 'div_gen:U0|temp'
+Slack : 0.348
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'sync_generator:u1|Hsync'
+Slack : 0.348
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.639
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'div_gen:u5|temp'
+Slack : 0.659
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'div_gen:u3|temp'
+Slack : 0.794
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'encendido'
+Slack : 2.303
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'div_gen:u5|temp'
+Slack : -2.930
+TNS   : -58.045
+
+Type  : Slow 1200mV 85C Model Recovery 'sync_generator:u1|Hsync'
+Slack : -2.283
+TNS   : -41.750
+
+Type  : Slow 1200mV 85C Model Recovery 'div_gen:u3|temp'
+Slack : -2.077
+TNS   : -40.627
+
+Type  : Slow 1200mV 85C Model Recovery 'clk'
+Slack : -2.051
+TNS   : -72.041
+
+Type  : Slow 1200mV 85C Model Recovery 'div_gen:U0|temp'
+Slack : -2.014
+TNS   : -162.031
+
+Type  : Slow 1200mV 85C Model Removal 'div_gen:U0|temp'
+Slack : 1.300
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'sync_generator:u1|Hsync'
+Slack : 1.596
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'div_gen:u3|temp'
+Slack : 1.671
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'clk'
+Slack : 1.686
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'div_gen:u5|temp'
+Slack : 2.118
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -53.508
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'encendido'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'div_gen:U0|temp'
+Slack : -1.403
+TNS   : -122.061
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'div_gen:u5|temp'
+Slack : -1.403
+TNS   : -32.269
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sync_generator:u1|Hsync'
+Slack : -1.403
+TNS   : -30.866
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'div_gen:u3|temp'
+Slack : -1.403
+TNS   : -28.060
+
+Type  : Slow 1200mV 0C Model Setup 'div_gen:u5|temp'
+Slack : -10.880
+TNS   : -199.055
+
+Type  : Slow 1200mV 0C Model Setup 'encendido'
+Slack : -8.184
+TNS   : -23.709
+
+Type  : Slow 1200mV 0C Model Setup 'div_gen:U0|temp'
+Slack : -4.926
+TNS   : -296.358
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -3.555
+TNS   : -57.526
+
+Type  : Slow 1200mV 0C Model Setup 'sync_generator:u1|Hsync'
+Slack : -2.720
+TNS   : -27.305
+
+Type  : Slow 1200mV 0C Model Setup 'div_gen:u3|temp'
+Slack : -2.004
+TNS   : -37.380
+
+Type  : Slow 1200mV 0C Model Hold 'div_gen:U0|temp'
+Slack : 0.312
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'sync_generator:u1|Hsync'
+Slack : 0.312
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.589
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'div_gen:u5|temp'
+Slack : 0.611
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'div_gen:u3|temp'
+Slack : 0.725
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'encendido'
+Slack : 2.025
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'div_gen:u5|temp'
+Slack : -2.665
+TNS   : -52.688
+
+Type  : Slow 1200mV 0C Model Recovery 'sync_generator:u1|Hsync'
+Slack : -2.036
+TNS   : -36.903
+
+Type  : Slow 1200mV 0C Model Recovery 'div_gen:u3|temp'
+Slack : -1.828
+TNS   : -35.674
+
+Type  : Slow 1200mV 0C Model Recovery 'div_gen:U0|temp'
+Slack : -1.819
+TNS   : -143.827
+
+Type  : Slow 1200mV 0C Model Recovery 'clk'
+Slack : -1.817
+TNS   : -63.644
+
+Type  : Slow 1200mV 0C Model Removal 'div_gen:U0|temp'
+Slack : 1.261
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'sync_generator:u1|Hsync'
+Slack : 1.597
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'div_gen:u3|temp'
+Slack : 1.664
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'clk'
+Slack : 1.676
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'div_gen:u5|temp'
+Slack : 1.916
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -53.508
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'encendido'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'div_gen:U0|temp'
+Slack : -1.403
+TNS   : -122.061
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'div_gen:u5|temp'
+Slack : -1.403
+TNS   : -32.269
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sync_generator:u1|Hsync'
+Slack : -1.403
+TNS   : -30.866
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'div_gen:u3|temp'
+Slack : -1.403
+TNS   : -28.060
+
+Type  : Fast 1200mV 0C Model Setup 'div_gen:u5|temp'
+Slack : -4.779
+TNS   : -86.643
+
+Type  : Fast 1200mV 0C Model Setup 'encendido'
+Slack : -3.675
+TNS   : -10.585
+
+Type  : Fast 1200mV 0C Model Setup 'div_gen:U0|temp'
+Slack : -1.707
+TNS   : -94.958
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -1.185
+TNS   : -9.761
+
+Type  : Fast 1200mV 0C Model Setup 'sync_generator:u1|Hsync'
+Slack : -1.030
+TNS   : -3.813
+
+Type  : Fast 1200mV 0C Model Setup 'div_gen:u3|temp'
+Slack : -0.384
+TNS   : -6.344
+
+Type  : Fast 1200mV 0C Model Hold 'div_gen:U0|temp'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'sync_generator:u1|Hsync'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.246
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'div_gen:u5|temp'
+Slack : 0.256
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'div_gen:u3|temp'
+Slack : 0.311
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'encendido'
+Slack : 0.912
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'div_gen:u5|temp'
+Slack : -1.248
+TNS   : -24.762
+
+Type  : Fast 1200mV 0C Model Recovery 'sync_generator:u1|Hsync'
+Slack : -1.076
+TNS   : -15.957
+
+Type  : Fast 1200mV 0C Model Recovery 'div_gen:u3|temp'
+Slack : -0.980
+TNS   : -18.951
+
+Type  : Fast 1200mV 0C Model Recovery 'div_gen:U0|temp'
+Slack : -0.973
+TNS   : -74.477
+
+Type  : Fast 1200mV 0C Model Recovery 'clk'
+Slack : -0.949
+TNS   : -32.968
+
+Type  : Fast 1200mV 0C Model Removal 'div_gen:U0|temp'
+Slack : 0.466
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'sync_generator:u1|Hsync'
+Slack : 0.469
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'clk'
+Slack : 0.470
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'div_gen:u3|temp'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'div_gen:u5|temp'
+Slack : 0.882
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -40.168
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'encendido'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'div_gen:U0|temp'
+Slack : -1.000
+TNS   : -87.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'div_gen:u5|temp'
+Slack : -1.000
+TNS   : -23.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sync_generator:u1|Hsync'
+Slack : -1.000
+TNS   : -22.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'div_gen:u3|temp'
+Slack : -1.000
+TNS   : -20.000
+
+------------------------------------------------------------
