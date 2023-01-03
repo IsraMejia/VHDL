@@ -1,42 +1,40 @@
+--Esta entidad es capaz de recibir la un divisor a la que se desea generar 
+--una nueva señal de salida, en otras palaras en un divisor de frecuencias
 library ieee;
 use ieee.std_logic_1164.all;
 
---Entity to get a fraction of the fundamental clock frequency
+entity divisor_frec is
 
-entity div_gen is
-
-	generic( div 	      : integer:= 2);-- variable local --415000 este es el actual
+	generic( div : integer:= 2);-- variable local --415000 este es el actual
 	--divisor de frecuencias, entre menor sea el numero mas rapido va la pelota
-	--creo que cambia con las entradas, aumenta la velocidad de la pelota 
-
 	port( 	
-		clk_in, encendido : in std_logic;
-		clk_out: out std_logic
+		reloj_entrada, encendido : in std_logic;
+		reloj_salida: out std_logic
 	);
 			
-end div_gen;
+end divisor_frec;
 
-architecture div_gen_arch of div_gen is
+architecture divisor_frec_arch of divisor_frec is
 
-	signal ContadorAscendente : integer range 0 to ((div/2)-1); --ContadorDeFlancosAscendentes
-	signal temp: std_logic;
+	signal ContadorAscendente : integer range 0 to ( (div/2)-1 ); --ContadorDeFlancosAscendentes
+		--Va desde 0 hasta el franco ascendente donde se niega la señal a dividir
+	signal temporal: std_logic;
 
 begin
 
-	process(clk_in, encendido)
+	process(reloj_entrada, encendido)
 		 
 	begin
 		
 		if(encendido = '0') then --encendido = apagado
-			ContadorAscendente <= 0; --contadorascendente ayuda a que no sea un desastre todo , se pone super rapido el juego
-			temp  <= '0'; --reloj de salida necesario 
+			ContadorAscendente <= 0; --contadorascendente 
+			temporal  <= '0'; --reloj de salida necesario 
 			
-		elsif(clk_in'event and clk_in = '1') then 
+		elsif(reloj_entrada'event and reloj_entrada = '1') then 
 		--Si tenemos el juego encendido y a su vez el estado del reloj esta en 1 (flanco ascendente)
 			if(ContadorAscendente = ((div/2)-1)) then 
-				--Cuando sea el momento de negar la señal de entrada para obtener 
-				--la frecuencia deseada
-			  temp<= not temp;-- negamos el estado del reloj temporal que seria de nuestra nueva frecuencia
+		    --Cuando sea el momento de negar la señal de entrada para obtener la frecuencia deseada
+			  temporal<= not temporal;-- negamos el estado del reloj temporaloral que seria de nuestra nueva frecuencia
 			  ContadorAscendente <= 0; --reiniciamos el contador de flancos ascendentes de la señal original
 			else
 			  ContadorAscendente <= ContadorAscendente+1; --seguimos contando si un no es el momento de hacer lo anterior
@@ -45,6 +43,6 @@ begin
 
 	end process;
 	
-	clk_out <= temp;
+	reloj_salida <= temporal;
 	
-end div_gen_arch;
+end divisor_frec_arch;
