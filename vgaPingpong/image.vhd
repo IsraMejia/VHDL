@@ -5,14 +5,22 @@ entity image_generator is
 
 	generic(
 	
-		--Ha: integer := 96;
-		Hb: integer := 144;
-		Hc: integer := 350;--784;
-		Hd: integer := 400;--800;
-		Va: integer := 2;
-		Vb: integer := 35;
-		Vc: integer := 200;--515;
-		Vd: integer := 200;--525;
+		--Marcos horizontales de pixeles visibles de una VGA de 640x480 visibles	
+		Ha: integer := 96; --Ancho del pulso de sincronización horizontal en píxeles
+		Hb: integer := 144;--Inicio del período de actividad horizontal en píxeles
+		Hc: integer := 784;--Final del período de actividad horizontal en píxeles, fin de la parte visible
+
+		Hd: integer := 800;--Ancho total de la señal horizontal en píxeles o ciclos (visibles o no visibles)
+		Va: integer := 2;  --Pulsos de sincronización vertical en líneas de píxeles
+
+		--Marcos verticales de pixeles visibles de una VGA de 640x480 visibles	
+		Vb: integer := 35; --Inicio del período de actividad vertical en líneas de píxeles
+		--33+2 // 32= BPV aqui es donde se empiezan a dibujar pixeles de forma vertical
+		Vc: integer := 515;--Final del período de actividad vertical en líneas de píxeles, fin de la parte visible
+		--35+480
+		Vd: integer := 525 --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
+		--515+10
+		
 		PVsize: integer := 10;
 		PHsize: integer := 5;
 		BallSize: integer := 3--;
@@ -39,20 +47,20 @@ end image_generator;
 
 architecture image_generator_arch of image_generator is
 
-	--Pixel counters
 
+	--Pixel counters
 	signal row_counter : integer range 0 to Vc;
 	signal col_counter : integer range 0 to Hc;
 	
-	--Paddle positions
 	
+	--Paddle positions
 	signal paddle1_pos_x	 : integer range 0 to Hc;
 	signal paddle2_pos_x	 : integer range 0 to Hc;
 	signal paddle1_pos_y	 : integer range 0 to Vc;
 	signal paddle2_pos_y	 : integer range 0 to Vc;
+
 	
-	--Position and direction of the ball
-	
+	--Position and direction of the ball	
 	signal Ball_pos_x		 : integer range 0 to Hc;
 	signal Ball_pos_y		 : integer range 0 to Vc;
 	signal Ball_direction : integer range 0 to 5;
@@ -63,10 +71,9 @@ architecture image_generator_arch of image_generator is
 	signal move: std_logic;
 	
 	
-begin
+begin 
 
-	--Pixel counters to represent the image-----------
-	
+	--Pixel counters to represent the image-----------	
 	process(pixel_clk, Hactive, Vactive, Hsync, Vsync)
 	
 	begin
@@ -108,6 +115,10 @@ begin
 		end if;
 		
 	end process;
+
+
+
+
 	
 	---Paddle movements--------------------------------
 	
@@ -162,6 +173,10 @@ begin
 		end if;
 		
 	end process;
+
+
+
+
 	
 	---Position and direction of the ball-----------
 	
@@ -186,14 +201,20 @@ begin
 				
 				when 0 => Ball_pos_x <= Ball_pos_x + 1;
 							 Ball_pos_y <= Ball_pos_y - 1;
+
 				when 1 => Ball_pos_x <= Ball_pos_x - 1;
 							 Ball_pos_y <= Ball_pos_y - 1;
+
 				when 2 => Ball_pos_x <= Ball_pos_x - 1;
 							 Ball_pos_y <= Ball_pos_y + 1;
+
 				when 3 => Ball_pos_x <= Ball_pos_x + 1;
 						    Ball_pos_y <= Ball_pos_y + 1;
+
 				when 4 => Ball_pos_x <= Ball_pos_x + 1;
+
 				when 5 => Ball_pos_x <= Ball_pos_x - 1;
+
 			end case;
 			
 			--Bounce with the board edges
@@ -296,6 +317,10 @@ begin
 		
 	end process;
 	
+
+
+
+
 	---State Machine of the game-----------------
 	process(pixel_clk, encendido)
 	begin
@@ -311,6 +336,7 @@ begin
 					if(start_game = '0') then
 						State <= S1;
 					end if;
+
 				when S1 =>
 					if(Ball_pos_x < 40) then
 						State <= S0;
@@ -344,7 +370,6 @@ begin
 	end process;
 	
 	---Image generator--------------------
-	
 	process(paddle1_pos_x, paddle1_pos_y, paddle2_pos_x, paddle2_pos_y, dena, row_counter, col_counter)
 	
 	begin

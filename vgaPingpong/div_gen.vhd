@@ -37,7 +37,8 @@ begin
 			  temporal<= not temporal;-- negamos el estado del reloj temporaloral que seria de nuestra nueva frecuencia
 			  ContadorAscendente <= 0; --reiniciamos el contador de flancos ascendentes de la señal original
 			else
-			  ContadorAscendente <= ContadorAscendente+1; --seguimos contando si un no es el momento de hacer lo anterior
+			  ContadorAscendente <= ContadorAscendente+1; 
+			  --seguimos contando si un no es el momento de hacer lo anterior
 			end if;
 		end if;
 

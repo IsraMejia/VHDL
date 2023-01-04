@@ -139,27 +139,29 @@ architecture PINGPONG_arch of PINGPONG is
 	end component;
 	
 	--Pin assignments
-	attribute chip_pin : string;
-	
-	attribute chip_pin of clk	       : signal is "N14";
-	attribute chip_pin of encendido	   : signal is "F15";
-	
-	attribute chip_pin of direction_switch : signal is "C10,C11,C12,A12";
-	attribute chip_pin of start_game       : signal is "B8";
-	
-	
-	attribute chip_pin of Hsync	       : signal is "N3";
-	attribute chip_pin of Vsync	       : signal is "n1";
-	
-	attribute chip_pin of R		       : signal is "AA1, V1, Y2, Y1";
-	attribute chip_pin of G		       : signal is "W1, T2, R2, R1";
-	attribute chip_pin of B		       : signal is "P1, T1, P4, N2";
-	
-	attribute chip_pin of seg1	       : signal is "B22,C22,B21,A21,B19,A20,B20";
- 	attribute chip_pin of seg2	       : signal is "C17,D17,E16,C16,C15,E15,C14";
-	attribute chip_pin of bar	       : signal is "B17";
-	
-	attribute chip_pin of ball_speed   : signal is "B14,A14";
+	--borrar y escribir en el trabajo escrito porque usamos cada pin 
+		attribute chip_pin : string;
+		
+		attribute chip_pin of clk	       : signal is "N14";
+		attribute chip_pin of encendido	   : signal is "F15";
+		
+		attribute chip_pin of direction_switch : signal is "C10,C11,C12,A12";
+		attribute chip_pin of start_game       : signal is "B8";
+		
+		
+		attribute chip_pin of Hsync	       : signal is "N3";
+		attribute chip_pin of Vsync	       : signal is "n1";
+		
+		attribute chip_pin of R		       : signal is "AA1, V1, Y2, Y1";
+		attribute chip_pin of G		       : signal is "W1, T2, R2, R1";
+		attribute chip_pin of B		       : signal is "P1, T1, P4, N2";
+		
+		attribute chip_pin of seg1	       : signal is "B22,C22,B21,A21,B19,A20,B20";
+		attribute chip_pin of seg2	       : signal is "C17,D17,E16,C16,C15,E15,C14";
+		attribute chip_pin of bar	       : signal is "B17";
+		
+		attribute chip_pin of ball_speed   : signal is "B14,A14";
+	----borrar y escribir en el trabajo escrito porque usamos cada pin 
 			
 
 begin
