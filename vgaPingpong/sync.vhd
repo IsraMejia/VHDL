@@ -20,7 +20,7 @@ entity sync_generator is
 		Vd: integer := 525 --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
 		--515+10
 	);
-		
+		 
 	port(
 		pixel_clk	: in std_logic; --Señal de reloj para contar los píxeles
 		encendido	: in std_logic; --esta encendido el juego o no 
@@ -28,11 +28,12 @@ entity sync_generator is
 		--BUFFER : permiten retroalimentacion interna en la entidad, pero no desde otras entidades
 		--util usar buffers ya que se retrolimentan las señales de sincronizacion  con datos de esta propia entidad nada mas
 		--buffers de entrada
+		--Aqui usamos Buffers pero en "image_generator" no, PORQUE NO?
 		Hsync	: buffer std_logic; -- Horizontal sync pulse. señal de sincronizacion horizontal
 		Vsync	: buffer std_logic; -- Vertical sync pulse. señal de sincronizacion vertical
 		--buffers de salida
 		Hactive : buffer std_logic; --indican cuando los píxeles deben ser mostrados en la pantalla.
-		-- '1' durante el período de actividad horizontal y '0' el resto del tiempo
+		-- '1' durante el período de actividad horizontal y '0' el resto del tiempo.
 		Vactive : buffer std_logic; --indica cuando una línea de píxeles deben ser mostradas en la pantalla.
 		-- '1' durante el período de actividad vertical y '0' el resto del tiempo.
 

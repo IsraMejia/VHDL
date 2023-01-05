@@ -15,7 +15,7 @@ entity score_display is
 			bar2	 : out std_logic 	--barra que divide los marcadores de cada jugador
 			seg2	 : out std_logic_vector(6 downto 0); -- 7 segmentos del marcador 1
 			
-	);
+	);  
 			
 end score_display;
 

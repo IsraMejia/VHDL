@@ -34,6 +34,7 @@ begin
 		--Si tenemos el juego encendido y a su vez el estado del reloj esta en 1 (flanco ascendente)
 			if(ContadorAscendente = ((div/2)-1)) then 
 		    --Cuando sea el momento de negar la señal de entrada para obtener la frecuencia deseada
+			-- se resta "-1" en la relacion de frecuencias, para que antes de que se produzca el próximo flanco de subida en "reloj_entrada". se realice el codigo a continuacion
 			  temporal<= not temporal;-- negamos el estado del reloj temporaloral que seria de nuestra nueva frecuencia
 			  ContadorAscendente <= 0; --reiniciamos el contador de flancos ascendentes de la señal original
 			else

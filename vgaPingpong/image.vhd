@@ -21,25 +21,36 @@ entity image_generator is
 		Vd: integer := 525 --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
 		--515+10
 		
-		PVsize: integer := 10;
-		PHsize: integer := 5;
-		BallSize: integer := 3--;
+		PVsize: integer := 10; --Medidas verticales de las raquetas de los jugadores
+		PHsize: integer := 5;  --Medidas horizontales de las raquetas de los jugadores
+		BallSize: integer := 3 --tamaño de la pelota
 
 		--mov_continuo : std_logic := 1
 	);
 	
 	port(
-		pixel_clk 		 : in std_logic;
-		paddle_clk		 : in std_logic;
-		ball_clk	     : in std_logic;
-		encendido	     : in std_logic;
-		Hactive, Vactive : in std_logic;
-		Hsync, Vsync     : in std_logic;
-		dena		 	 : in std_logic;
+		encendido	     : in std_logic;--Si esta encendido el juego o no 
+		
+		--Relojes de imagenes
+		pixel_clk 		 : in std_logic;--Señal de reloj para contar los píxeles
+		paddle_clk		 : in std_logic;--Señal de reloj para las raquetas
+		ball_clk	     : in std_logic;--Señal de reloj para el balon
+		
+		--puertos de sincronizacion 
+		Hactive : in std_logic; --indican cuando los píxeles deben ser mostrados en la pantalla.
+		-- '1' durante el período de actividad horizontal y '0' el resto del tiempo
+		Vactive : in std_logic;--indica cuando una línea de píxeles deben ser mostradas en la pantalla.
+		-- '1' durante el período de actividad vertical y '0' el resto del tiempo.
+		Hsync : in std_logic; -- Horizontal sync pulse. señal de sincronizacion horizontal
+		Vsync : in std_logic; -- Vertical sync pulse. señal de sincronizacion vertical
+		dena		 	 : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
+
 		direction_switch : in std_logic_vector(3 downto 0);
 		start_game		 : in std_logic;
 		score1			 : buffer integer;
 		score2			 : buffer integer;
+		
+		--puertos de colores
 		R,G,B			 : out std_logic_vector(3 downto 0));
 		
 end image_generator;
@@ -48,9 +59,9 @@ end image_generator;
 architecture image_generator_arch of image_generator is
 
 
-	--Pixel counters
-	signal row_counter : integer range 0 to Vc;
-	signal col_counter : integer range 0 to Hc;
+	--Contadores de posicion de pixeles
+	signal row_counter : integer range 0 to Vc; --contador de Renglones visibles en VGA 640x480
+	signal col_counter : integer range 0 to Hc; --contador de Columnas visibles en VGA 640x480
 	
 	
 	--Paddle positions
