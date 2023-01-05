@@ -127,7 +127,7 @@ architecture PINGPONG_arch of PINGPONG is
 	end component image_generator;
 
 
-	
+	--salu2 
 	component score_display is
 		port(
 			score1   : in integer;--marcador jugador1
