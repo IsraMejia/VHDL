@@ -65,6 +65,7 @@ architecture image_generator_arch of image_generator is
 	
 	
 	--Paddle positions
+	--tienen rango hasta los pixeles visibles en VGA 640x480 ya sea vertical u horizontal
 	signal paddle1_pos_x	 : integer range 0 to Hc;
 	signal paddle2_pos_x	 : integer range 0 to Hc;
 	signal paddle1_pos_y	 : integer range 0 to Vc;
@@ -72,57 +73,50 @@ architecture image_generator_arch of image_generator is
 
 	
 	--Position and direction of the ball	
+	--tienen rango hasta los pixeles visibles en VGA 640x480 ya sea vertical u horizontal
 	signal Ball_pos_x		 : integer range 0 to Hc;
 	signal Ball_pos_y		 : integer range 0 to Vc;
 	signal Ball_direction : integer range 0 to 5;
 	
 	--States of the game
+	--Maquina de estados del videojuego de pingpong 
 	type state_type is (S0, S1);
 	signal state: state_type;
-	signal move: std_logic;
+	signal move: std_logic; --movimiento de la pelota
 	
 	
 begin 
 
-	--Pixel counters to represent the image-----------	
-	process(pixel_clk, Hactive, Vactive, Hsync, Vsync)
-	
-	begin
-	
+	--Proceso de conteo de Pixeles visibles en el monitor VGA 640x480 
+	process(pixel_clk, Hactive, Vactive, Hsync, Vsync) begin
+		--Contador de Reglones de pixeles visibles de la pantalla VGA
 		if(encendido = '0') then
-		
-			row_counter <= 0;
-			
-		elsif(Vsync = '0') then
-		
-			row_counter <= 0;
-			
-		elsif(Hsync'event and Hsync = '1') then
-					
-			if(Vactive = '1') then
-			
-				row_counter <= row_counter + 1;
+			row_counter <= 0; --Por defecto, si esta apagado se reinicia el contador de renglones
+
+			elsif(Vsync = '0') then
+				row_counter <= 0;--Por defecto, si no hay pulso de sinc Vertical se reinicia el contador de renglones
 				
-			end if;
-			
+			elsif(Hsync'event and Hsync = '1') then
+				if(Vactive = '1') then
+					row_counter <= row_counter + 1;
+				--Cuanto tenemos una nueva señal de sincronizacion en 1 y estamos en un pixel vertical visible
+				--aumentar el contador de renglones recorridos en 1
+				end if;	
 		end if;
+
 		
+		--Contador de Columnas de pixeles visibles de la pantalla VGA
 		if(encendido = '0') then
-			
-			col_counter <= 0;
-			
-		elsif(Hsync = '0') then
-			
-			col_counter <= 0;
-			
-		elsif(pixel_clk'event and pixel_clk = '1') then
-		
-			if(Hactive = '1') then
+			col_counter <= 0;--Por defecto, si esta apagado se reinicia el contador de columnas
+			elsif(Hsync = '0') then
+				col_counter <= 0;--Por defecto, si no hay pulso de sinc Horizontal se reinicia el contador de renglones
 				
-				col_counter <= col_counter + 1;
-				
-			end if;
-			
+			elsif(pixel_clk'event and pixel_clk = '1') then
+				--Cada que se avance en un pixel (un ciclo del reloj de los pixeles)
+				if(Hactive = '1') then
+					--Si estamos dentro del periodo visible horizontal del monitor VGA
+					col_counter <= col_counter + 1;--aumentar el contador de columnas recorridos en 1
+				end if;
 		end if;
 		
 	end process;
@@ -131,54 +125,54 @@ begin
 
 
 	
-	---Paddle movements--------------------------------
 	
-	process(paddle_clk, encendido, direction_switch)
-	
-	begin
+	--Proceso de los movimientos de las raquetas del juego
+	process(paddle_clk, encendido, direction_switch) begin
 	
 		if(encendido = '0') then
+			--Si esta apagado, movemos las raquetas a las posiciones iniciales del juego
 			paddle1_pos_X <= 50;
 			paddle1_pos_y <= 240;
 			
 			paddle2_pos_x <= 590;
 			paddle2_pos_y <= 240;
 			
-		elsif(paddle_clk'event and paddle_clk = '1') then
-		
-			paddle1_pos_x <= 50;
-			paddle2_pos_x <= 590;
-			
-			--Movement paddle 1
-			
-			if(direction_switch(0) = '1') then
-				if(paddle1_pos_y = Vc - Vb) then
-					paddle1_pos_y <= 0;
-				else paddle1_pos_y <= paddle1_pos_y + 1;
+
+			elsif(paddle_clk'event and paddle_clk = '1') then
+				--Si estamos en un nuevo flanco ascendente del reloj de las raquetas??????????
+				paddle1_pos_x <= 50;
+				paddle2_pos_x <= 590;
+				
+				--Movement paddle 1
+				
+				if(direction_switch(0) = '1') then
+					if(paddle1_pos_y = Vc - Vb) then
+						paddle1_pos_y <= 0;
+					else paddle1_pos_y <= paddle1_pos_y + 1;
+					end if;
 				end if;
-			end if;
-			
-			if(direction_switch(1) = '1') then
-				if(paddle1_pos_y = 0) then
-					paddle1_pos_y <= Vc - Vb;
-				else paddle1_pos_y <= paddle1_pos_y - 1;
+				
+				if(direction_switch(1) = '1') then
+					if(paddle1_pos_y = 0) then
+						paddle1_pos_y <= Vc - Vb;
+					else paddle1_pos_y <= paddle1_pos_y - 1;
+					end if;
 				end if;
-			end if;
-			
-			--Movement paddle 2
-			
-			if(direction_switch(2) = '1') then
-				if(paddle2_pos_y = Vc - Vb) then
-					paddle2_pos_y <= 0;
-				else paddle2_pos_y <= paddle2_pos_y + 1;
+				
+				--Movement paddle 2
+				
+				if(direction_switch(2) = '1') then
+					if(paddle2_pos_y = Vc - Vb) then
+						paddle2_pos_y <= 0;
+					else paddle2_pos_y <= paddle2_pos_y + 1;
+					end if;
 				end if;
-			end if;
-			
-			if(direction_switch(3) = '1') then
-				if(paddle2_pos_y = 0) then
-					paddle2_pos_y <= Vc - Vb;
-				else paddle2_pos_y <= paddle2_pos_y - 1;
-				end if;
+				
+				if(direction_switch(3) = '1') then
+					if(paddle2_pos_y = 0) then
+						paddle2_pos_y <= Vc - Vb;
+					else paddle2_pos_y <= paddle2_pos_y - 1;
+					end if;
 			end if;
 			
 		end if;
