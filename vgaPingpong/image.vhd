@@ -202,63 +202,65 @@ begin
 			--en cada flanco ascendente del reloj de velocidad de la pelota 
 			case Ball_direction is
 			
-				-- Direcciones, 6 en total, 4 diagonales y 2 horizontales				
-				when 0 => Ball_pos_x <= Ball_pos_x + 1;
+				-- Direcciones, 6 en total, 4 diagonales y 2 horizontales	
+				--MODIFICAR
+					--El orden que nos da es el de las manecillas del reloj de 0 a 5 
+				--MODIFICAR			
+				when 0 => Ball_pos_x <= Ball_pos_x + 1; 	--Diagonal hacia la derecha y abajo
 							 Ball_pos_y <= Ball_pos_y - 1;
 
-				when 1 => Ball_pos_x <= Ball_pos_x - 1;
+				when 1 => Ball_pos_x <= Ball_pos_x - 1;		--Diagonal hacia la izquierda y abajo
 							 Ball_pos_y <= Ball_pos_y - 1;
 
-				when 2 => Ball_pos_x <= Ball_pos_x - 1;
+				when 2 => Ball_pos_x <= Ball_pos_x - 1;		--Diagonal hacia la izquierda y arriba
 							 Ball_pos_y <= Ball_pos_y + 1;
 
-				when 3 => Ball_pos_x <= Ball_pos_x + 1;
+				when 3 => Ball_pos_x <= Ball_pos_x + 1;		--Diagonal hacia la derecha y arriba	
 						    Ball_pos_y <= Ball_pos_y + 1;
 
-				when 4 => Ball_pos_x <= Ball_pos_x + 1;
+				when 4 => Ball_pos_x <= Ball_pos_x + 1;		--Horizontal a la derecha
 
-				when 5 => Ball_pos_x <= Ball_pos_x - 1;
+				when 5 => Ball_pos_x <= Ball_pos_x - 1;		--Horizontal a la izquierda
 
 			end case;
 			
-			--Bounce with the board edges
-			if(Ball_pos_y = 0) then
-				
-				if(Ball_direction = 0) then
-					Ball_direction <= 3;
+			
+			--Fisica de rebote en los bordes de las barras ---Verticales
+			if(Ball_pos_y = 0) then	 --Si toca el borde superior la pelota			
+				if(Ball_direction = 0) then -- y tiene una Diagonal hacia la derecha y abajo
+					Ball_direction <= 3;	--rebota haciando una Diagonal hacia la derecha y arriba	
 				elsif(Ball_direction = 1) then
 					Ball_direction <= 2;
 				end if;
 			end if;
 			
-			if(Ball_pos_y = 480) then
-				
-				if(Ball_direction = 2) then
-					Ball_direction <= 1;
+			if(Ball_pos_y = 480) then  --Si toca el borde inferior la pelota							
+				if(Ball_direction = 2) then --si hace una Diagonal hacia la izquierda y arriba
+					Ball_direction <= 1;	--rebota haciendo una Diagonal hacia la izquierda y abajo
 				elsif(Ball_direction = 3) then
 					Ball_direction <= 0;
 				end if;
 			end if;
 			
-			if(Ball_pos_x = 0) then
-				
-				if(Ball_direction = 1) then
-					Ball_direction <= 0;
-				elsif(Ball_direction = 2) then
-					Ball_direction <= 3;
-				elsif(Ball_direction = 5) then
-					Ball_direction <= 4;
+
+			--Fisica de rebote en los bordes de las barras ---Horizontales
+			if(Ball_pos_x = 0) then		--Si toca el borde izquierdo			
+				if(Ball_direction = 1) then --Si venia en Diagonal hacia la izquierda y abajo
+					Ball_direction <= 0;	--Rebota en Diagonal hacia la derecha y abajo
+				elsif(Ball_direction = 2) then --Si venia en Diagonal hacia la izquierda y arriba
+					Ball_direction <= 3;	   --Rebota en Diagonal hacia la derecha y arriba
+				elsif(Ball_direction = 5) then --Si venia en Horizontal a la izquierda
+					Ball_direction <= 4;	   --Horizontal a la derecha
 				end if;
 			end if;
 			
-			if(Ball_pos_x = 640) then
-				
-				if(Ball_direction = 0) then
-					Ball_direction <= 1;
-				elsif(Ball_direction = 3) then
-					Ball_direction <= 2;
-				elsif(Ball_direction = 4) then
-					Ball_direction <= 5;
+			if(Ball_pos_x = 640) then		--Si toca el borde Derecho						
+				if(Ball_direction = 0) then	--Si venia en Diagonal hacia la derecha y abajo
+					Ball_direction <= 1;	--Rebota en Diagonal hacia la izquierda y abajo
+				elsif(Ball_direction = 3) then  --Si venia en Diagonal hacia la derecha y arriba
+					Ball_direction <= 2;		--Rebota en Diagonal hacia la izquierda y arriba
+				elsif(Ball_direction = 4) then  --Si venia en Horizontal a la derecha
+					Ball_direction <= 5;		--Rebota en Horizontal a la izquierda
 				end if;
 			end if;
 			
