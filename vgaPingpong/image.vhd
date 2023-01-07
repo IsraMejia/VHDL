@@ -127,83 +127,82 @@ begin
 	
 	
 	--Proceso de los movimientos de las raquetas del juego
-	process(paddle_clk, encendido, direction_switch) begin
-	
+	process(paddle_clk, encendido, direction_switch) begin	
 		if(encendido = '0') then
 			--Si esta apagado, movemos las raquetas a las posiciones iniciales del juego
 			paddle1_pos_X <= 50;
 			paddle1_pos_y <= 240;
 			
 			paddle2_pos_x <= 590;
-			paddle2_pos_y <= 240;
-			
+			paddle2_pos_y <= 240;			
 
 			elsif(paddle_clk'event and paddle_clk = '1') then
-				--Si estamos en un nuevo flanco ascendente del reloj de las raquetas??????????
+				--Si estamos en un nuevo flanco ascendente del reloj de las raquetas, 
+				--colocalas en su posicion horizontal
 				paddle1_pos_x <= 50;
 				paddle2_pos_x <= 590;
 				
-				--Movement paddle 1
-				
-				if(direction_switch(0) = '1') then
-					if(paddle1_pos_y = Vc - Vb) then
-						paddle1_pos_y <= 0;
-					else paddle1_pos_y <= paddle1_pos_y + 1;
-					end if;
-				end if;
-				
-				if(direction_switch(1) = '1') then
-					if(paddle1_pos_y = 0) then
-						paddle1_pos_y <= Vc - Vb;
+				--MovimientoRaqueta Jugador1				
+				if(direction_switch(0) = '0') then
+					if(paddle1_pos_y = Vc - Vb) then --525-35=490
+						paddle1_pos_y <= Vc - Vb; -- si llega el jugador 1 al fin vertical, ahi pare
 					else paddle1_pos_y <= paddle1_pos_y - 1;
+						--caso contrario siga bajando
+					end if;
+				end if;				
+				if(direction_switch(0) = '1') then
+					if(paddle1_pos_y = 0) then
+						paddle1_pos_y <= 0; -- si llega el jugador 1 al incio vertical, ahi pare
+					else paddle1_pos_y <= paddle1_pos_y + 1;
+						--caso contrario siga subiendo bajando
 					end if;
 				end if;
 				
-				--Movement paddle 2
-				
-				if(direction_switch(2) = '1') then
-					if(paddle2_pos_y = Vc - Vb) then
-						paddle2_pos_y <= 0;
-					else paddle2_pos_y <= paddle2_pos_y + 1;
-					end if;
-				end if;
-				
-				if(direction_switch(3) = '1') then
-					if(paddle2_pos_y = 0) then
-						paddle2_pos_y <= Vc - Vb;
+
+
+				--MovimientoRaqueta Jugador2
+				if(direction_switch(1) = '0') then
+					if(paddle2_pos_y = Vc - Vb) then --525-35=490
+						paddle2_pos_y <= Vc - Vb;-- si llega el jugador 2 al fin vertical, ahi pare
 					else paddle2_pos_y <= paddle2_pos_y - 1;
+						--caso contrario siga bajando
+					end if;
+				end if;				
+				if(direction_switch(1) = '1') then
+					if(paddle2_pos_y = 0) then
+						paddle2_pos_y <= 0 ; -- si llega el jugador 2 al incio vertical, ahi pare
+					else paddle2_pos_y <= paddle2_pos_y + 1;
+						--caso contrario siga subiendo  bajando
 					end if;
 			end if;
 			
-		end if;
-		
+		end if;		
 	end process;
 
 
 
 
 	
-	---Position and direction of the ball-----------
-	
+	--Fisicas de la pelota	
 	process(ball_clk, encendido, Ball_direction, move)
-	
 	begin
 	
 		if(encendido = '0' or move = '0') then
+			--En caso de que no este encendido el juego o aun no se indique movimiento, centra la pelota
 			Ball_pos_x <= 320;
 			Ball_pos_y <= 240;
 			
 			Ball_direction <= Ball_direction + 1;
+			--cambiamos a la siguiente direccion de inicio de la pelota para que continue el juego
 					if(Ball_direction > 5) then
-						Ball_direction <= 0;
+						Ball_direction <= 0; -- se reinicia el ciclo de direcciones cuando ya se usaron todas
 					end if;
 		
 		elsif(ball_clk'event and ball_clk = '1') then
-			
+			--en cada flanco ascendente del reloj de velocidad de la pelota 
 			case Ball_direction is
 			
-				-- Direcciones, 6 en total, 4 diagonales y 2 horizontales
-				
+				-- Direcciones, 6 en total, 4 diagonales y 2 horizontales				
 				when 0 => Ball_pos_x <= Ball_pos_x + 1;
 							 Ball_pos_y <= Ball_pos_y - 1;
 
