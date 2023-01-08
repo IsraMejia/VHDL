@@ -184,8 +184,8 @@ begin
 
 	
 	--Fisicas de la pelota	
-	process(ball_clk, encendido, Ball_direction, move)
-	begin
+	process(ball_clk, encendido, Ball_direction, move) begin 
+	
 	
 		if(encendido = '0' or move = '0') then
 			--En caso de que no este encendido el juego o aun no se indique movimiento, centra la pelota
@@ -264,54 +264,68 @@ begin
 				end if;
 			end if;
 			
-			--Bounces with the paddles
-			-- Rebote con los jugadores
-			if(Ball_pos_x + BallSize > paddle2_pos_x - PHsize) then
+
+			-- Fisicas de Rebote del balon con las raquetas de los jugadores
+			--Rebote de balon en jugador 2
+			if(Ball_pos_x + BallSize > paddle2_pos_x - PHsize) then 
+			--si la pelota llega a la posicion horizontal de la raqueta del jugador 2
 					if(Ball_pos_y - BallSize <= paddle2_pos_y + PVsize and
 						Ball_pos_y + BallSize >= paddle2_pos_y - PVsize) then
-						
+						--Si la pelota esta en el rango vertical de la raqueta2
 						if(Ball_pos_y >= paddle2_pos_y - 10 and
 							Ball_pos_y <= paddle2_pos_y + 10) then
+							--Si la pelota esta cerca del centro, va a rebotar horizontalmente 
 								Ball_direction <= 5;
-						else
-							
-							if(Ball_direction = 0) then
-								Ball_direction <= 1;
+						else							
+							if(Ball_direction = 0) then 
+							--Si la pelota viene en Diagonal hacia la derecha y abajo
+								Ball_direction <= 1; --Rebota en Diagonal hacia la izquierda y abajo
 								
 							elsif(Ball_direction = 3) then
-								Ball_direction <= 2;
+							--Si la pelota viene en Diagonal hacia la derecha y arriba
+								Ball_direction <= 2; --Rebota en Diagonal hacia la izquierda y arriba
 							
 							elsif(Ball_direction = 4) then
+							--Si la pelota viene en Horizontal a la derecha
 								if(Ball_pos_y > paddle2_pos_y) then
-									Ball_direction <= 2;
-								else
-									Ball_direction <= 1;
+								--Si la pelota toca borde vertical del jugador 2 (borde superior)
+									Ball_direction <= 2;--Rebota en Diagonal hacia la izquierda y arriba
+								else--(borde inferior)
+									Ball_direction <= 1;--Rebota en Diagonal hacia la izquierda y abajo
 								end if;
 							end if;
 						end if;
 					end if;
 			end if;
 			
+
+			-- Fisicas de Rebote del balon con las raquetas de los jugadores
+			--Rebote de balon en jugador 1
 			if(Ball_pos_x - BallSize < paddle1_pos_x + PHsize) then
+			--Si la pelota llega a la posicion horizontal de la raqueta del jugador 1
 					if(Ball_pos_y - BallSize <= paddle1_pos_y + PVsize and
 						Ball_pos_y + BallSize >= paddle1_pos_y - PVsize) then
-						
+						--Si la pelota esta en el rango vertical de la raqueta1
 						if(Ball_pos_y >= paddle1_pos_y - 10 and
 							Ball_pos_y <= paddle1_pos_y + 10) then
+								--Si la pelota esta cerca del centro, va a rebotar horizontalmente
 								Ball_direction <= 4;
-						else
-							
+						else							
 							if(Ball_direction = 1) then
-								Ball_direction <= 0;
+							--Si la pelota viene en Diagonal hacia la izquierda y abajo
+								Ball_direction <= 0; --Rebota en Diagonal hacia la derecha y abajo
 								
 							elsif(Ball_direction = 2) then
-								Ball_direction <= 3;
+							--Si la pelota viene en Diagonal hacia la izquierda y arriba
+								Ball_direction <= 3;--Rebota en Diagonal hacia la derecha y arriba
 							
 							elsif(Ball_direction = 5) then
+							--Si la pelota viene de forma horizontal hacia la izquierda
 								if(Ball_pos_y > paddle1_pos_y) then
-									Ball_direction <= 3;
-								else
-									Ball_direction <= 0;
+								--Si la pelota toca borde vertical del jugador 1 (borde superior)
+									Ball_direction <= 3;--Rebota en Diagonal hacia la derecha y arriba
+								else--(borde inferior)
+									Ball_direction <= 0;--Rebota en Diagonal hacia la derecha y abajo
 								end if;
 							end if;
 						end if;
@@ -327,38 +341,49 @@ begin
 
 
 
-	---State Machine of the game-----------------
-	process(pixel_clk, encendido)
-	begin
 	
-		if(encendido = '0') then
+	--Logica de la maquina de estados del videojuego
+	process(pixel_clk, encendido) begin
+		--Podemos ver que se ejecuta cuando pixel_clk, o encendido cambia
+	
+		if(encendido = '0') then 
+		--Si se apaga el juego se reinician los estados del juego
 			state <= S0;
 			score1 <= 0;
 			score2 <= 0;
 		
 		elsif(pixel_clk'event and pixel_clk = '1') then
+		--Si estamos en un flanco ascendente del reloj de pixeles
 			case state is
-				when S0 =>
-					if(start_game = '0') then
-						State <= S1;
+				when S0 => --Cuando estamos en el estado 0
+					if(start_game = '0') then --Si no se inia el juego
+						State <= S1; --Se espera que el jugador inicie el jeugo para continuar
 					end if;
 
-				when S1 =>
-					if(Ball_pos_x < 40) then
-						State <= S0;
-						if(score2 = 4) then
+				when S1 =>--Cuando estamos en el estado 1
+					
+					--Si anota el jugador 2
+					if(Ball_pos_x < 40) then--Si la pelota es anotada en la cancha izquierda
+						State <= S0; --Se pausa el juego
+						if(score2 = 9) then --Si el jugador 2 llego a 9 puntos
+							--gano el juego y reiniciamos los marcadores
 							score2 <= 0;
 							score1 <= 0;
 						else
+							--Si no se ha ganado el juego, solo aumentamos el contador del jugador 2
 							score2 <= score2 + 1;
 						end if;
 					end if;
-					if(Ball_pos_x > 600) then
-						State <= S0;
-						if(score1 = 4) then
+
+					--Si anota el jugador 1
+					if(Ball_pos_x > 600) then --Si la pelota es anotada en la cancha derecha 
+						State <= S0; --Se pausa el juego
+						if(score1 = 9) then --Si el jugador 1 llego a 9 puntos
+							--gano el juego y reiniciamos los marcadores
 							score1 <= 0;
 							score2 <= 0;
 						else
+							--Si no se ha ganado el juego, solo aumentamos el contador del jugador 1
 							score1 <= score1 + 1;
 						end if;
 					end if;
@@ -367,54 +392,60 @@ begin
 		end if;
 	end process;
 	
-	process(State)
-	begin
-	case State is
-		when S0 => move <= '0';
-		when S1 => move <= '1';
-	end case;
-	end process;
-	
-	---Image generator--------------------
-	process(paddle1_pos_x, paddle1_pos_y, paddle2_pos_x, paddle2_pos_y, dena, row_counter, col_counter)
-	
-	begin
+	--Proceso que pausa o reanuda el juego
+	process(State) begin
+		--Cuando haya un cambio en el estado de la maquina de estados del juego
 		
-		--Signal that enables to display data on the screen
+		case State is
+			when S0 => --Si estamos en S0, asignamos 0 a mov, lo que pausa el juego
+				move <= '0';
+
+			when S1 => --Si estamos en S1, asignamos 1 a mov, lo que reanuda el juego
+				move <= '1';
+		end case;
+	end process;
+
+
+
+
+	
+	--Proceso que se encarga de dibujar el juego en la pantalla
+	process(paddle1_pos_x, paddle1_pos_y, 
+			paddle2_pos_x, paddle2_pos_y, 
+			dena, 
+			row_counter, col_counter) begin
+		
+		--Si estamos en un area visible de la pantalla VGA para poder dibujar
 		if(dena = '1') then
 		
-				 -- Paddle 1 detection
+			--En caso de que estemos en un area perteneciente al jugador 1
 			 if((paddle1_pos_x <= col_counter + PHsize) and
 				(paddle1_pos_x + PHsize >= col_counter) and
 				(paddle1_pos_y <= row_counter + PVsize) and
 				(paddle1_pos_y + PVsize >= row_counter)) or
 				
-				 -- Paddle 2 detection
+			--En caso de que estemos en un area perteneciente al jugador 2
 				((paddle2_pos_x <= col_counter + PHsize) and
 				(paddle2_pos_x + PHsize >= col_counter) and
 				(paddle2_pos_y <= row_counter + PVsize) and
 				(paddle2_pos_y + PVsize >= row_counter)) or
 				
-				 -- Ball detection
+			--En caso de que estemos en un area perteneciente a la Pelota
 				((Ball_pos_x <= col_counter + BallSize) and
 				(Ball_pos_X + BallSize >= col_counter) and
 				(Ball_pos_y <= row_counter + BallSize) and
 				(Ball_pos_y + BallSize >= row_counter))	then
 				
-					-- Paddle and ball color
-					
+				--Colores que se usaran 
 					R <= "1110";
 					G <= "1110";
 					B <= "0000";
 				
-			else
-				
-					-- Background color
-			
-					R <= "1000";
-					G <= "0000";
-					B <= "1100";
-				
+			else		
+				--Para el resto (fondo de la pantalla)			
+				R <= "1000";
+				G <= "0000";
+				B <= "1100";				
 			end if;
 			
 		else
