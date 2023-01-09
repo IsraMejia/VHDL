@@ -7,29 +7,28 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity image_generator is
+entity imprime_pantalla is
 
 	generic(
 	
 		--Marcos horizontales de pixeles visibles de una VGA de 640x480 visibles	
-		Ha: integer := 96; --Ancho del pulso de sincronización horizontal en píxeles
-		Hb: integer := 144;--Inicio del período de actividad horizontal en píxeles
-		Hc: integer := 784;--Final del período de actividad horizontal en píxeles, fin de la parte visible
-
-		Hd: integer := 800;--Ancho total de la señal horizontal en píxeles o ciclos (visibles o no visibles)
-		Va: integer := 2;  --Pulsos de sincronización vertical en líneas de píxeles
-
+		Psh: integer := 96; --Ancho del pulso de sincronización horizontal en píxeles
+		Ihv: integer := 144;--Inicio del período de actividad horizontal en píxeles
+		Fhv: integer := 784;--Final del período de actividad horizontal en píxeles, fin de la parte visible
+		TotalHorizontal: integer := 800;--Ancho total de la señal horizontal en píxeles o ciclos (visibles o no visibles)
+		
+		Psv: integer := 2;  --Pulsos de sincronización vertical en líneas de píxeles
 		--Marcos verticales de pixeles visibles de una VGA de 640x480 visibles	
-		Vb: integer := 35; --Inicio del período de actividad vertical en líneas de píxeles
+		Ivv: integer := 35; --Inicio del período de actividad vertical en líneas de píxeles
 		--33+2 // 32= BPV aqui es donde se empiezan a dibujar pixeles de forma vertical
-		Vc: integer := 515;--Final del período de actividad vertical en líneas de píxeles, fin de la parte visible
+		Fvv: integer := 515;--Final del período de actividad vertical en líneas de píxeles, fin de la parte visible
 		--35+480
-		Vd: integer := 525 --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
+		TotalVertical: integer := 525 --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
 		--515+10
 		
-		PVsize: integer := 10; --Medidas verticales de las raquetas de los jugadores
-		PHsize: integer := 5;  --Medidas horizontales de las raquetas de los jugadores
-		BallSize: integer := 3 --tamaño de la pelota
+		MedidaVerticalRaqueta: integer := 10; --Medidas verticales de las raquetas de los jugadores
+		MedidaHorizontalRaqueta: integer := 5;  --Medidas horizontales de las raquetas de los jugadores
+		MedidaPelota: integer := 3 --tamaño de la pelota
  
 	);
 	
@@ -37,9 +36,9 @@ entity image_generator is
 		encendido	     : in std_logic;--Si esta encendido el juego o no 
 		
 		--Relojes de imagenes
-		pixel_clk 		 : in std_logic;--Señal de reloj para contar los píxeles
-		paddle_clk		 : in std_logic;--Señal de reloj para las raquetas
-		ball_clk	     : in std_logic;--Señal de reloj para el balon
+		reloj_pixeles 		 : in std_logic;--Señal de reloj para contar los píxeles
+		reloj_raquetas		 : in std_logic;--Señal de reloj para las raquetas
+		reloj_pelota	     : in std_logic;--Señal de reloj para el balon
 		
 		--puertos de sincronizacion 
 		Hactive : in std_logic; --indican cuando los píxeles deben ser mostrados en la pantalla.
@@ -48,39 +47,39 @@ entity image_generator is
 		-- '1' durante el período de actividad vertical y '0' el resto del tiempo.
 		Hsync : in std_logic; -- Horizontal sync pulse. señal de sincronizacion horizontal
 		Vsync : in std_logic; -- Vertical sync pulse. señal de sincronizacion vertical
-		dena  : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
+		habilitador  : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
 
 		direction_switch : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
 		start_game		 : in std_logic;	--Bit de control para saber si el juego ha iniciado
-		score1			 : buffer integer;
-		score2			 : buffer integer;
+		marcador_j1			 : buffer integer;
+		marcador_j2			 : buffer integer;
 		
 		--puertos de colores
 		R,G,B			 : out std_logic_vector(3 downto 0))
 		
-end image_generator;
+end imprime_pantalla;
 
 
-architecture image_generator_arch of image_generator is
+architecture imprime_pantalla_bhv of imprime_pantalla is
 
 
 	--Contadores de posicion de pixeles
-	signal row_counter : integer range 0 to Vc; --contador de Renglones visibles en VGA 640x480
-	signal col_counter : integer range 0 to Hc; --contador de Columnas visibles en VGA 640x480
+	signal contador_renglones : integer range 0 to Fvv; --contador de Renglones visibles en VGA 640x480
+	signal contador_columnas : integer range 0 to Fhv; --contador de Columnas visibles en VGA 640x480
 	
 	
 	--Paddle positions
 	--tienen rango hasta los pixeles visibles en VGA 640x480 ya sea vertical u horizontal
-	signal paddle1_pos_x	 : integer range 0 to Hc;
-	signal paddle2_pos_x	 : integer range 0 to Hc;
-	signal paddle1_pos_y	 : integer range 0 to Vc;
-	signal paddle2_pos_y	 : integer range 0 to Vc;
+	signal paddle1_pos_x	 : integer range 0 to Fhv;
+	signal paddle2_pos_x	 : integer range 0 to Fhv;
+	signal paddle1_pos_y	 : integer range 0 to Fvv;
+	signal paddle2_pos_y	 : integer range 0 to Fvv;
 
 	
 	--Position and direction of the ball	
 	--tienen rango hasta los pixeles visibles en VGA 640x480 ya sea vertical u horizontal
-	signal Ball_pos_x		 : integer range 0 to Hc;
-	signal Ball_pos_y		 : integer range 0 to Vc;
+	signal Ball_pos_x		 : integer range 0 to Fhv;
+	signal Ball_pos_y		 : integer range 0 to Fvv;
 	signal Ball_direction : integer range 0 to 5;
 	
 	--States of the game
@@ -93,17 +92,17 @@ architecture image_generator_arch of image_generator is
 begin 
 
 	--Proceso de conteo de Pixeles visibles en el monitor VGA 640x480 
-	process(pixel_clk, Hactive, Vactive, Hsync, Vsync) begin
+	process(reloj_pixeles, Hactive, Vactive, Hsync, Vsync) begin
 		--Contador de Reglones de pixeles visibles de la pantalla VGA
 		if(encendido = '0') then
-			row_counter <= 0; --Por defecto, si esta apagado se reinicia el contador de renglones
+			contador_renglones <= 0; --Por defecto, si esta apagado se reinicia el contador de renglones
 
 			elsif(Vsync = '0') then
-				row_counter <= 0;--Por defecto, si no hay pulso de sinc Vertical se reinicia el contador de renglones
+				contador_renglones <= 0;--Por defecto, si no hay pulso de sinc Vertical se reinicia el contador de renglones
 				
 			elsif(Hsync'event and Hsync = '1') then
 				if(Vactive = '1') then
-					row_counter <= row_counter + 1;
+					contador_renglones <= contador_renglones + 1;
 				--Cuanto tenemos una nueva señal de sincronizacion en 1 y estamos en un pixel vertical visible
 				--aumentar el contador de renglones recorridos en 1
 				end if;	
@@ -112,15 +111,15 @@ begin
 		
 		--Contador de Columnas de pixeles visibles de la pantalla VGA
 		if(encendido = '0') then
-			col_counter <= 0;--Por defecto, si esta apagado se reinicia el contador de columnas
+			contador_columnas <= 0;--Por defecto, si esta apagado se reinicia el contador de columnas
 			elsif(Hsync = '0') then
-				col_counter <= 0;--Por defecto, si no hay pulso de sinc Horizontal se reinicia el contador de renglones
+				contador_columnas <= 0;--Por defecto, si no hay pulso de sinc Horizontal se reinicia el contador de renglones
 				
-			elsif(pixel_clk'event and pixel_clk = '1') then
+			elsif(reloj_pixeles'event and reloj_pixeles = '1') then
 				--Cada que se avance en un pixel (un ciclo del reloj de los pixeles)
 				if(Hactive = '1') then
 					--Si estamos dentro del periodo visible horizontal del monitor VGA
-					col_counter <= col_counter + 1;--aumentar el contador de columnas recorridos en 1
+					contador_columnas <= contador_columnas + 1;--aumentar el contador de columnas recorridos en 1
 				end if;
 		end if;
 		
@@ -132,7 +131,7 @@ begin
 	
 	
 	--Proceso de los movimientos de las raquetas del juego
-	process(paddle_clk, encendido, direction_switch) begin	
+	process(reloj_raquetas, encendido, direction_switch) begin	
 		if(encendido = '0') then
 			--Si esta apagado, movemos las raquetas a las posiciones iniciales del juego
 			paddle1_pos_X <= 50;
@@ -141,7 +140,7 @@ begin
 			paddle2_pos_x <= 590;
 			paddle2_pos_y <= 240;			
 
-			elsif(paddle_clk'event and paddle_clk = '1') then
+			elsif(reloj_raquetas'event and reloj_raquetas = '1') then
 				--Si estamos en un nuevo flanco ascendente del reloj de las raquetas, 
 				--colocalas en su posicion horizontal
 				paddle1_pos_x <= 50;
@@ -149,8 +148,8 @@ begin
 				
 				--MovimientoRaqueta Jugador1				
 				if(direction_switch(0) = '0') then
-					if(paddle1_pos_y = Vc - Vb) then --525-35=490
-						paddle1_pos_y <= Vc - Vb; -- si llega el jugador 1 al fin vertical, ahi pare
+					if(paddle1_pos_y = Fvv - Ivv) then --525-35=490
+						paddle1_pos_y <= Fvv - Ivv; -- si llega el jugador 1 al fin vertical, ahi pare
 					else paddle1_pos_y <= paddle1_pos_y - 1;
 						--caso contrario siga bajando
 					end if;
@@ -167,8 +166,8 @@ begin
 
 				--MovimientoRaqueta Jugador2
 				if(direction_switch(1) = '0') then
-					if(paddle2_pos_y = Vc - Vb) then --525-35=490
-						paddle2_pos_y <= Vc - Vb;-- si llega el jugador 2 al fin vertical, ahi pare
+					if(paddle2_pos_y = Fvv - Ivv) then --525-35=490
+						paddle2_pos_y <= Fvv - Ivv;-- si llega el jugador 2 al fin vertical, ahi pare
 					else paddle2_pos_y <= paddle2_pos_y - 1;
 						--caso contrario siga bajando
 					end if;
@@ -189,7 +188,7 @@ begin
 
 	
 	--Fisicas de la pelota	
-	process(ball_clk, encendido, Ball_direction, move) begin 
+	process(reloj_pelota, encendido, Ball_direction, move) begin 
 	
 	
 		if(encendido = '0' or move = '0') then
@@ -203,7 +202,7 @@ begin
 						Ball_direction <= 0; -- se reinicia el ciclo de direcciones cuando ya se usaron todas
 					end if;
 		
-		elsif(ball_clk'event and ball_clk = '1') then
+		elsif(reloj_pelota'event and reloj_pelota = '1') then
 			--en cada flanco ascendente del reloj de velocidad de la pelota 
 			case Ball_direction is
 			
@@ -272,10 +271,10 @@ begin
 
 			-- Fisicas de Rebote del balon con las raquetas de los jugadores
 			--Rebote de balon en jugador 2
-			if(Ball_pos_x + BallSize > paddle2_pos_x - PHsize) then 
+			if(Ball_pos_x + MedidaPelota > paddle2_pos_x - MedidaHorizontalRaqueta) then 
 			--si la pelota llega a la posicion horizontal de la raqueta del jugador 2
-					if(Ball_pos_y - BallSize <= paddle2_pos_y + PVsize and
-						Ball_pos_y + BallSize >= paddle2_pos_y - PVsize) then
+					if(Ball_pos_y - MedidaPelota <= paddle2_pos_y + MedidaVerticalRaqueta and
+						Ball_pos_y + MedidaPelota >= paddle2_pos_y - MedidaVerticalRaqueta) then
 						--Si la pelota esta en el rango vertical de la raqueta2
 						if(Ball_pos_y >= paddle2_pos_y - 10 and
 							Ball_pos_y <= paddle2_pos_y + 10) then
@@ -306,10 +305,10 @@ begin
 
 			-- Fisicas de Rebote del balon con las raquetas de los jugadores
 			--Rebote de balon en jugador 1
-			if(Ball_pos_x - BallSize < paddle1_pos_x + PHsize) then
+			if(Ball_pos_x - MedidaPelota < paddle1_pos_x + MedidaHorizontalRaqueta) then
 			--Si la pelota llega a la posicion horizontal de la raqueta del jugador 1
-					if(Ball_pos_y - BallSize <= paddle1_pos_y + PVsize and
-						Ball_pos_y + BallSize >= paddle1_pos_y - PVsize) then
+					if(Ball_pos_y - MedidaPelota <= paddle1_pos_y + MedidaVerticalRaqueta and
+						Ball_pos_y + MedidaPelota >= paddle1_pos_y - MedidaVerticalRaqueta) then
 						--Si la pelota esta en el rango vertical de la raqueta1
 						if(Ball_pos_y >= paddle1_pos_y - 10 and
 							Ball_pos_y <= paddle1_pos_y + 10) then
@@ -348,16 +347,16 @@ begin
 
 	
 	--Logica de la maquina de estados del videojuego
-	process(pixel_clk, encendido) begin
-		--Podemos ver que se ejecuta cuando pixel_clk, o encendido cambia
+	process(reloj_pixeles, encendido) begin
+		--Podemos ver que se ejecuta cuando reloj_pixeles, o encendido cambia
 	
 		if(encendido = '0') then 
 		--Si se apaga el juego se reinician los estados del juego
 			state <= S0;
-			score1 <= 0;
-			score2 <= 0;
+			marcador_j1 <= 0;
+			marcador_j2 <= 0;
 		
-		elsif(pixel_clk'event and pixel_clk = '1') then
+		elsif(reloj_pixeles'event and reloj_pixeles = '1') then
 		--Si estamos en un flanco ascendente del reloj de pixeles
 			case state is
 				when S0 => --Cuando estamos en el estado 0
@@ -370,26 +369,26 @@ begin
 					--Si anota el jugador 2
 					if(Ball_pos_x < 40) then--Si la pelota es anotada en la cancha izquierda
 						State <= S0; --Se pausa el juego
-						if(score2 = 9) then --Si el jugador 2 llego a 9 puntos
+						if(marcador_j2 = 9) then --Si el jugador 2 llego a 9 puntos
 							--gano el juego y reiniciamos los marcadores
-							score2 <= 0;
-							score1 <= 0;
+							marcador_j2 <= 0;
+							marcador_j1 <= 0;
 						else
 							--Si no se ha ganado el juego, solo aumentamos el contador del jugador 2
-							score2 <= score2 + 1;
+							marcador_j2 <= marcador_j2 + 1;
 						end if;
 					end if;
 
 					--Si anota el jugador 1
 					if(Ball_pos_x > 600) then --Si la pelota es anotada en la cancha derecha 
 						State <= S0; --Se pausa el juego
-						if(score1 = 9) then --Si el jugador 1 llego a 9 puntos
+						if(marcador_j1 = 9) then --Si el jugador 1 llego a 9 puntos
 							--gano el juego y reiniciamos los marcadores
-							score1 <= 0;
-							score2 <= 0;
+							marcador_j1 <= 0;
+							marcador_j2 <= 0;
 						else
 							--Si no se ha ganado el juego, solo aumentamos el contador del jugador 1
-							score1 <= score1 + 1;
+							marcador_j1 <= marcador_j1 + 1;
 						end if;
 					end if;
 					
@@ -417,29 +416,29 @@ begin
 	--Proceso que se encarga de dibujar el juego en la pantalla
 	process(paddle1_pos_x, paddle1_pos_y, 
 			paddle2_pos_x, paddle2_pos_y, 
-			dena, 
-			row_counter, col_counter) begin
+			habilitador, 
+			contador_renglones, contador_columnas) begin
 		
 		--Si estamos en un area visible de la pantalla VGA para poder dibujar
-		if(dena = '1') then
+		if(habilitador = '1') then
 		
 			--En caso de que estemos en un area perteneciente al jugador 1
-			 if((paddle1_pos_x <= col_counter + PHsize) and
-				(paddle1_pos_x + PHsize >= col_counter) and
-				(paddle1_pos_y <= row_counter + PVsize) and
-				(paddle1_pos_y + PVsize >= row_counter)) or
+			 if((paddle1_pos_x <= contador_columnas + MedidaHorizontalRaqueta) and
+				(paddle1_pos_x + MedidaHorizontalRaqueta >= contador_columnas) and
+				(paddle1_pos_y <= contador_renglones + MedidaVerticalRaqueta) and
+				(paddle1_pos_y + MedidaVerticalRaqueta >= contador_renglones)) or
 				
 			--En caso de que estemos en un area perteneciente al jugador 2
-				((paddle2_pos_x <= col_counter + PHsize) and
-				(paddle2_pos_x + PHsize >= col_counter) and
-				(paddle2_pos_y <= row_counter + PVsize) and
-				(paddle2_pos_y + PVsize >= row_counter)) or
+				((paddle2_pos_x <= contador_columnas + MedidaHorizontalRaqueta) and
+				(paddle2_pos_x + MedidaHorizontalRaqueta >= contador_columnas) and
+				(paddle2_pos_y <= contador_renglones + MedidaVerticalRaqueta) and
+				(paddle2_pos_y + MedidaVerticalRaqueta >= contador_renglones)) or
 				
 			--En caso de que estemos en un area perteneciente a la Pelota
-				((Ball_pos_x <= col_counter + BallSize) and
-				(Ball_pos_X + BallSize >= col_counter) and
-				(Ball_pos_y <= row_counter + BallSize) and
-				(Ball_pos_y + BallSize >= row_counter))	then
+				((Ball_pos_x <= contador_columnas + MedidaPelota) and
+				(Ball_pos_X + MedidaPelota >= contador_columnas) and
+				(Ball_pos_y <= contador_renglones + MedidaPelota) and
+				(Ball_pos_y + MedidaPelota >= contador_renglones))	then
 				
 				--Colores que se usaran 
 					R <= "1110";
@@ -455,7 +454,7 @@ begin
 			
 		else
 		
-			-- If dena = 0, no color has to be displayed
+			-- If habilitador = 0, No mostrar nada
 		
 			R <= (others => '0');
 			G <= (others => '0');
@@ -465,5 +464,5 @@ begin
 		
 	end process;
 
-end image_generator_arch;
+end imprime_pantalla_bhv;
 			

@@ -8,28 +8,24 @@ use ieee.std_logic_1164.all;
 entity PINGPONG is
 	generic(
 	
-		div:integer := 2; --divisor de frecuencia por defecto
+		divisor:integer := 2; --divisor de frecuencia por defecto
 		div_paddle : integer := 200000; --velocidad  jugadores 	(divisor de frecuencia)	
 		div_ball : integer 	 := 415000; --velocidad pelota (divisor de frecuencia)	
-
-		--div_ball2 : integer := 370000;
-		--div_ball3 : integer := 310000;
-		--div_ball4 : integer := 250000;
 	
 		--Marcos horizontales de pixeles visibles de una VGA de 640x480 visibles	
-		Ha: integer := 96; --Ancho del pulso de sincronización horizontal en píxeles
-		Hb: integer := 144;--Inicio del período de actividad horizontal en píxeles
-		Hc: integer := 784;--Final del período de actividad horizontal en píxeles, fin de la parte visible
+		Psh: integer := 96; --Ancho del pulso de sincronización horizontal en píxeles
+		Ihv: integer := 144;--Inicio del período de actividad horizontal en píxeles
+		Fhv: integer := 784;--Final del período de actividad horizontal en píxeles, fin de la parte visible
 
-		Hd: integer := 800;--Ancho total de la señal horizontal en píxeles o ciclos (visibles o no visibles)
-		Va: integer := 2;  --Pulsos de sincronización vertical en líneas de píxeles
+		TotalHorizontal: integer := 800;--Ancho total de la señal horizontal en píxeles o ciclos (visibles o no visibles)
+		Psv: integer := 2;  --Pulsos de sincronización vertical en líneas de píxeles
 
 		--Marcos verticales de pixeles visibles de una VGA de 640x480 visibles	
-		Vb: integer := 35; --Inicio del período de actividad vertical en líneas de píxeles
+		Ivv: integer := 35; --Inicio del período de actividad vertical en líneas de píxeles
 		--33+2 // 32= BPV aqui es donde se empiezan a dibujar pixeles de forma vertical
-		Vc: integer := 515;--Final del período de actividad vertical en líneas de píxeles, fin de la parte visible
+		Fvv: integer := 515;--Final del período de actividad vertical en líneas de píxeles, fin de la parte visible
 		--35+480
-		Vd: integer := 525 --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
+		TotalVertical: integer := 525 --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
 		--515+10
 		
 		PVsize: integer := 10; --Medidas verticales de las raquetas de los jugadores
@@ -45,8 +41,8 @@ entity PINGPONG is
 
 		direction_switch : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
 		start_game		: in std_logic; --Bit de control para saber si el juego ha iniciado
-		seg1 	: out std_logic_vector(6 downto 0);
-		seg2	: out std_logic_vector(6 downto 0);
+		seg_marcador_j1 	: out std_logic_vector(6 downto 0);
+		seg_marcador_j2	: out std_logic_vector(6 downto 0);
 		bar		: out std_logic;
 		
 		ball_speed : in std_logic_vector(1 downto 0);
@@ -71,42 +67,42 @@ architecture PINGPONG_arch of PINGPONG is
 	-- '1' durante el período de actividad horizontal y '0' el resto del tiempo
 	Vactive : in std_logic;--indica cuando una línea de píxeles deben ser mostradas en la pantalla.
 	-- '1' durante el período de actividad vertical y '0' el resto del tiempo.
-	dena : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
+	habilitador : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
 	
-	signal score1  : integer;
-	signal score2  : integer;
+	signal marcador_j1  : integer;
+	signal marcador_j2  : integer;
 
 
 	--Componente que genera los relojes que se ocupan para el juego
-	component div_gen is		
+	component divisor_frec is		
 		generic( 
-			div 	 : integer:= 2
+			divisor 	 : integer:= 2
 		);		
 		port( 	
 			reloj_entrada 	: in std_logic;
 			encendido 		: in std_logic;
 			reloj_salida: out std_logic
 		);	
-	end component div_gen;
+	end component divisor_frec;
 	
 
 	--Componente para controlar el monitor VGA
-	component sync_generator is
+	component controlador_vga is
 		generic(		
 			--Marcos horizontales de pixeles visibles de una VGA de 640x480 visibles	
-			Ha: integer := 96; --Ancho del pulso de sincronización horizontal en píxeles
-			Hb: integer := 144;--Inicio del período de actividad horizontal en píxeles
-			Hc: integer := 784;--Final del período de actividad horizontal en píxeles, fin de la parte visible
+			Psh: integer := 96; --Ancho del pulso de sincronización horizontal en píxeles
+			Ihv: integer := 144;--Inicio del período de actividad horizontal en píxeles
+			Fhv: integer := 784;--Final del período de actividad horizontal en píxeles, fin de la parte visible
 
-			Hd: integer := 800;--Ancho total de la señal horizontal en píxeles o ciclos (visibles o no visibles)
-			Va: integer := 2;  --Pulsos de sincronización vertical en líneas de píxeles
+			TotalHorizontal: integer := 800;--Ancho total de la señal horizontal en píxeles o ciclos (visibles o no visibles)
+			Psv: integer := 2;  --Pulsos de sincronización vertical en líneas de píxeles
 
 			--Marcos verticales de pixeles visibles de una VGA de 640x480 visibles	
-			Vb: integer := 35; --Inicio del período de actividad vertical en líneas de píxeles
+			Ivv: integer := 35; --Inicio del período de actividad vertical en líneas de píxeles
 			--33+2 // 32= BPV aqui es donde se empiezan a dibujar pixeles de forma vertical
-			Vc: integer := 515;--Final del período de actividad vertical en líneas de píxeles, fin de la parte visible
+			Fvv: integer := 515;--Final del período de actividad vertical en líneas de píxeles, fin de la parte visible
 			--35+480
-			Vd: integer := 525 --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
+			TotalVertical: integer := 525 --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
 			--515+10
 		);			
 		port(
@@ -124,9 +120,9 @@ architecture PINGPONG_arch of PINGPONG is
 			Vactive : buffer std_logic; --indica cuando una línea de píxeles deben ser mostradas en la pantalla.
 			-- '1' durante el período de actividad vertical y '0' el resto del tiempo.
 
-			dena : out std_logic --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
+			habilitador : out std_logic --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
 		);
-	end component sync_generator;
+	end component controlador_vga;
 
 
 
@@ -135,19 +131,19 @@ architecture PINGPONG_arch of PINGPONG is
 		--Aqui se define el tamaño final de la pelota
 		generic(		
 			--Marcos horizontales de pixeles visibles de una VGA de 640x480 visibles	
-			Ha: integer := 96; --Ancho del pulso de sincronización horizontal en píxeles
-			Hb: integer := 144;--Inicio del período de actividad horizontal en píxeles
-			Hc: integer := 784;--Final del período de actividad horizontal en píxeles, fin de la parte visible
+			Psh: integer := 96; --Ancho del pulso de sincronización horizontal en píxeles
+			Ihv: integer := 144;--Inicio del período de actividad horizontal en píxeles
+			Fhv: integer := 784;--Final del período de actividad horizontal en píxeles, fin de la parte visible
 
-			Hd: integer := 800;--Ancho total de la señal horizontal en píxeles o ciclos (visibles o no visibles)
-			Va: integer := 2;  --Pulsos de sincronización vertical en líneas de píxeles
+			TotalHorizontal: integer := 800;--Ancho total de la señal horizontal en píxeles o ciclos (visibles o no visibles)
+			Psv: integer := 2;  --Pulsos de sincronización vertical en líneas de píxeles
 
 			--Marcos verticales de pixeles visibles de una VGA de 640x480 visibles	
-			Vb: integer := 35; --Inicio del período de actividad vertical en líneas de píxeles
+			Ivv: integer := 35; --Inicio del período de actividad vertical en líneas de píxeles
 			--33+2 // 32= BPV aqui es donde se empiezan a dibujar pixeles de forma vertical
-			Vc: integer := 515;--Final del período de actividad vertical en líneas de píxeles, fin de la parte visible
+			Fvv: integer := 515;--Final del período de actividad vertical en líneas de píxeles, fin de la parte visible
 			--35+480
-			Vd: integer := 525 --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
+			TotalVertical: integer := 525 --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
 			--515+10
 			
 			PVsize: integer := 10; --Medidas verticales de las raquetas de los jugadores
@@ -170,12 +166,12 @@ architecture PINGPONG_arch of PINGPONG is
 			-- '1' durante el período de actividad vertical y '0' el resto del tiempo.
 			Hsync : in std_logic; -- Horizontal sync pulse. señal de sincronizacion horizontal
 			Vsync : in std_logic; -- Vertical sync pulse. señal de sincronizacion vertical
-			dena  : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
+			habilitador  : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
 
 			direction_switch : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
 			start_game		 : in std_logic;	--Bit de control para saber si el juego ha iniciado
-			score1			 : buffer integer;
-			score2			 : buffer integer;
+			marcador_j1			 : buffer integer;
+			marcador_j2			 : buffer integer;
 			
 			--puertos de colores
 			R,G,B			 : out std_logic_vector(3 downto 0))
@@ -185,13 +181,16 @@ architecture PINGPONG_arch of PINGPONG is
 
 
 	--Componente para mostrar el marcador en pantalla
-	component score_display is
+	component marcador_dss is
 		port(
-			score1   : in integer;--marcador jugador1
-			score2   : in integer;--marcador jugador2
-			seg1	 : out std_logic_vector(6 downto 0);--display 7S Jugador1
-			seg2	 : out std_logic_vector(6 downto 0);--display 7S Jugador2
-			bar	 	 : out std_logic --Barra del score	
+			marcador_j1 : in integer;	--score en decimal del jugador 1 
+			marcador_j2 : in integer;	--score en decimal del jugador 2 
+
+			seg_marcador_j1	 : out std_logic_vector(6 downto 0); -- 7 segmentos del marcador 1
+			separador1_marcador	 : out std_logic; 	--barra que divide los marcadores de cada jugador
+			separador2_marcador	 : out std_logic 	--barra que divide los marcadores de cada jugador
+			seg_marcador_j2	 : out std_logic_vector(6 downto 0); -- 7 segmentos del marcador 1
+			
 		);
 	end component;
 	
@@ -213,8 +212,8 @@ architecture PINGPONG_arch of PINGPONG is
 		attribute chip_pin of G		       : signal is "W1, T2, R2, R1";
 		attribute chip_pin of B		       : signal is "P1, T1, P4, N2";
 		
-		attribute chip_pin of seg1	       : signal is "B22,C22,B21,A21,B19,A20,B20";
-		attribute chip_pin of seg2	       : signal is "C17,D17,E16,C16,C15,E15,C14";
+		attribute chip_pin of seg_marcador_j1	       : signal is "B22,C22,B21,A21,B19,A20,B20";
+		attribute chip_pin of seg_marcador_j2	       : signal is "C17,D17,E16,C16,C15,E15,C14";
 		attribute chip_pin of bar	       : signal is "B17";
 		
 		attribute chip_pin of ball_speed   : signal is "B14,A14";
@@ -224,22 +223,22 @@ architecture PINGPONG_arch of PINGPONG is
 begin
 
 	----Mapeando puertos para el divisor de frecuencias que nos de el reloj de control de pixeles
-	U0: div_gen	 
-		generic map (div => div)
-		port map(clk_in => clk,  encendido => encendido,   clk_out => pixel_clk)
+	U0: divisor_frec	 
+		generic map (divisor => divisor)
+		port map(reloj_entrada => clk,  encendido => encendido,   reloj_salida => pixel_clk)
 	;
 	
 	--Mapeando puertos para Sincronizar la imagen del monitor VGA pixel a pixel
-	u1: sync_generator	
+	u1: controlador_vga	
 		generic map(
-			Ha => Ha,
-			Hb => Hb,
-			Hc => Hc,
-			Hd => Hd,
-			Va => Va,
-			Vb => Vb,
-			Vc => Vc,
-			Vd => Vd
+			Psh => Psh,
+			Ihv => Ihv,
+			Fhv => Fhv,
+			TotalHorizontal => TotalHorizontal,
+			Psv => Psv,
+			Ivv => Ivv,
+			Fvv => Fvv,
+			TotalVertical => TotalVertical
 		)						
 		port map(
 			pixel_clk 	=> pixel_clk,
@@ -248,7 +247,7 @@ begin
 			Vsync		=> Vsync,
 			Hactive		=> Hactive,
 			Vactive		=> Vactive,
-			dena 		=> dena
+			habilitador 		=> habilitador
 		)
 	;
 					
@@ -257,13 +256,13 @@ begin
 	u2: image_generator	
 		generic map(
 			Ha => Ha,
-			Hb => Hb,
-			Hc => Hc,
-			Hd => Hd,
-			Va => Va,
-			Vb => Vb,
-			Vc => Vc,
-			Vd => Vd,
+			Ihv => Ihv,
+			Fhv => Fhv,
+			TotalHorizontal => TotalHorizontal,
+			Psv => Psv,
+			Ivv => Ivv,
+			Fvv => Fvv,
+			TotalVertical => TotalVertical,
 			PVsize => paddlesizeV,
 			PHsize => paddlesizeH
 		)		
@@ -276,11 +275,11 @@ begin
 			Vactive 	=> Vactive,
 			Hsync		=> Hsync,
 			Vsync		=> Vsync,
-			dena		=> dena,
+			habilitador		=> habilitador,
 			direction_switch=> direction_switch,
 			start_game	=> start_game,
-			score1		=> score1,
-			score2		=> score2,
+			marcador_j1		=> marcador_j1,
+			marcador_j2		=> marcador_j2,
 			R		    => R,
 			G			=> G,
 			B			=> B
@@ -289,37 +288,23 @@ begin
 				
 	
 	--Mapeando puertos para el reloj de los jugadores
-	u3: div_gen 
-		generic map (div => div_paddle)
-		port map(clk_in => clk, encendido => encendido, clk_out => paddle_clk)
+	u3: divisor_frec 
+		generic map (divisor => divisor_paddle)
+		port map(reloj_entrada => clk, encendido => encendido, reloj_salida => paddle_clk)
 	;
 	
 	----Mapeando puertos para el reloj de la pelota
-	u5: div_gen
-		generic map (div => div_ball)
-		port map(clk_in => clk, encendido => encendido, clk_out => ball_clk)
+	u5: divisor_frec
+		generic map (divisor => divisor_ball)
+		port map(reloj_entrada => clk, encendido => encendido, reloj_salida => ball_clk)
 	;
 	
 	----Mapeando puertos para mostrar en pantalla los marcadores
-	u4: score_display
-		port map(score1 => score1, score2 => score2, seg1 => seg1, bar1 => bar1, bar2 => bar2, seg2 => seg2 )
+	u4: marcador_dss
+		port map(marcador_j1 => marcador_j1, marcador_j2 => marcador_j2, seg_marcador_j1 => seg_marcador_j1, separador1_marcador => separador1_marcador, separador2_marcador => separador2_marcador, seg_marcador_j2 => seg_marcador_j2 )
 	;
 	
-	--borrar
-		--u6: div_gen
-		--	generic map (div => div_ball2)
-		--	port map(clk_in => clk, encendido => encendido, clk_out => ball_clk2);
-			
-		--u7: div_gen
-		--	generic map (div => div_ball3)
-		--	port map(clk_in => clk, encendido => encendido, clk_out => ball_clk3);
-			
-		--u8: div_gen
-		--	generic map (div => div_ball4)
-		--	port map(clk_in => clk, encendido => encendido, clk_out => ball_clk4);
-	--xd
-	
-	
+
 		
 	
 	--Multiplexor to choose the speed of the ball
