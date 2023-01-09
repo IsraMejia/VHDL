@@ -1,3 +1,9 @@
+--Este arcivo se encarga de hacer toda la logica necesaria para dibujar en pantalla 
+-- el videojuego del ping pong, desde su logica para recorrer pixel a pixel de la pantalla
+-- dibujar cada jugador, la pelota, asi como las fisicas propias del juego.
+-- Contiene una maquina de estados para poder almacenar le valor de los contadores 
+-- y reanudar el juego con un nuevo saque cada que se anote un punto
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -24,8 +30,7 @@ entity image_generator is
 		PVsize: integer := 10; --Medidas verticales de las raquetas de los jugadores
 		PHsize: integer := 5;  --Medidas horizontales de las raquetas de los jugadores
 		BallSize: integer := 3 --tamaño de la pelota
-
-		--mov_continuo : std_logic := 1
+ 
 	);
 	
 	port(
@@ -43,15 +48,15 @@ entity image_generator is
 		-- '1' durante el período de actividad vertical y '0' el resto del tiempo.
 		Hsync : in std_logic; -- Horizontal sync pulse. señal de sincronizacion horizontal
 		Vsync : in std_logic; -- Vertical sync pulse. señal de sincronizacion vertical
-		dena		 	 : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
+		dena  : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
 
-		direction_switch : in std_logic_vector(3 downto 0);
-		start_game		 : in std_logic;
+		direction_switch : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
+		start_game		 : in std_logic;	--Bit de control para saber si el juego ha iniciado
 		score1			 : buffer integer;
 		score2			 : buffer integer;
 		
 		--puertos de colores
-		R,G,B			 : out std_logic_vector(3 downto 0));
+		R,G,B			 : out std_logic_vector(3 downto 0))
 		
 end image_generator;
 

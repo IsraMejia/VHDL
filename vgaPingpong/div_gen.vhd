@@ -1,5 +1,6 @@
 --Esta entidad es capaz de recibir la un divisor a la que se desea generar 
 --una nueva señal de salida, en otras palaras en un divisor de frecuencias
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -8,7 +9,8 @@ entity divisor_frec is
 	generic( div : integer:= 2);-- variable local --415000 este es el actual
 	--divisor de frecuencias, entre menor sea el numero mas rapido va la pelota
 	port( 	
-		reloj_entrada, encendido : in std_logic;
+		reloj_entrada 	: in std_logic;
+		encendido 		: in std_logic;
 		reloj_salida: out std_logic
 	);
 			

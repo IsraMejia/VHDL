@@ -1,3 +1,7 @@
+--Este archivo se encarga de hacer el controlador de sincorinzacion del reloj de la FPGA (procesado por el divisor de frecuencia)
+--que es el reloj de pixeles, para decir en que momento estamos posicionados en pixeles visibles 
+--de nuestra pantalla VGA de 640x480
+
 library ieee;
 use ieee.std_logic_1164.all;
 --simil al vga controller
