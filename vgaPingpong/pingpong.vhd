@@ -52,6 +52,13 @@ entity PINGPONG is
 		
 		--Vectores RGB para los colores al momento de dibujar la interfaz del juego en el monitor VGA
 		R, G, B 		 : out std_logic_vector(3 downto 0)
+		R1		       : in std_logic "D12";
+		G1		       : in std_logic "C12";
+		B1		       : in std_logic "A12";
+
+		R2		       : in std_logic "B12";
+		G2		       : in std_logic "A13";
+		B2		       : in std_logic "A14";
 	);
 
 end  PINGPONG;
@@ -209,6 +216,14 @@ architecture PINGPONG_bhv of PINGPONG is
 		
 		attribute chip_pin of Hsync	       : signal is "N3";
 		attribute chip_pin of Vsync	       : signal is "n1";
+
+		attribute chip_pin of R1		       : signal is "D12";
+		attribute chip_pin of G1		       : signal is "C12";
+		attribute chip_pin of B1		       : signal is "A12";
+
+		attribute chip_pin of R2		       : signal is "B12";
+		attribute chip_pin of G2		       : signal is "A13";
+		attribute chip_pin of B2		       : signal is "A14";
 		
 		attribute chip_pin of R		       : signal is "AA1, V1, Y2, Y1";
 		attribute chip_pin of G		       : signal is "W1, T2, R2, R1";
@@ -307,21 +322,6 @@ begin
 		port map(marcador_j1 => marcador_j1, marcador_j2 => marcador_j2, seg_marcador_j1 => seg_marcador_j1, separador1_marcador => separador1_marcador, separador2_marcador => separador2_marcador, seg_marcador_j2 => seg_marcador_j2 )
 	;
 	
-
-		
-	
-	--Multiplexor to choose the speed of the ball
-		--process(ball_speed)
-		--begin		
-		--	case ball_speed is
-		--		when "00" => reloj_pelota <= reloj_pelota1;
-		--		when "01" => reloj_pelota <= reloj_pelota2;
-		--		when "10" => reloj_pelota <= reloj_pelota3;
-		--		when others => reloj_pelota <= reloj_pelota4;
-		--	end case;
-		--end process;
-
-	--Escribir multplexor para seleccionar color de los jugadores
 					
 					
 end PINGPONG_bhv;

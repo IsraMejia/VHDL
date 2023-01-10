@@ -55,6 +55,8 @@ entity imprime_pantalla is
 		marcador_j2			 : buffer integer;
 		
 		--puertos de colores
+		R1, G1, B1 : in std_logic;
+		R2, G2, B2 : in std_logic;
 		R,G,B			 : out std_logic_vector(3 downto 0));
 		
 end entity imprime_pantalla;

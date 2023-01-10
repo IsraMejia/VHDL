@@ -1,5 +1,5 @@
 Flow report for pingpong
-Tue Jan 10 00:46:28 2023
+Tue Jan 10 11:06:56 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,24 +41,24 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Jan 10 00:46:22 2023       ;
+; Flow Status                        ; Flow Failed - Tue Jan 10 11:06:56 2023      ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; pingpong                                    ;
-; Top-level Entity Name              ; PINGPONG                                    ;
+; Top-level Entity Name              ; pingpong                                    ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 796 / 49,760 ( 2 % )                        ;
-;     Total combinational functions  ; 793 / 49,760 ( 2 % )                        ;
-;     Dedicated logic registers      ; 187 / 49,760 ( < 1 % )                      ;
-; Total registers                    ; 187                                         ;
-; Total pins                         ; 35 / 360 ( 10 % )                           ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
-; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                             ;
-; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
-; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
-; ADC blocks                         ; 0 / 2 ( 0 % )                               ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
+; UFM blocks                         ; N/A until Partition Merge                   ;
+; ADC blocks                         ; N/A until Partition Merge                   ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/10/2023 00:45:40 ;
+; Start date & time ; 01/10/2023 11:06:43 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; pingpong            ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589198.167333314000464         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 10995770589198.167337040203468         ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -95,11 +95,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 4786 MB             ; 00:00:34                           ;
-; Fitter               ; 00:00:19     ; 1.1                     ; 5387 MB             ; 00:00:26                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4692 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.2                     ; 4804 MB             ; 00:00:05                           ;
-; Total                ; 00:00:44     ; --                      ; --                  ; 00:01:09                           ;
+; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 4773 MB             ; 00:00:30                           ;
+; Total                ; 00:00:15     ; --                      ; --                  ; 00:00:30                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -109,9 +106,6 @@ https://fpgasoftware.intel.com/eula.
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
 ; Analysis & Synthesis ; DESKTOP-0OQ22KG  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-0OQ22KG  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-0OQ22KG  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-0OQ22KG  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -119,9 +113,6 @@ https://fpgasoftware.intel.com/eula.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off pingpong -c pingpong
-quartus_fit --read_settings_files=off --write_settings_files=off pingpong -c pingpong
-quartus_asm --read_settings_files=off --write_settings_files=off pingpong -c pingpong
-quartus_sta pingpong -c pingpong
 
 
 
