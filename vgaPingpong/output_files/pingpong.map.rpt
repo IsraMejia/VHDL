@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pingpong
-Thu Dec 29 23:04:37 2022
+Mon Jan 09 22:11:08 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Thu Dec 29 23:04:37 2022           ;
+; Analysis & Synthesis Status        ; Failed - Mon Jan 09 22:11:08 2023           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; pingpong                                    ;
 ; Top-level Entity Name              ; pingpong                                    ;
@@ -164,30 +164,27 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Dec 29 23:04:23 2022
+    Info: Processing started: Mon Jan 09 22:10:55 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pingpong -c pingpong
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file sync.vhd
-    Info (12022): Found design unit 1: sync_generator-sync_generator_arch File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/sync.vhd Line: 27
-    Info (12023): Found entity 1: sync_generator File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/sync.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file score_display.vhd
-    Info (12022): Found design unit 1: score_display-score_display_arch File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/score_display.vhd Line: 17
-    Info (12023): Found entity 1: score_display File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/score_display.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file image.vhd
-    Info (12022): Found design unit 1: image_generator-image_generator_arch File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/image.vhd Line: 40
-    Info (12023): Found entity 1: image_generator File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/image.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file div_gen.vhd
-    Info (12022): Found design unit 1: div_gen-div_gen_arch File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/div_gen.vhd Line: 19
-    Info (12023): Found entity 1: div_gen File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/div_gen.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file marcador_dss.vhd
+    Info (12022): Found design unit 1: marcador_dss-marcador_dss_bhv File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/marcador_dss.vhd Line: 22
+    Info (12023): Found entity 1: marcador_dss File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/marcador_dss.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file imprime_pantalla.vhd
+    Info (12022): Found design unit 1: imprime_pantalla-imprime_pantalla_bhv File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 63
+    Info (12023): Found entity 1: imprime_pantalla File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file divisor_frec.vhd
+    Info (12022): Found design unit 1: divisor_frec-divisor_frec_bhv File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/divisor_frec.vhd Line: 19
+    Info (12023): Found entity 1: divisor_frec File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/divisor_frec.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file pingpong.vhd
-    Info (12022): Found design unit 1: PINGPONG-PINGPONG_arch File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 47
-    Info (12023): Found entity 1: PINGPONG File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 4
-Error (10349): VHDL Association List error at pingpong.vhd(174): formal "Ha" does not exist File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 174
+    Info (12022): Found design unit 1: PINGPONG-PINGPONG_bhv File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 60
+    Info (12023): Found entity 1: PINGPONG File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 8
+Error (10482): VHDL error at pingpong.vhd(294): object "divisor_paddle" is used but not declared File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 294
 Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 4773 megabytes
-    Error: Processing ended: Thu Dec 29 23:04:37 2022
-    Error: Elapsed time: 00:00:14
-    Error: Total CPU time (on all processors): 00:00:33
+    Error: Peak virtual memory: 4771 megabytes
+    Error: Processing ended: Mon Jan 09 22:11:08 2023
+    Error: Elapsed time: 00:00:13
+    Error: Total CPU time (on all processors): 00:00:30
 
 
