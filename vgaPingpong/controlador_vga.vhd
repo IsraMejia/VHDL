@@ -66,19 +66,19 @@ begin
 			ContadorHorizontal := ContadorHorizontal + 1; -- avanza el contador mientras avanza el reloj, un pixel por cada clk
 			
 			if(ContadorHorizontal = Psh) then
-				--Si estamos dentro del pulso de sincronizacion horizontal, 
-				Hsync <= '1'; 
-			
-			--logica de la parte visible
-			elsif(ContadorHorizontal = Ihv) then
-				Hactive <= '1';--estamos dentro los pixeles horizontales visibles 			
-			elsif(ContadorHorizontal = Fhv) then
-				Hactive <= '0';--ya no estamos en la parte horizontal visible 
+					--Si estamos dentro del pulso de sincronizacion horizontal, 
+					Hsync <= '1'; 
 				
-			elsif(ContadorHorizontal = TotalHorizontal) then --Llegamos al final de los pixeles horizontales
-				--reinicia los contadores de sincronizacion y recorrido horizontal
-				Hsync <= '0'; 
-				ContadorHorizontal := 0;
+				--logica de la parte visible
+				elsif(ContadorHorizontal = Ihv) then
+					Hactive <= '1';--estamos dentro los pixeles horizontales visibles 			
+				elsif(ContadorHorizontal = Fhv) then
+					Hactive <= '0';--ya no estamos en la parte horizontal visible 
+					
+				elsif(ContadorHorizontal = TotalHorizontal) then --Llegamos al final de los pixeles horizontales
+					--reinicia los contadores de sincronizacion y recorrido horizontal
+					Hsync <= '0'; 
+					ContadorHorizontal := 0;
 			end if;
 		end if;
 	end process;

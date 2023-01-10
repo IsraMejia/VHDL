@@ -104,19 +104,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "palancasjugadores[1]",
-					"strict" : false
-				},
-				{
-					"name" : "palancasjugadores[0]",
-					"strict" : false
-				},
-				{
 					"name" : "clk",
 					"strict" : false
 				},
 				{
 					"name" : "start_game",
+					"strict" : false
+				},
+				{
+					"name" : "palancasjugadores[1]",
+					"strict" : false
+				},
+				{
+					"name" : "palancasjugadores[0]",
 					"strict" : false
 				}
 			]

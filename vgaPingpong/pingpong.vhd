@@ -51,14 +51,9 @@ entity PINGPONG is
 		--cambiar a std_logic
 		
 		--Vectores RGB para los colores al momento de dibujar la interfaz del juego en el monitor VGA
-		R, G, B 		 : out std_logic_vector(3 downto 0)
-		R1		       : in std_logic "D12";
-		G1		       : in std_logic "C12";
-		B1		       : in std_logic "A12";
-
-		R2		       : in std_logic "B12";
-		G2		       : in std_logic "A13";
-		B2		       : in std_logic "A14";
+		R1, G1, B1 : in std_logic;
+		R2, G2, B2 : in std_logic;
+		R,G,B	   : out std_logic_vector(3 downto 0)
 	);
 
 end  PINGPONG;
@@ -183,7 +178,9 @@ architecture PINGPONG_bhv of PINGPONG is
 			marcador_j2			 : buffer integer;
 			
 			--puertos de colores
-			R,G,B			 : out std_logic_vector(3 downto 0)
+			R1, G1, B1 : in std_logic;
+			R2, G2, B2 : in std_logic;
+			R,G,B	   : out std_logic_vector(3 downto 0)
 			
 		);
 	end component imprime_pantalla;
@@ -298,6 +295,15 @@ begin
 			start_game	=> start_game,
 			marcador_j1		=> marcador_j1,
 			marcador_j2		=> marcador_j2,
+
+			R1	=> R1,
+			G1	=> G1,
+			B1  => B1,
+			
+			R2	=> R2,
+			G2	=> G2,
+			B2  => B2,
+
 			R		    => R,
 			G			=> G,
 			B			=> B

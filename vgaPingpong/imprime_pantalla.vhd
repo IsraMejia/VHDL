@@ -423,44 +423,64 @@ begin
 		
 		--Si estamos en un area visible de la pantalla VGA para poder dibujar
 		if(habilitador = '1') then
-		
-			--En caso de que estemos en un area perteneciente al jugador 1
-			 if((coord_x_raqueta1 <= contador_columnas + MedidaHorizontalRaqueta) and
-				(coord_x_raqueta1 + MedidaHorizontalRaqueta >= contador_columnas) and
-				(coord_y_raqueta1 <= contador_renglones + MedidaVerticalRaqueta) and
-				(coord_y_raqueta1 + MedidaVerticalRaqueta >= contador_renglones)) or
-				
-			--En caso de que estemos en un area perteneciente al jugador 2
-				((coord_x_raqueta2 <= contador_columnas + MedidaHorizontalRaqueta) and
-				(coord_x_raqueta2 + MedidaHorizontalRaqueta >= contador_columnas) and
-				(coord_y_raqueta2 <= contador_renglones + MedidaVerticalRaqueta) and
-				(coord_y_raqueta2 + MedidaVerticalRaqueta >= contador_renglones)) or
-				
-			--En caso de que estemos en un area perteneciente a la Pelota
-				((Coord_x_pelota <= contador_columnas + MedidaPelota) and
-				(Coord_x_PELOTA + MedidaPelota >= contador_columnas) and
-				(Coord_y_pelota <= contador_renglones + MedidaPelota) and
-				(Coord_y_pelota + MedidaPelota >= contador_renglones))	then
-				
-				--Colores que se usaran 
-					R <= "1110";
-					G <= "1110";
-					B <= "0000";
-				
-			else		
-				--Para el resto (fondo de la pantalla)			
-				R <= "1000";
-				G <= "0000";
-				B <= "1100";				
-			end if;
 			
-		else
-		
-			-- If habilitador = 0, No mostrar nada
-		
-			R <= (others => '0');
-			G <= (others => '0');
-			B <= (others => '0');
+				--En caso de que estemos en un area perteneciente al jugador 1
+				if ((coord_x_raqueta1 <= contador_columnas + MedidaHorizontalRaqueta) and
+					(coord_x_raqueta1 + MedidaHorizontalRaqueta >= contador_columnas) and
+					(coord_y_raqueta1 <= contador_renglones + MedidaVerticalRaqueta) and
+					(coord_y_raqueta1 + MedidaVerticalRaqueta >= contador_renglones)) then
+						if((R1 ='0') and (G1 ='0') and (B1 ='0')) then --Color por defecto verde retro :D
+							R <= "1110";
+							G <= "1110";
+							B <= "0000";
+						else 
+							if (R1 ='0') then R <= "0000"; else R <= "1111"; end if;                          
+							if (G1 ='0') then G <= "0000"; else G <= "1111"; end if;
+							if (B1 ='0') then B <= "0000"; else B <= "1111"; end if;
+						end if; 
+				end if;
+							
+					
+				--En caso de que estemos en un area perteneciente al jugador 2
+				if  ((coord_x_raqueta2 <= contador_columnas + MedidaHorizontalRaqueta) and
+					(coord_x_raqueta2 + MedidaHorizontalRaqueta >= contador_columnas) and
+					(coord_y_raqueta2 <= contador_renglones + MedidaVerticalRaqueta) and
+					(coord_y_raqueta2 + MedidaVerticalRaqueta >= contador_renglones)) then 
+						if((R2 ='0') and (G2 ='0') and (B2 ='0')) then --Color por defecto verde retro :D
+							R <= "1110";
+							G <= "1110";
+							B <= "0000";
+						else 
+							if (R2 ='0') then R <= "0000"; else R <= "1111"; end if;                      
+							if (G2 ='0') then G <= "0000"; else G <= "1111"; end if;
+							if (B2 ='0') then B <= "0000"; else B <= "1111"; end if; 
+						end if; 
+
+				end if;
+				
+					
+				--En caso de que estemos en un area perteneciente a la Pelota
+				if	((Coord_x_pelota <= contador_columnas + MedidaPelota) and
+					(Coord_x_PELOTA + MedidaPelota >= contador_columnas) and
+					(Coord_y_pelota <= contador_renglones + MedidaPelota) and
+					(Coord_y_pelota + MedidaPelota >= contador_renglones))	then				
+					--Color por defecto verde retro :D
+						R <= "1110";
+						G <= "1110";
+						B <= "0000";				
+				else--Para el resto (fondo de la pantalla)			
+						R <= "1000";
+						G <= "0000";
+						B <= "1100";				
+				end if;
+				
+			
+			
+			else			
+				-- If habilitador = 0, No mostrar nada		
+				R <= (others => '0');
+				G <= (others => '0');
+				B <= (others => '0');
 			
 		end if;
 		

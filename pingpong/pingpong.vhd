@@ -50,6 +50,7 @@ architecture PINGPONG_arch of PINGPONG is
 	signal paddle_clk, ball_clk, ball_clk1, ball_clk2, ball_clk3, ball_clk4: std_logic;
 	signal score1  : integer;
 	signal score2  : integer;
+
 	component div_gen is
 		
 		generic( div 	 : integer:= 2);
@@ -185,7 +186,8 @@ begin
 						PVsize => paddlesizeV,
 						PHsize => paddlesizeH)
 		
-		port map(		pixel_clk	=> pixel_clk,
+		port map(	
+					pixel_clk	=> pixel_clk,
 					paddle_clk	=> paddle_clk,
 					ball_clk	=> ball_clk,
 					reset		=> reset,

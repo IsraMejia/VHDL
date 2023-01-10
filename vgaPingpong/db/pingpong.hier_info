@@ -28,6 +28,12 @@ seg_marcador_j2[5] << marcador_dss:u4.seg_marcador_j2[5]
 seg_marcador_j2[6] << marcador_dss:u4.seg_marcador_j2[6]
 separador1_marcador << marcador_dss:u4.separador1_marcador
 separador2_marcador << marcador_dss:u4.separador2_marcador
+R1 => imprime_pantalla:u2.R1
+G1 => imprime_pantalla:u2.G1
+B1 => imprime_pantalla:u2.B1
+R2 => imprime_pantalla:u2.R2
+G2 => imprime_pantalla:u2.G2
+B2 => imprime_pantalla:u2.B2
 R[0] << imprime_pantalla:u2.R[0]
 R[1] << imprime_pantalla:u2.R[1]
 R[2] << imprime_pantalla:u2.R[2]
@@ -466,6 +472,12 @@ marcador_j2[28] <= marcador_j2[28]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 marcador_j2[29] <= marcador_j2[29]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 marcador_j2[30] <= marcador_j2[30]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 marcador_j2[31] <= marcador_j2[31]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R1 => ~NO_FANOUT~
+G1 => ~NO_FANOUT~
+B1 => ~NO_FANOUT~
+R2 => ~NO_FANOUT~
+G2 => ~NO_FANOUT~
+B2 => ~NO_FANOUT~
 R[0] <= <GND>
 R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
 R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
