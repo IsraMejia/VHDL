@@ -28,8 +28,9 @@ entity PINGPONG is
 		TotalVertical: integer := 525; --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
 		--515+10
 		
-		MedidaVerticalRaqueta: integer := 10; --Medidas verticales de las raquetas de los jugadores
-		MedidaHorizontalRaqueta: integer := 5  --Medidas horizontales de las raquetas de los jugadores
+		--Definicion de medidas finales del juego
+		MedidaVerticalRaqueta: integer := 95; --Medidas verticales de las raquetas de los jugadores
+		MedidaHorizontalRaqueta: integer := 15  --Medidas horizontales de las raquetas de los jugadores
 	);
 
 	port(
@@ -39,7 +40,7 @@ entity PINGPONG is
 		Hsync	: buffer std_logic; -- Horizontal sync pulse. señal de sincronizacion horizontal
 		Vsync	: buffer std_logic; -- Vertical sync pulse. señal de sincronizacion vertical
 
-		direction_switch : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
+		palancasjugadores : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
 		start_game		: in std_logic; --Bit de control para saber si el juego ha iniciado
 		seg_marcador_j1 	: out std_logic_vector(6 downto 0);
 		seg_marcador_j2	: out std_logic_vector(6 downto 0);
@@ -147,9 +148,9 @@ architecture PINGPONG_bhv of PINGPONG is
 			TotalVertical: integer := 525; --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
 			--515+10
 			
-			MedidaVerticalRaqueta: integer := 10; --Medidas verticales de las raquetas de los jugadores
-			MedidaHorizontalRaqueta: integer := 5;  --Medidas horizontales de las raquetas de los jugadores
-			MedidaPelota: integer := 3 --tamaño de la pelota
+			MedidaVerticalRaqueta: integer := 70; --Medidas verticales de las raquetas de los jugadores
+			MedidaHorizontalRaqueta: integer := 15;  --Medidas horizontales de las raquetas de los jugadores
+			MedidaPelota: integer := 10 --tamaño de la pelota
 		); --TAMAÑO DE LA PELOTA
 		
 		port(
@@ -169,7 +170,7 @@ architecture PINGPONG_bhv of PINGPONG is
 			Vsync : in std_logic; -- Vertical sync pulse. señal de sincronizacion vertical
 			habilitador  : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
 
-			direction_switch : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
+			palancasjugadores : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
 			start_game		 : in std_logic;	--Bit de control para saber si el juego ha iniciado
 			marcador_j1			 : buffer integer;
 			marcador_j2			 : buffer integer;
@@ -202,7 +203,7 @@ architecture PINGPONG_bhv of PINGPONG is
 		attribute chip_pin of clk	       : signal is "N14";
 		attribute chip_pin of encendido	   : signal is "F15";
 		
-		attribute chip_pin of direction_switch : signal is "C10,C11,C12,A12";
+		attribute chip_pin of palancasjugadores : signal is "C10,C11";--"C10,C11,C12,A12";
 		attribute chip_pin of start_game       : signal is "B8";
 		
 		
@@ -278,7 +279,7 @@ begin
 			Hsync		=> Hsync,
 			Vsync		=> Vsync,
 			habilitador		=> habilitador,
-			direction_switch=> direction_switch,
+			palancasjugadores=> palancasjugadores,
 			start_game	=> start_game,
 			marcador_j1		=> marcador_j1,
 			marcador_j2		=> marcador_j2,

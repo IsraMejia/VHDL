@@ -104,11 +104,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "direction_switch[1]",
+					"name" : "palancasjugadores[1]",
 					"strict" : false
 				},
 				{
-					"name" : "direction_switch[0]",
+					"name" : "palancasjugadores[0]",
 					"strict" : false
 				},
 				{
