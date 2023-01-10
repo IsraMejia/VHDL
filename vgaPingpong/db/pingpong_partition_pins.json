@@ -12,59 +12,59 @@
 					"strict" : false
 				},
 				{
-					"name" : "seg1[0]",
+					"name" : "seg_marcador_j1[0]",
 					"strict" : false
 				},
 				{
-					"name" : "seg1[1]",
+					"name" : "seg_marcador_j1[1]",
 					"strict" : false
 				},
 				{
-					"name" : "seg1[2]",
+					"name" : "seg_marcador_j1[2]",
 					"strict" : false
 				},
 				{
-					"name" : "seg1[3]",
+					"name" : "seg_marcador_j1[3]",
 					"strict" : false
 				},
 				{
-					"name" : "seg1[4]",
+					"name" : "seg_marcador_j1[4]",
 					"strict" : false
 				},
 				{
-					"name" : "seg1[5]",
+					"name" : "seg_marcador_j1[5]",
 					"strict" : false
 				},
 				{
-					"name" : "seg1[6]",
+					"name" : "seg_marcador_j1[6]",
 					"strict" : false
 				},
 				{
-					"name" : "seg2[0]",
+					"name" : "seg_marcador_j2[0]",
 					"strict" : false
 				},
 				{
-					"name" : "seg2[1]",
+					"name" : "seg_marcador_j2[1]",
 					"strict" : false
 				},
 				{
-					"name" : "seg2[2]",
+					"name" : "seg_marcador_j2[2]",
 					"strict" : false
 				},
 				{
-					"name" : "seg2[3]",
+					"name" : "seg_marcador_j2[3]",
 					"strict" : false
 				},
 				{
-					"name" : "seg2[4]",
+					"name" : "seg_marcador_j2[4]",
 					"strict" : false
 				},
 				{
-					"name" : "seg2[5]",
+					"name" : "seg_marcador_j2[5]",
 					"strict" : false
 				},
 				{
-					"name" : "seg2[6]",
+					"name" : "seg_marcador_j2[6]",
 					"strict" : false
 				},
 				{
@@ -101,14 +101,6 @@
 				},
 				{
 					"name" : "encendido",
-					"strict" : false
-				},
-				{
-					"name" : "direction_switch[3]",
-					"strict" : false
-				},
-				{
-					"name" : "direction_switch[2]",
 					"strict" : false
 				},
 				{

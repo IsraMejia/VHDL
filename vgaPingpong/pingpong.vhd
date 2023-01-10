@@ -5,12 +5,12 @@
 library ieee;
 use ieee.std_logic_1164.all;
  
-entity PINGPONG is
+entity PINGPONG is 
 	generic(
 	
 		divisor:integer := 2; --divisor de frecuencia por defecto
-		div_paddle : integer := 200000; --velocidad  jugadores 	(divisor de frecuencia)	
-		div_ball : integer 	 := 415000; --velocidad pelota (divisor de frecuencia)	
+		divisor_raqueta : integer := 200000; --velocidad  jugadores 	(divisor de frecuencia)	
+		divisor_pelota : integer  := 415000; --velocidad pelota (divisor de frecuencia)	
 	
 		--Marcos horizontales de pixeles visibles de una VGA de 640x480 visibles	
 		Psh: integer := 96; --Ancho del pulso de sincronización horizontal en píxeles
@@ -62,7 +62,7 @@ architecture PINGPONG_bhv of PINGPONG is
 	--Relojes de imagenes
 	signal reloj_pixeles 		 :  std_logic;--Señal de reloj para contar los píxeles
 	signal reloj_raquetas		 :  std_logic;--Señal de reloj para las raquetas
-	signal reloj_paleta	     :  std_logic;--Señal de reloj para el balon
+	signal reloj_pelota	     :  std_logic;--Señal de reloj para el balon
 	
 	signal Hactive :  std_logic; --indican cuando los píxeles deben ser mostrados en la pantalla.
 	-- '1' durante el período de actividad horizontal y '0' el resto del tiempo
@@ -158,7 +158,7 @@ architecture PINGPONG_bhv of PINGPONG is
 			--Relojes de imagenes
 			reloj_pixeles 		 : in std_logic;--Señal de reloj para contar los píxeles
 			reloj_raquetas		 : in std_logic;--Señal de reloj para las raquetas
-			reloj_paleta	     : in std_logic;--Señal de reloj para el balon
+			reloj_pelota	     : in std_logic;--Señal de reloj para el balon
 			
 			--puertos de sincronizacion 
 			Hactive : in std_logic; --indican cuando los píxeles deben ser mostrados en la pantalla.
@@ -271,7 +271,7 @@ begin
 		port map(	
 			reloj_pixeles	=> reloj_pixeles,
 			reloj_raquetas	=> reloj_raquetas,
-			reloj_paleta	=> reloj_paleta,
+			reloj_pelota	=> reloj_pelota,
 			encendido	=> encendido,
 			Hactive		=> Hactive,
 			Vactive 	=> Vactive,
@@ -291,14 +291,14 @@ begin
 	
 	--Mapeando puertos para el reloj de los jugadores
 	u3: divisor_frec 
-		generic map (divisor => divisor_paddle)
+		generic map (divisor => divisor_raqueta )
 		port map(reloj_entrada => clk, encendido => encendido, reloj_salida => reloj_raquetas)
 	;
 	
 	----Mapeando puertos para el reloj de la pelota
 	u5: divisor_frec
-		generic map (divisor => divisor_ball)
-		port map(reloj_entrada => clk, encendido => encendido, reloj_salida => reloj_paleta)
+		generic map (divisor => divisor_pelota)
+		port map(reloj_entrada => clk, encendido => encendido, reloj_salida => reloj_pelota)
 	;
 	
 	----Mapeando puertos para mostrar en pantalla los marcadores
@@ -313,10 +313,10 @@ begin
 		--process(ball_speed)
 		--begin		
 		--	case ball_speed is
-		--		when "00" => reloj_paleta <= reloj_paleta1;
-		--		when "01" => reloj_paleta <= reloj_paleta2;
-		--		when "10" => reloj_paleta <= reloj_paleta3;
-		--		when others => reloj_paleta <= reloj_paleta4;
+		--		when "00" => reloj_pelota <= reloj_pelota1;
+		--		when "01" => reloj_pelota <= reloj_pelota2;
+		--		when "10" => reloj_pelota <= reloj_pelota3;
+		--		when others => reloj_pelota <= reloj_pelota4;
 		--	end case;
 		--end process;
 
