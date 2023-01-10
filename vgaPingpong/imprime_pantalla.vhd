@@ -146,17 +146,17 @@ begin
 				coord_x_raqueta1 <= 50;
 				coord_x_raqueta2 <= 590;
 				
-				--MovimientoRaqueta Jugador1 	(pin c10)			
+				--MovimientoRaqueta Jugador1 	(pin c11)			
 				if(palancasjugadores(0) = '0') then
-					if(coord_y_raqueta1 = Fvv - Ivv) then --525-35=490
-						coord_y_raqueta1 <= Fvv - Ivv; -- si llega el jugador 1 al fin vertical, ahi pare
+					if( coord_y_raqueta1  = Fvv - Ivv - MedidaVerticalRaqueta +30) then --525-35=490  / -7=7cm
+						coord_y_raqueta1 <= Fvv - Ivv - MedidaVerticalRaqueta +30; -- si llega el jugador 1 al fin vertical, ahi pare
 					else coord_y_raqueta1 <= coord_y_raqueta1 + 1;
 						--caso contrario siga bajando
 					end if;
 				end if;				
-				if(palancasjugadores(0) = '1') then
-					if(coord_y_raqueta1 = 0) then
-						coord_y_raqueta1 <= 0; -- si llega el jugador 1 al incio vertical, ahi pare
+				if(palancasjugadores(0) = '1') then 
+					if( coord_y_raqueta1  = MedidaVerticalRaqueta +15 ) then -- -25 = 1falta
+						coord_y_raqueta1 <= MedidaVerticalRaqueta +15 ; -- si llega el jugador 1 al incio vertical, ahi pare
 					else coord_y_raqueta1 <= coord_y_raqueta1 - 1;
 						--caso contrario siga subiendo bajando
 					end if;
@@ -164,17 +164,17 @@ begin
 				
 
 				
-				--MovimientoRaqueta Jugador2 (pin c11)	
+				--MovimientoRaqueta Jugador2 (pin c10)	
 				if(palancasjugadores(1) = '0') then
-					if(coord_y_raqueta2 = Fvv - Ivv - MedidaVerticalRaqueta +30) then --525-35=490
-						coord_y_raqueta2 <= Fvv - Ivv - MedidaVerticalRaqueta +30;-- si llega el jugador 2 al fin vertical, ahi pare
+					if( coord_y_raqueta2  = Fvv - Ivv - MedidaVerticalRaqueta + 30) then --525-35=490
+						coord_y_raqueta2 <= Fvv - Ivv - MedidaVerticalRaqueta + 30;-- si llega el jugador 2 al fin vertical, ahi pare
 					else coord_y_raqueta2 <= coord_y_raqueta2 + 1;
 						--caso contrario siga bajando
 					end if;
 				end if;				
 				if(palancasjugadores(1) = '1') then
-					if(coord_y_raqueta2 =  MedidaVerticalRaqueta -30) then
-						coord_y_raqueta2 <=  MedidaVerticalRaqueta -30 ; -- si llega el jugador 2 al incio vertical, ahi pare
+					if( coord_y_raqueta2  =  MedidaVerticalRaqueta +15) then
+						coord_y_raqueta2 <=  MedidaVerticalRaqueta +15 ; -- si llega el jugador 2 al incio vertical, ahi pare
 					else coord_y_raqueta2 <= coord_y_raqueta2 - 1;
 						--caso contrario siga subiendo  bajando
 					end if;
