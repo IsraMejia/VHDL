@@ -1,5 +1,5 @@
 Flow report for pingpong
-Tue Jan 10 21:34:58 2023
+Tue Jan 10 22:37:50 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Jan 10 21:34:52 2023       ;
+; Flow Status                        ; Successful - Tue Jan 10 22:37:45 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; pingpong                                    ;
 ; Top-level Entity Name              ; PINGPONG                                    ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 800 / 49,760 ( 2 % )                        ;
-;     Total combinational functions  ; 793 / 49,760 ( 2 % )                        ;
+; Total logic elements               ; 721 / 49,760 ( 1 % )                        ;
+;     Total combinational functions  ; 712 / 49,760 ( 1 % )                        ;
 ;     Dedicated logic registers      ; 187 / 49,760 ( < 1 % )                      ;
 ; Total registers                    ; 187                                         ;
 ; Total pins                         ; 41 / 360 ( 11 % )                           ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/10/2023 21:34:10 ;
+; Start date & time ; 01/10/2023 22:37:04 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; pingpong            ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589198.167340805010236         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 10995770589198.167341182414660         ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -95,11 +95,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 4787 MB             ; 00:00:34                           ;
-; Fitter               ; 00:00:20     ; 1.1                     ; 5387 MB             ; 00:00:27                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4696 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.2                     ; 4807 MB             ; 00:00:05                           ;
-; Total                ; 00:00:45     ; --                      ; --                  ; 00:01:10                           ;
+; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 4787 MB             ; 00:00:32                           ;
+; Fitter               ; 00:00:19     ; 1.1                     ; 5386 MB             ; 00:00:25                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 4687 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:04     ; 1.2                     ; 4803 MB             ; 00:00:05                           ;
+; Total                ; 00:00:44     ; --                      ; --                  ; 00:01:06                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -1,5 +1,5 @@
 Timing Analyzer report for pingpong
-Tue Jan 10 21:34:58 2023
+Tue Jan 10 22:37:50 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -94,12 +94,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.20        ;
+; Average used               ; 1.17        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  20.4%      ;
+;     Processor 2            ;  17.3%      ;
 +----------------------------+-------------+
 
 
@@ -122,12 +122,12 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+--------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name               ; Note ;
 +------------+-----------------+--------------------------+------+
-; 49.53 MHz  ; 49.53 MHz       ; encendido                ;      ;
-; 86.66 MHz  ; 86.66 MHz       ; divisor_frec:u5|temporal ;      ;
-; 168.95 MHz ; 168.95 MHz      ; divisor_frec:U0|temporal ;      ;
-; 203.05 MHz ; 203.05 MHz      ; clk                      ;      ;
-; 243.01 MHz ; 243.01 MHz      ; controlador_vga:u1|Hsync ;      ;
-; 260.96 MHz ; 260.96 MHz      ; divisor_frec:u3|temporal ;      ;
+; 53.41 MHz  ; 53.41 MHz       ; encendido                ;      ;
+; 89.02 MHz  ; 89.02 MHz       ; divisor_frec:u5|temporal ;      ;
+; 160.03 MHz ; 160.03 MHz      ; divisor_frec:U0|temporal ;      ;
+; 179.21 MHz ; 179.21 MHz      ; clk                      ;      ;
+; 232.56 MHz ; 232.56 MHz      ; controlador_vga:u1|Hsync ;      ;
+; 270.05 MHz ; 270.05 MHz      ; divisor_frec:u3|temporal ;      ;
 +------------+-----------------+--------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -137,12 +137,12 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------+---------+---------------+
 ; Clock                    ; Slack   ; End Point TNS ;
 +--------------------------+---------+---------------+
-; divisor_frec:u5|temporal ; -12.964 ; -228.510      ;
-; encendido                ; -9.594  ; -27.977       ;
-; divisor_frec:U0|temporal ; -5.000  ; -341.452      ;
-; clk                      ; -3.925  ; -64.924       ;
-; controlador_vga:u1|Hsync ; -3.115  ; -28.330       ;
-; divisor_frec:u3|temporal ; -2.832  ; -49.128       ;
+; divisor_frec:u5|temporal ; -12.103 ; -225.862      ;
+; encendido                ; -8.918  ; -26.289       ;
+; divisor_frec:U0|temporal ; -5.249  ; -321.563      ;
+; clk                      ; -4.580  ; -68.913       ;
+; controlador_vga:u1|Hsync ; -3.300  ; -30.723       ;
+; divisor_frec:u3|temporal ; -2.703  ; -47.330       ;
 +--------------------------+---------+---------------+
 
 
@@ -151,12 +151,12 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------+-------+---------------+
 ; Clock                    ; Slack ; End Point TNS ;
 +--------------------------+-------+---------------+
-; controlador_vga:u1|Hsync ; 0.347 ; 0.000         ;
+; controlador_vga:u1|Hsync ; 0.348 ; 0.000         ;
 ; divisor_frec:U0|temporal ; 0.348 ; 0.000         ;
 ; clk                      ; 0.638 ; 0.000         ;
-; divisor_frec:u5|temporal ; 0.668 ; 0.000         ;
-; divisor_frec:u3|temporal ; 0.777 ; 0.000         ;
-; encendido                ; 1.641 ; 0.000         ;
+; divisor_frec:u5|temporal ; 0.665 ; 0.000         ;
+; divisor_frec:u3|temporal ; 1.000 ; 0.000         ;
+; encendido                ; 1.918 ; 0.000         ;
 +--------------------------+-------+---------------+
 
 
@@ -165,11 +165,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------+--------+---------------+
 ; Clock                    ; Slack  ; End Point TNS ;
 +--------------------------+--------+---------------+
-; divisor_frec:U0|temporal ; -4.585 ; -180.548      ;
-; divisor_frec:u5|temporal ; -3.072 ; -61.919       ;
-; clk                      ; -2.490 ; -87.035       ;
-; divisor_frec:u3|temporal ; -2.367 ; -43.220       ;
-; controlador_vga:u1|Hsync ; -2.272 ; -43.786       ;
+; divisor_frec:u5|temporal ; -3.525 ; -75.468       ;
+; divisor_frec:U0|temporal ; -2.989 ; -169.552      ;
+; clk                      ; -2.476 ; -85.396       ;
+; controlador_vga:u1|Hsync ; -2.200 ; -42.131       ;
+; divisor_frec:u3|temporal ; -2.121 ; -41.768       ;
 +--------------------------+--------+---------------+
 
 
@@ -178,11 +178,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------+-------+---------------+
 ; Clock                    ; Slack ; End Point TNS ;
 +--------------------------+-------+---------------+
-; divisor_frec:U0|temporal ; 1.170 ; 0.000         ;
-; divisor_frec:u5|temporal ; 1.661 ; 0.000         ;
-; controlador_vga:u1|Hsync ; 1.860 ; 0.000         ;
-; divisor_frec:u3|temporal ; 1.952 ; 0.000         ;
-; clk                      ; 2.239 ; 0.000         ;
+; divisor_frec:U0|temporal ; 1.274 ; 0.000         ;
+; controlador_vga:u1|Hsync ; 1.842 ; 0.000         ;
+; divisor_frec:u3|temporal ; 1.953 ; 0.000         ;
+; clk                      ; 2.196 ; 0.000         ;
+; divisor_frec:u5|temporal ; 2.449 ; 0.000         ;
 +--------------------------+-------+---------------+
 
 
@@ -211,12 +211,12 @@ No synchronizer chains to report.
 +------------+-----------------+--------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name               ; Note ;
 +------------+-----------------+--------------------------+------+
-; 53.44 MHz  ; 53.44 MHz       ; encendido                ;      ;
-; 93.59 MHz  ; 93.59 MHz       ; divisor_frec:u5|temporal ;      ;
-; 183.35 MHz ; 183.35 MHz      ; divisor_frec:U0|temporal ;      ;
-; 218.63 MHz ; 218.63 MHz      ; clk                      ;      ;
-; 264.62 MHz ; 264.62 MHz      ; controlador_vga:u1|Hsync ;      ;
-; 284.01 MHz ; 284.01 MHz      ; divisor_frec:u3|temporal ;      ;
+; 57.52 MHz  ; 57.52 MHz       ; encendido                ;      ;
+; 95.79 MHz  ; 95.79 MHz       ; divisor_frec:u5|temporal ;      ;
+; 173.88 MHz ; 173.88 MHz      ; divisor_frec:U0|temporal ;      ;
+; 195.43 MHz ; 195.43 MHz      ; clk                      ;      ;
+; 254.45 MHz ; 254.45 MHz      ; controlador_vga:u1|Hsync ;      ;
+; 295.95 MHz ; 295.95 MHz      ; divisor_frec:u3|temporal ;      ;
 +------------+-----------------+--------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -226,12 +226,12 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------+---------+---------------+
 ; Clock                    ; Slack   ; End Point TNS ;
 +--------------------------+---------+---------------+
-; divisor_frec:u5|temporal ; -12.008 ; -211.114      ;
-; encendido                ; -8.857  ; -25.824       ;
-; divisor_frec:U0|temporal ; -4.568  ; -308.592      ;
-; clk                      ; -3.574  ; -55.960       ;
-; controlador_vga:u1|Hsync ; -2.779  ; -24.072       ;
-; divisor_frec:u3|temporal ; -2.521  ; -43.784       ;
+; divisor_frec:u5|temporal ; -11.171 ; -206.884      ;
+; encendido                ; -8.193  ; -24.219       ;
+; divisor_frec:U0|temporal ; -4.751  ; -289.691      ;
+; clk                      ; -4.117  ; -59.339       ;
+; controlador_vga:u1|Hsync ; -2.930  ; -26.023       ;
+; divisor_frec:u3|temporal ; -2.379  ; -41.607       ;
 +--------------------------+---------+---------------+
 
 
@@ -242,10 +242,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------+-------+---------------+
 ; controlador_vga:u1|Hsync ; 0.311 ; 0.000         ;
 ; divisor_frec:U0|temporal ; 0.312 ; 0.000         ;
-; clk                      ; 0.587 ; 0.000         ;
-; divisor_frec:u5|temporal ; 0.618 ; 0.000         ;
-; divisor_frec:u3|temporal ; 0.710 ; 0.000         ;
-; encendido                ; 1.392 ; 0.000         ;
+; clk                      ; 0.591 ; 0.000         ;
+; divisor_frec:u5|temporal ; 0.616 ; 0.000         ;
+; divisor_frec:u3|temporal ; 0.922 ; 0.000         ;
+; encendido                ; 1.611 ; 0.000         ;
 +--------------------------+-------+---------------+
 
 
@@ -254,11 +254,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------+--------+---------------+
 ; Clock                    ; Slack  ; End Point TNS ;
 +--------------------------+--------+---------------+
-; divisor_frec:U0|temporal ; -4.103 ; -162.324      ;
-; divisor_frec:u5|temporal ; -2.788 ; -56.090       ;
-; clk                      ; -2.208 ; -76.760       ;
-; divisor_frec:u3|temporal ; -2.092 ; -38.378       ;
-; controlador_vga:u1|Hsync ; -2.022 ; -38.835       ;
+; divisor_frec:u5|temporal ; -3.238 ; -69.304       ;
+; divisor_frec:U0|temporal ; -2.654 ; -150.382      ;
+; clk                      ; -2.178 ; -75.132       ;
+; controlador_vga:u1|Hsync ; -1.927 ; -37.607       ;
+; divisor_frec:u3|temporal ; -1.888 ; -37.074       ;
 +--------------------------+--------+---------------+
 
 
@@ -267,11 +267,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------+-------+---------------+
 ; Clock                    ; Slack ; End Point TNS ;
 +--------------------------+-------+---------------+
-; divisor_frec:U0|temporal ; 1.067 ; 0.000         ;
-; divisor_frec:u5|temporal ; 1.502 ; 0.000         ;
-; controlador_vga:u1|Hsync ; 1.781 ; 0.000         ;
-; divisor_frec:u3|temporal ; 1.923 ; 0.000         ;
-; clk                      ; 2.187 ; 0.000         ;
+; divisor_frec:U0|temporal ; 1.185 ; 0.000         ;
+; controlador_vga:u1|Hsync ; 1.766 ; 0.000         ;
+; divisor_frec:u3|temporal ; 1.928 ; 0.000         ;
+; clk                      ; 2.158 ; 0.000         ;
+; divisor_frec:u5|temporal ; 2.227 ; 0.000         ;
 +--------------------------+-------+---------------+
 
 
@@ -300,12 +300,12 @@ No synchronizer chains to report.
 +--------------------------+--------+---------------+
 ; Clock                    ; Slack  ; End Point TNS ;
 +--------------------------+--------+---------------+
-; divisor_frec:u5|temporal ; -5.330 ; -93.306       ;
-; encendido                ; -4.051 ; -11.748       ;
-; divisor_frec:U0|temporal ; -1.605 ; -100.500      ;
-; clk                      ; -1.186 ; -7.937        ;
-; controlador_vga:u1|Hsync ; -0.894 ; -2.828        ;
-; divisor_frec:u3|temporal ; -0.670 ; -9.736        ;
+; divisor_frec:u5|temporal ; -4.856 ; -89.855       ;
+; encendido                ; -3.778 ; -11.211       ;
+; divisor_frec:U0|temporal ; -1.667 ; -87.606       ;
+; clk                      ; -1.503 ; -9.776        ;
+; controlador_vga:u1|Hsync ; -0.939 ; -3.066        ;
+; divisor_frec:u3|temporal ; -0.575 ; -8.377        ;
 +--------------------------+--------+---------------+
 
 
@@ -314,12 +314,12 @@ No synchronizer chains to report.
 +--------------------------+-------+---------------+
 ; Clock                    ; Slack ; End Point TNS ;
 +--------------------------+-------+---------------+
-; controlador_vga:u1|Hsync ; 0.151 ; 0.000         ;
-; divisor_frec:U0|temporal ; 0.152 ; 0.000         ;
-; clk                      ; 0.247 ; 0.000         ;
+; controlador_vga:u1|Hsync ; 0.152 ; 0.000         ;
+; divisor_frec:U0|temporal ; 0.153 ; 0.000         ;
+; clk                      ; 0.248 ; 0.000         ;
 ; divisor_frec:u5|temporal ; 0.260 ; 0.000         ;
-; divisor_frec:u3|temporal ; 0.302 ; 0.000         ;
-; encendido                ; 0.688 ; 0.000         ;
+; divisor_frec:u3|temporal ; 0.393 ; 0.000         ;
+; encendido                ; 0.839 ; 0.000         ;
 +--------------------------+-------+---------------+
 
 
@@ -328,11 +328,11 @@ No synchronizer chains to report.
 +--------------------------+--------+---------------+
 ; Clock                    ; Slack  ; End Point TNS ;
 +--------------------------+--------+---------------+
-; divisor_frec:U0|temporal ; -2.247 ; -77.664       ;
-; divisor_frec:u5|temporal ; -1.326 ; -26.755       ;
-; clk                      ; -1.153 ; -39.484       ;
-; divisor_frec:u3|temporal ; -1.060 ; -19.422       ;
-; controlador_vga:u1|Hsync ; -1.001 ; -16.894       ;
+; divisor_frec:u5|temporal ; -1.531 ; -32.834       ;
+; divisor_frec:U0|temporal ; -1.403 ; -73.907       ;
+; clk                      ; -1.128 ; -38.494       ;
+; controlador_vga:u1|Hsync ; -1.040 ; -17.983       ;
+; divisor_frec:u3|temporal ; -0.946 ; -18.455       ;
 +--------------------------+--------+---------------+
 
 
@@ -341,11 +341,11 @@ No synchronizer chains to report.
 +--------------------------+-------+---------------+
 ; Clock                    ; Slack ; End Point TNS ;
 +--------------------------+-------+---------------+
-; divisor_frec:U0|temporal ; 0.414 ; 0.000         ;
-; controlador_vga:u1|Hsync ; 0.551 ; 0.000         ;
-; divisor_frec:u3|temporal ; 0.551 ; 0.000         ;
-; clk                      ; 0.627 ; 0.000         ;
-; divisor_frec:u5|temporal ; 0.725 ; 0.000         ;
+; divisor_frec:U0|temporal ; 0.439 ; 0.000         ;
+; controlador_vga:u1|Hsync ; 0.552 ; 0.000         ;
+; divisor_frec:u3|temporal ; 0.569 ; 0.000         ;
+; clk                      ; 0.644 ; 0.000         ;
+; divisor_frec:u5|temporal ; 1.063 ; 0.000         ;
 +--------------------------+-------+---------------+
 
 
@@ -354,7 +354,7 @@ No synchronizer chains to report.
 +--------------------------+--------+---------------+
 ; Clock                    ; Slack  ; End Point TNS ;
 +--------------------------+--------+---------------+
-; clk                      ; -3.000 ; -40.168       ;
+; clk                      ; -3.000 ; -40.152       ;
 ; encendido                ; -3.000 ; -3.000        ;
 ; divisor_frec:U0|temporal ; -1.000 ; -87.000       ;
 ; divisor_frec:u5|temporal ; -1.000 ; -23.000       ;
@@ -374,20 +374,20 @@ No synchronizer chains to report.
 +---------------------------+----------+-------+----------+---------+---------------------+
 ; Clock                     ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +---------------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack          ; -12.964  ; 0.151 ; -4.585   ; 0.414   ; -3.000              ;
-;  clk                      ; -3.925   ; 0.247 ; -2.490   ; 0.627   ; -3.000              ;
-;  controlador_vga:u1|Hsync ; -3.115   ; 0.151 ; -2.272   ; 0.551   ; -1.403              ;
-;  divisor_frec:U0|temporal ; -5.000   ; 0.152 ; -4.585   ; 0.414   ; -1.403              ;
-;  divisor_frec:u3|temporal ; -2.832   ; 0.302 ; -2.367   ; 0.551   ; -1.403              ;
-;  divisor_frec:u5|temporal ; -12.964  ; 0.260 ; -3.072   ; 0.725   ; -1.403              ;
-;  encendido                ; -9.594   ; 0.688 ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS           ; -740.321 ; 0.0   ; -416.508 ; 0.0     ; -268.361            ;
-;  clk                      ; -64.924  ; 0.000 ; -87.035  ; 0.000   ; -53.508             ;
-;  controlador_vga:u1|Hsync ; -28.330  ; 0.000 ; -43.786  ; 0.000   ; -29.463             ;
-;  divisor_frec:U0|temporal ; -341.452 ; 0.000 ; -180.548 ; 0.000   ; -122.061            ;
-;  divisor_frec:u3|temporal ; -49.128  ; 0.000 ; -43.220  ; 0.000   ; -28.060             ;
-;  divisor_frec:u5|temporal ; -228.510 ; 0.000 ; -61.919  ; 0.000   ; -32.269             ;
-;  encendido                ; -27.977  ; 0.000 ; N/A      ; N/A     ; -3.000              ;
+; Worst-case Slack          ; -12.103  ; 0.152 ; -3.525   ; 0.439   ; -3.000              ;
+;  clk                      ; -4.580   ; 0.248 ; -2.476   ; 0.644   ; -3.000              ;
+;  controlador_vga:u1|Hsync ; -3.300   ; 0.152 ; -2.200   ; 0.552   ; -1.403              ;
+;  divisor_frec:U0|temporal ; -5.249   ; 0.153 ; -2.989   ; 0.439   ; -1.403              ;
+;  divisor_frec:u3|temporal ; -2.703   ; 0.393 ; -2.121   ; 0.569   ; -1.403              ;
+;  divisor_frec:u5|temporal ; -12.103  ; 0.260 ; -3.525   ; 1.063   ; -1.403              ;
+;  encendido                ; -8.918   ; 0.839 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS           ; -720.68  ; 0.0   ; -414.315 ; 0.0     ; -268.361            ;
+;  clk                      ; -68.913  ; 0.000 ; -85.396  ; 0.000   ; -53.508             ;
+;  controlador_vga:u1|Hsync ; -30.723  ; 0.000 ; -42.131  ; 0.000   ; -29.463             ;
+;  divisor_frec:U0|temporal ; -321.563 ; 0.000 ; -169.552 ; 0.000   ; -122.061            ;
+;  divisor_frec:u3|temporal ; -47.330  ; 0.000 ; -41.768  ; 0.000   ; -28.060             ;
+;  divisor_frec:u5|temporal ; -225.862 ; 0.000 ; -75.468  ; 0.000   ; -32.269             ;
+;  encendido                ; -26.289  ; 0.000 ; N/A      ; N/A     ; -3.000              ;
 +---------------------------+----------+-------+----------+---------+---------------------+
 
 
@@ -442,10 +442,10 @@ No synchronizer chains to report.
 ; G2                   ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; B2                   ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; encendido            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; palancasjugadores[1] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; palancasjugadores[0] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; clk                  ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; start_game           ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; palancasjugadores[1] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; palancasjugadores[0] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TMS~         ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TCK~         ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TDI~         ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
@@ -585,13 +585,13 @@ No synchronizer chains to report.
 ; controlador_vga:u1|Hsync ; controlador_vga:u1|Hsync ; 431      ; 0        ; 0        ; 0        ;
 ; encendido                ; controlador_vga:u1|Hsync ; 1        ; 1        ; 0        ; 0        ;
 ; controlador_vga:u1|Hsync ; divisor_frec:U0|temporal ; 1        ; 1        ; 0        ; 0        ;
-; divisor_frec:U0|temporal ; divisor_frec:U0|temporal ; 6723     ; 0        ; 0        ; 0        ;
+; divisor_frec:U0|temporal ; divisor_frec:U0|temporal ; 6742     ; 0        ; 0        ; 0        ;
 ; divisor_frec:u5|temporal ; divisor_frec:U0|temporal ; 1744     ; 0        ; 0        ; 0        ;
 ; encendido                ; divisor_frec:U0|temporal ; 3        ; 3        ; 0        ; 0        ;
 ; divisor_frec:u3|temporal ; divisor_frec:u3|temporal ; 380      ; 0        ; 0        ; 0        ;
 ; divisor_frec:U0|temporal ; divisor_frec:u5|temporal ; 1266     ; 0        ; 0        ; 0        ;
 ; divisor_frec:u3|temporal ; divisor_frec:u5|temporal ; 10510    ; 0        ; 0        ; 0        ;
-; divisor_frec:u5|temporal ; divisor_frec:u5|temporal ; 10184    ; 0        ; 0        ; 0        ;
+; divisor_frec:u5|temporal ; divisor_frec:u5|temporal ; 9584     ; 0        ; 0        ; 0        ;
 ; encendido                ; divisor_frec:u5|temporal ; 2535     ; 1266     ; 0        ; 0        ;
 ; divisor_frec:U0|temporal ; encendido                ; 9        ; 0        ; 0        ; 0        ;
 ; divisor_frec:u5|temporal ; encendido                ; 9        ; 0        ; 0        ; 0        ;
@@ -612,13 +612,13 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; controlador_vga:u1|Hsync ; controlador_vga:u1|Hsync ; 431      ; 0        ; 0        ; 0        ;
 ; encendido                ; controlador_vga:u1|Hsync ; 1        ; 1        ; 0        ; 0        ;
 ; controlador_vga:u1|Hsync ; divisor_frec:U0|temporal ; 1        ; 1        ; 0        ; 0        ;
-; divisor_frec:U0|temporal ; divisor_frec:U0|temporal ; 6723     ; 0        ; 0        ; 0        ;
+; divisor_frec:U0|temporal ; divisor_frec:U0|temporal ; 6742     ; 0        ; 0        ; 0        ;
 ; divisor_frec:u5|temporal ; divisor_frec:U0|temporal ; 1744     ; 0        ; 0        ; 0        ;
 ; encendido                ; divisor_frec:U0|temporal ; 3        ; 3        ; 0        ; 0        ;
 ; divisor_frec:u3|temporal ; divisor_frec:u3|temporal ; 380      ; 0        ; 0        ; 0        ;
 ; divisor_frec:U0|temporal ; divisor_frec:u5|temporal ; 1266     ; 0        ; 0        ; 0        ;
 ; divisor_frec:u3|temporal ; divisor_frec:u5|temporal ; 10510    ; 0        ; 0        ; 0        ;
-; divisor_frec:u5|temporal ; divisor_frec:u5|temporal ; 10184    ; 0        ; 0        ; 0        ;
+; divisor_frec:u5|temporal ; divisor_frec:u5|temporal ; 9584     ; 0        ; 0        ; 0        ;
 ; encendido                ; divisor_frec:u5|temporal ; 2535     ; 1266     ; 0        ; 0        ;
 ; divisor_frec:U0|temporal ; encendido                ; 9        ; 0        ; 0        ; 0        ;
 ; divisor_frec:u5|temporal ; encendido                ; 9        ; 0        ; 0        ; 0        ;
@@ -683,7 +683,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Unconstrained Input Ports       ; 3     ; 3    ;
 ; Unconstrained Input Port Paths  ; 21    ; 21   ;
 ; Unconstrained Output Ports      ; 24    ; 24   ;
-; Unconstrained Output Port Paths ; 878   ; 878  ;
+; Unconstrained Output Port Paths ; 738   ; 738  ;
 +---------------------------------+-------+------+
 
 
@@ -793,7 +793,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue Jan 10 21:34:53 2023
+    Info: Processing started: Tue Jan 10 22:37:46 2023
 Info: Command: quartus_sta pingpong -c pingpong
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -807,68 +807,68 @@ Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name divisor_frec:U0|temporal divisor_frec:U0|temporal
     Info (332105): create_clock -period 1.000 -name divisor_frec:u5|temporal divisor_frec:u5|temporal
     Info (332105): create_clock -period 1.000 -name encendido encendido
-    Info (332105): create_clock -period 1.000 -name clk clk
     Info (332105): create_clock -period 1.000 -name divisor_frec:u3|temporal divisor_frec:u3|temporal
+    Info (332105): create_clock -period 1.000 -name clk clk
     Info (332105): create_clock -period 1.000 -name controlador_vga:u1|Hsync controlador_vga:u1|Hsync
 Warning (332125): Found combinational loop of 18 nodes File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 196
     Warning (332126): Node "u2|Direccion_pelota[0]~6|combout"
-    Warning (332126): Node "u2|Direccion_pelota~72|datac"
-    Warning (332126): Node "u2|Direccion_pelota~72|combout"
-    Warning (332126): Node "u2|Direccion_pelota[2]~10|datac"
-    Warning (332126): Node "u2|Direccion_pelota[2]~10|combout"
-    Warning (332126): Node "u2|Direccion_pelota~60|datab"
-    Warning (332126): Node "u2|Direccion_pelota~60|combout"
-    Warning (332126): Node "u2|Direccion_pelota[1]~2|dataa"
-    Warning (332126): Node "u2|Direccion_pelota[1]~2|combout"
-    Warning (332126): Node "u2|Direccion_pelota~65|dataa"
+    Warning (332126): Node "u2|Direccion_pelota~65|datab"
     Warning (332126): Node "u2|Direccion_pelota~65|combout"
     Warning (332126): Node "u2|Direccion_pelota[0]~6|dataa"
-    Warning (332126): Node "u2|Direccion_pelota~72|datad"
-    Warning (332126): Node "u2|Direccion_pelota~60|datad"
+    Warning (332126): Node "u2|Direccion_pelota~72|dataa"
+    Warning (332126): Node "u2|Direccion_pelota~72|combout"
+    Warning (332126): Node "u2|Direccion_pelota[2]~10|datab"
+    Warning (332126): Node "u2|Direccion_pelota[2]~10|combout"
+    Warning (332126): Node "u2|Direccion_pelota~60|dataa"
+    Warning (332126): Node "u2|Direccion_pelota~60|combout"
+    Warning (332126): Node "u2|Direccion_pelota[1]~2|datab"
+    Warning (332126): Node "u2|Direccion_pelota[1]~2|combout"
+    Warning (332126): Node "u2|Direccion_pelota~65|dataa"
     Warning (332126): Node "u2|Direccion_pelota~72|datab"
-    Warning (332126): Node "u2|Direccion_pelota~65|datac"
-    Warning (332126): Node "u2|Direccion_pelota~65|datad"
     Warning (332126): Node "u2|Direccion_pelota~60|datac"
+    Warning (332126): Node "u2|Direccion_pelota~72|datad"
+    Warning (332126): Node "u2|Direccion_pelota~65|datad"
+    Warning (332126): Node "u2|Direccion_pelota~60|datab"
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -12.964
+Info (332146): Worst-case setup slack is -12.103
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -12.964            -228.510 divisor_frec:u5|temporal 
-    Info (332119):    -9.594             -27.977 encendido 
-    Info (332119):    -5.000            -341.452 divisor_frec:U0|temporal 
-    Info (332119):    -3.925             -64.924 clk 
-    Info (332119):    -3.115             -28.330 controlador_vga:u1|Hsync 
-    Info (332119):    -2.832             -49.128 divisor_frec:u3|temporal 
-Info (332146): Worst-case hold slack is 0.347
+    Info (332119):   -12.103            -225.862 divisor_frec:u5|temporal 
+    Info (332119):    -8.918             -26.289 encendido 
+    Info (332119):    -5.249            -321.563 divisor_frec:U0|temporal 
+    Info (332119):    -4.580             -68.913 clk 
+    Info (332119):    -3.300             -30.723 controlador_vga:u1|Hsync 
+    Info (332119):    -2.703             -47.330 divisor_frec:u3|temporal 
+Info (332146): Worst-case hold slack is 0.348
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.347               0.000 controlador_vga:u1|Hsync 
+    Info (332119):     0.348               0.000 controlador_vga:u1|Hsync 
     Info (332119):     0.348               0.000 divisor_frec:U0|temporal 
     Info (332119):     0.638               0.000 clk 
-    Info (332119):     0.668               0.000 divisor_frec:u5|temporal 
-    Info (332119):     0.777               0.000 divisor_frec:u3|temporal 
-    Info (332119):     1.641               0.000 encendido 
-Info (332146): Worst-case recovery slack is -4.585
+    Info (332119):     0.665               0.000 divisor_frec:u5|temporal 
+    Info (332119):     1.000               0.000 divisor_frec:u3|temporal 
+    Info (332119):     1.918               0.000 encendido 
+Info (332146): Worst-case recovery slack is -3.525
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.585            -180.548 divisor_frec:U0|temporal 
-    Info (332119):    -3.072             -61.919 divisor_frec:u5|temporal 
-    Info (332119):    -2.490             -87.035 clk 
-    Info (332119):    -2.367             -43.220 divisor_frec:u3|temporal 
-    Info (332119):    -2.272             -43.786 controlador_vga:u1|Hsync 
-Info (332146): Worst-case removal slack is 1.170
+    Info (332119):    -3.525             -75.468 divisor_frec:u5|temporal 
+    Info (332119):    -2.989            -169.552 divisor_frec:U0|temporal 
+    Info (332119):    -2.476             -85.396 clk 
+    Info (332119):    -2.200             -42.131 controlador_vga:u1|Hsync 
+    Info (332119):    -2.121             -41.768 divisor_frec:u3|temporal 
+Info (332146): Worst-case removal slack is 1.274
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.170               0.000 divisor_frec:U0|temporal 
-    Info (332119):     1.661               0.000 divisor_frec:u5|temporal 
-    Info (332119):     1.860               0.000 controlador_vga:u1|Hsync 
-    Info (332119):     1.952               0.000 divisor_frec:u3|temporal 
-    Info (332119):     2.239               0.000 clk 
+    Info (332119):     1.274               0.000 divisor_frec:U0|temporal 
+    Info (332119):     1.842               0.000 controlador_vga:u1|Hsync 
+    Info (332119):     1.953               0.000 divisor_frec:u3|temporal 
+    Info (332119):     2.196               0.000 clk 
+    Info (332119):     2.449               0.000 divisor_frec:u5|temporal 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -883,40 +883,40 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -12.008
+Info (332146): Worst-case setup slack is -11.171
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -12.008            -211.114 divisor_frec:u5|temporal 
-    Info (332119):    -8.857             -25.824 encendido 
-    Info (332119):    -4.568            -308.592 divisor_frec:U0|temporal 
-    Info (332119):    -3.574             -55.960 clk 
-    Info (332119):    -2.779             -24.072 controlador_vga:u1|Hsync 
-    Info (332119):    -2.521             -43.784 divisor_frec:u3|temporal 
+    Info (332119):   -11.171            -206.884 divisor_frec:u5|temporal 
+    Info (332119):    -8.193             -24.219 encendido 
+    Info (332119):    -4.751            -289.691 divisor_frec:U0|temporal 
+    Info (332119):    -4.117             -59.339 clk 
+    Info (332119):    -2.930             -26.023 controlador_vga:u1|Hsync 
+    Info (332119):    -2.379             -41.607 divisor_frec:u3|temporal 
 Info (332146): Worst-case hold slack is 0.311
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.311               0.000 controlador_vga:u1|Hsync 
     Info (332119):     0.312               0.000 divisor_frec:U0|temporal 
-    Info (332119):     0.587               0.000 clk 
-    Info (332119):     0.618               0.000 divisor_frec:u5|temporal 
-    Info (332119):     0.710               0.000 divisor_frec:u3|temporal 
-    Info (332119):     1.392               0.000 encendido 
-Info (332146): Worst-case recovery slack is -4.103
+    Info (332119):     0.591               0.000 clk 
+    Info (332119):     0.616               0.000 divisor_frec:u5|temporal 
+    Info (332119):     0.922               0.000 divisor_frec:u3|temporal 
+    Info (332119):     1.611               0.000 encendido 
+Info (332146): Worst-case recovery slack is -3.238
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.103            -162.324 divisor_frec:U0|temporal 
-    Info (332119):    -2.788             -56.090 divisor_frec:u5|temporal 
-    Info (332119):    -2.208             -76.760 clk 
-    Info (332119):    -2.092             -38.378 divisor_frec:u3|temporal 
-    Info (332119):    -2.022             -38.835 controlador_vga:u1|Hsync 
-Info (332146): Worst-case removal slack is 1.067
+    Info (332119):    -3.238             -69.304 divisor_frec:u5|temporal 
+    Info (332119):    -2.654            -150.382 divisor_frec:U0|temporal 
+    Info (332119):    -2.178             -75.132 clk 
+    Info (332119):    -1.927             -37.607 controlador_vga:u1|Hsync 
+    Info (332119):    -1.888             -37.074 divisor_frec:u3|temporal 
+Info (332146): Worst-case removal slack is 1.185
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.067               0.000 divisor_frec:U0|temporal 
-    Info (332119):     1.502               0.000 divisor_frec:u5|temporal 
-    Info (332119):     1.781               0.000 controlador_vga:u1|Hsync 
-    Info (332119):     1.923               0.000 divisor_frec:u3|temporal 
-    Info (332119):     2.187               0.000 clk 
+    Info (332119):     1.185               0.000 divisor_frec:U0|temporal 
+    Info (332119):     1.766               0.000 controlador_vga:u1|Hsync 
+    Info (332119):     1.928               0.000 divisor_frec:u3|temporal 
+    Info (332119):     2.158               0.000 clk 
+    Info (332119):     2.227               0.000 divisor_frec:u5|temporal 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -929,44 +929,44 @@ Info (332146): Worst-case minimum pulse width slack is -3.000
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -5.330
+Info (332146): Worst-case setup slack is -4.856
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -5.330             -93.306 divisor_frec:u5|temporal 
-    Info (332119):    -4.051             -11.748 encendido 
-    Info (332119):    -1.605            -100.500 divisor_frec:U0|temporal 
-    Info (332119):    -1.186              -7.937 clk 
-    Info (332119):    -0.894              -2.828 controlador_vga:u1|Hsync 
-    Info (332119):    -0.670              -9.736 divisor_frec:u3|temporal 
-Info (332146): Worst-case hold slack is 0.151
+    Info (332119):    -4.856             -89.855 divisor_frec:u5|temporal 
+    Info (332119):    -3.778             -11.211 encendido 
+    Info (332119):    -1.667             -87.606 divisor_frec:U0|temporal 
+    Info (332119):    -1.503              -9.776 clk 
+    Info (332119):    -0.939              -3.066 controlador_vga:u1|Hsync 
+    Info (332119):    -0.575              -8.377 divisor_frec:u3|temporal 
+Info (332146): Worst-case hold slack is 0.152
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.151               0.000 controlador_vga:u1|Hsync 
-    Info (332119):     0.152               0.000 divisor_frec:U0|temporal 
-    Info (332119):     0.247               0.000 clk 
+    Info (332119):     0.152               0.000 controlador_vga:u1|Hsync 
+    Info (332119):     0.153               0.000 divisor_frec:U0|temporal 
+    Info (332119):     0.248               0.000 clk 
     Info (332119):     0.260               0.000 divisor_frec:u5|temporal 
-    Info (332119):     0.302               0.000 divisor_frec:u3|temporal 
-    Info (332119):     0.688               0.000 encendido 
-Info (332146): Worst-case recovery slack is -2.247
+    Info (332119):     0.393               0.000 divisor_frec:u3|temporal 
+    Info (332119):     0.839               0.000 encendido 
+Info (332146): Worst-case recovery slack is -1.531
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.247             -77.664 divisor_frec:U0|temporal 
-    Info (332119):    -1.326             -26.755 divisor_frec:u5|temporal 
-    Info (332119):    -1.153             -39.484 clk 
-    Info (332119):    -1.060             -19.422 divisor_frec:u3|temporal 
-    Info (332119):    -1.001             -16.894 controlador_vga:u1|Hsync 
-Info (332146): Worst-case removal slack is 0.414
+    Info (332119):    -1.531             -32.834 divisor_frec:u5|temporal 
+    Info (332119):    -1.403             -73.907 divisor_frec:U0|temporal 
+    Info (332119):    -1.128             -38.494 clk 
+    Info (332119):    -1.040             -17.983 controlador_vga:u1|Hsync 
+    Info (332119):    -0.946             -18.455 divisor_frec:u3|temporal 
+Info (332146): Worst-case removal slack is 0.439
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.414               0.000 divisor_frec:U0|temporal 
-    Info (332119):     0.551               0.000 controlador_vga:u1|Hsync 
-    Info (332119):     0.551               0.000 divisor_frec:u3|temporal 
-    Info (332119):     0.627               0.000 clk 
-    Info (332119):     0.725               0.000 divisor_frec:u5|temporal 
+    Info (332119):     0.439               0.000 divisor_frec:U0|temporal 
+    Info (332119):     0.552               0.000 controlador_vga:u1|Hsync 
+    Info (332119):     0.569               0.000 divisor_frec:u3|temporal 
+    Info (332119):     0.644               0.000 clk 
+    Info (332119):     1.063               0.000 divisor_frec:u5|temporal 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -40.168 clk 
+    Info (332119):    -3.000             -40.152 clk 
     Info (332119):    -3.000              -3.000 encendido 
     Info (332119):    -1.000             -87.000 divisor_frec:U0|temporal 
     Info (332119):    -1.000             -23.000 divisor_frec:u5|temporal 
@@ -975,9 +975,9 @@ Info (332146): Worst-case minimum pulse width slack is -3.000
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 25 warnings
-    Info: Peak virtual memory: 4807 megabytes
-    Info: Processing ended: Tue Jan 10 21:34:58 2023
-    Info: Elapsed time: 00:00:05
+    Info: Peak virtual memory: 4803 megabytes
+    Info: Processing ended: Tue Jan 10 22:37:50 2023
+    Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:05
 
 
