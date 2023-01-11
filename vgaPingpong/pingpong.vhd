@@ -205,22 +205,25 @@ architecture PINGPONG_bhv of PINGPONG is
 		attribute chip_pin : string;
 		
 		attribute chip_pin of clk	       : signal is "N14";
-		attribute chip_pin of encendido	   : signal is "F15";
+		attribute chip_pin of encendido	   : signal is "B12";
 		
-		attribute chip_pin of palancasjugadores : signal is "C10,C11";--"C10,C11,C12,A12";
+		attribute chip_pin of palancasjugadores : signal is "C10, f15";-- j1,j2
 		attribute chip_pin of start_game       : signal is "B8";
 		
 		
 		attribute chip_pin of Hsync	       : signal is "N3";
 		attribute chip_pin of Vsync	       : signal is "n1";
 
-		attribute chip_pin of R1		       : signal is "D12";
-		attribute chip_pin of G1		       : signal is "C12";
-		attribute chip_pin of B1		       : signal is "A12";
+		attribute chip_pin of R1		       : signal is "B14";
+		attribute chip_pin of G1		       : signal is "A14";
+		attribute chip_pin of B1		       : signal is "A13";
+		
+		attribute chip_pin of R2		       : signal is "C12";
+		attribute chip_pin of G2		       : signal is "D12";
+		attribute chip_pin of B2		       : signal is "C11";
 
-		attribute chip_pin of R2		       : signal is "B12";
-		attribute chip_pin of G2		       : signal is "A13";
-		attribute chip_pin of B2		       : signal is "A14";
+		
+
 		
 		attribute chip_pin of R		       : signal is "AA1, V1, Y2, Y1";
 		attribute chip_pin of G		       : signal is "W1, T2, R2, R1";

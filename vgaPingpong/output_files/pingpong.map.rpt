@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pingpong
-Tue Jan 10 15:14:11 2023
+Tue Jan 10 21:34:26 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -53,13 +53,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jan 10 15:14:11 2023       ;
+; Analysis & Synthesis Status        ; Successful - Tue Jan 10 21:34:26 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; pingpong                                    ;
 ; Top-level Entity Name              ; PINGPONG                                    ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 711                                         ;
-;     Total combinational functions  ; 711                                         ;
+; Total logic elements               ; 792                                         ;
+;     Total combinational functions  ; 792                                         ;
 ;     Dedicated logic registers      ; 187                                         ;
 ; Total registers                    ; 187                                         ;
 ; Total pins                         ; 41                                          ;
@@ -193,17 +193,17 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------+
 ; Resource                                    ; Usage           ;
 +---------------------------------------------+-----------------+
-; Estimated Total logic elements              ; 711             ;
+; Estimated Total logic elements              ; 792             ;
 ;                                             ;                 ;
-; Total combinational functions               ; 711             ;
+; Total combinational functions               ; 792             ;
 ; Logic element usage by number of LUT inputs ;                 ;
-;     -- 4 input functions                    ; 155             ;
-;     -- 3 input functions                    ; 192             ;
-;     -- <=2 input functions                  ; 364             ;
+;     -- 4 input functions                    ; 179             ;
+;     -- 3 input functions                    ; 226             ;
+;     -- <=2 input functions                  ; 387             ;
 ;                                             ;                 ;
 ; Logic elements by mode                      ;                 ;
-;     -- normal mode                          ; 275             ;
-;     -- arithmetic mode                      ; 436             ;
+;     -- normal mode                          ; 300             ;
+;     -- arithmetic mode                      ; 492             ;
 ;                                             ;                 ;
 ; Total registers                             ; 187             ;
 ;     -- Dedicated logic registers            ; 187             ;
@@ -215,8 +215,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                 ;
 ; Maximum fan-out node                        ; encendido~input ;
 ; Maximum fan-out                             ; 148             ;
-; Total fan-out                               ; 2648            ;
-; Average fan-out                             ; 2.70            ;
+; Total fan-out                               ; 2888            ;
+; Average fan-out                             ; 2.72            ;
 +---------------------------------------------+-----------------+
 
 
@@ -225,12 +225,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------+------------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name           ; Entity Name      ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------+------------------+--------------+
-; |PINGPONG                  ; 711 (0)             ; 187 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 41   ; 0            ; 0          ; |PINGPONG                     ; PINGPONG         ; work         ;
-;    |controlador_vga:u1|    ; 43 (43)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|controlador_vga:u1  ; controlador_vga  ; work         ;
+; |PINGPONG                  ; 792 (0)             ; 187 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 41   ; 0            ; 0          ; |PINGPONG                     ; PINGPONG         ; work         ;
+;    |controlador_vga:u1|    ; 44 (44)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|controlador_vga:u1  ; controlador_vga  ; work         ;
 ;    |divisor_frec:U0|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|divisor_frec:U0     ; divisor_frec     ; work         ;
-;    |divisor_frec:u3|       ; 28 (28)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|divisor_frec:u3     ; divisor_frec     ; work         ;
-;    |divisor_frec:u5|       ; 34 (34)             ; 19 (19)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|divisor_frec:u5     ; divisor_frec     ; work         ;
-;    |imprime_pantalla:u2|   ; 559 (559)           ; 128 (128)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|imprime_pantalla:u2 ; imprime_pantalla ; work         ;
+;    |divisor_frec:u3|       ; 30 (30)             ; 18 (18)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|divisor_frec:u3     ; divisor_frec     ; work         ;
+;    |divisor_frec:u5|       ; 32 (32)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|divisor_frec:u5     ; divisor_frec     ; work         ;
+;    |imprime_pantalla:u2|   ; 639 (639)           ; 128 (128)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|imprime_pantalla:u2 ; imprime_pantalla ; work         ;
 ;    |marcador_dss:u4|       ; 46 (46)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PINGPONG|marcador_dss:u4     ; marcador_dss     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -247,8 +247,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; divisor_frec:U0|ContadorAscendente               ; Stuck at GND due to stuck port data_in              ;
 ; imprime_pantalla:u2|coord_x_raqueta1[4,5]        ; Merged with imprime_pantalla:u2|coord_x_raqueta1[1] ;
 ; imprime_pantalla:u2|coord_x_raqueta2[1..3,6,9]   ; Merged with imprime_pantalla:u2|coord_x_raqueta1[1] ;
-; divisor_frec:u3|ContadorAscendente[0]            ; Merged with divisor_frec:u5|ContadorAscendente[0]   ;
-; divisor_frec:u3|ContadorAscendente[1]            ; Merged with divisor_frec:u5|ContadorAscendente[1]   ;
+; divisor_frec:u5|ContadorAscendente[0]            ; Merged with divisor_frec:u3|ContadorAscendente[0]   ;
+; divisor_frec:u5|ContadorAscendente[1]            ; Merged with divisor_frec:u3|ContadorAscendente[1]   ;
 ; imprime_pantalla:u2|coord_x_raqueta1[1]          ; Stuck at GND due to stuck port data_in              ;
 ; Total Number of Removed Registers = 24           ;                                                     ;
 +--------------------------------------------------+-----------------------------------------------------+
@@ -274,20 +274,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------+---------+
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
+; imprime_pantalla:u2|coord_y_raqueta2[7] ; 10      ;
+; imprime_pantalla:u2|coord_y_raqueta2[6] ; 10      ;
+; imprime_pantalla:u2|coord_y_raqueta2[5] ; 10      ;
+; imprime_pantalla:u2|coord_y_raqueta2[4] ; 10      ;
 ; imprime_pantalla:u2|Coord_x_pelota[8]   ; 9       ;
 ; imprime_pantalla:u2|Coord_x_pelota[6]   ; 9       ;
 ; imprime_pantalla:u2|Coord_y_pelota[7]   ; 12      ;
 ; imprime_pantalla:u2|Coord_y_pelota[6]   ; 12      ;
 ; imprime_pantalla:u2|Coord_y_pelota[5]   ; 12      ;
 ; imprime_pantalla:u2|Coord_y_pelota[4]   ; 12      ;
-; imprime_pantalla:u2|coord_y_raqueta2[7] ; 9       ;
-; imprime_pantalla:u2|coord_y_raqueta2[6] ; 9       ;
-; imprime_pantalla:u2|coord_y_raqueta2[5] ; 9       ;
-; imprime_pantalla:u2|coord_y_raqueta2[4] ; 9       ;
-; imprime_pantalla:u2|coord_y_raqueta1[7] ; 9       ;
-; imprime_pantalla:u2|coord_y_raqueta1[6] ; 9       ;
-; imprime_pantalla:u2|coord_y_raqueta1[5] ; 9       ;
-; imprime_pantalla:u2|coord_y_raqueta1[4] ; 9       ;
+; imprime_pantalla:u2|coord_y_raqueta1[7] ; 10      ;
+; imprime_pantalla:u2|coord_y_raqueta1[6] ; 10      ;
+; imprime_pantalla:u2|coord_y_raqueta1[5] ; 10      ;
+; imprime_pantalla:u2|coord_y_raqueta1[4] ; 10      ;
 ; Total number of inverted registers = 14 ;         ;
 +-----------------------------------------+---------+
 
@@ -299,14 +299,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
 ; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |PINGPONG|imprime_pantalla:u2|marcador_j2[16]     ;
 ; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |PINGPONG|imprime_pantalla:u2|marcador_j1[16]     ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |PINGPONG|imprime_pantalla:u2|Coord_y_pelota[3]   ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |PINGPONG|imprime_pantalla:u2|Coord_x_pelota[7]   ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:u2|coord_y_raqueta1[1] ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:u2|coord_y_raqueta2[2] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:u2|Coord_y_pelota[4]   ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:u2|Coord_x_pelota[8]   ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:u2|coord_y_raqueta1[0] ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:u2|coord_y_raqueta2[9] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |PINGPONG|imprime_pantalla:u2|Coord_y_pelota[9]   ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |PINGPONG|imprime_pantalla:u2|Coord_x_pelota[9]   ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:u2|coord_y_raqueta1[7] ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:u2|coord_y_raqueta2[7] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:u2|coord_y_raqueta2[4] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:u2|Coord_y_pelota[4]   ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:u2|Coord_x_pelota[6]   ;
 ; 20:1               ; 2 bits    ; 26 LEs        ; 24 LEs               ; 2 LEs                  ; Yes        ; |PINGPONG|imprime_pantalla:u2|Direccion_pelota[0] ;
 ; 6:1                ; 10 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; No         ; |PINGPONG|imprime_pantalla:u2|Add9                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
@@ -318,7 +318,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Assignment ; Value   ; From ; To                   ;
 +------------+---------+------+----------------------+
 ; LOCATION   ; Pin_C10 ; -    ; palancasjugadores[1] ;
-; LOCATION   ; Pin_C11 ; -    ; palancasjugadores[0] ;
+; LOCATION   ; Pin_f15 ; -    ; palancasjugadores[0] ;
 ; LOCATION   ; Pin_B22 ; -    ; seg_marcador_j1[6]   ;
 ; LOCATION   ; Pin_C22 ; -    ; seg_marcador_j1[5]   ;
 ; LOCATION   ; Pin_B21 ; -    ; seg_marcador_j1[4]   ;
@@ -346,18 +346,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LOCATION   ; Pin_P4  ; -    ; B[1]                 ;
 ; LOCATION   ; Pin_N2  ; -    ; B[0]                 ;
 ; LOCATION   ; Pin_N14 ; -    ; clk                  ;
-; LOCATION   ; Pin_F15 ; -    ; encendido            ;
+; LOCATION   ; Pin_B12 ; -    ; encendido            ;
 ; LOCATION   ; Pin_N3  ; -    ; Hsync                ;
 ; LOCATION   ; Pin_n1  ; -    ; Vsync                ;
 ; LOCATION   ; Pin_B8  ; -    ; start_game           ;
 ; LOCATION   ; Pin_B17 ; -    ; separador1_marcador  ;
 ; LOCATION   ; Pin_N20 ; -    ; separador2_marcador  ;
-; LOCATION   ; Pin_D12 ; -    ; R1                   ;
-; LOCATION   ; Pin_C12 ; -    ; G1                   ;
-; LOCATION   ; Pin_A12 ; -    ; B1                   ;
-; LOCATION   ; Pin_B12 ; -    ; R2                   ;
-; LOCATION   ; Pin_A13 ; -    ; G2                   ;
-; LOCATION   ; Pin_A14 ; -    ; B2                   ;
+; LOCATION   ; Pin_B14 ; -    ; R1                   ;
+; LOCATION   ; Pin_A14 ; -    ; G1                   ;
+; LOCATION   ; Pin_A13 ; -    ; B1                   ;
+; LOCATION   ; Pin_C12 ; -    ; R2                   ;
+; LOCATION   ; Pin_D12 ; -    ; G2                   ;
+; LOCATION   ; Pin_C11 ; -    ; B2                   ;
 +------------+---------+------+----------------------+
 
 
@@ -462,19 +462,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA CLR           ; 19                          ;
 ;     ENA CLR SCLR      ; 64                          ;
 ;     plain             ; 1                           ;
-; cycloneiii_lcell_comb ; 717                         ;
-;     arith             ; 436                         ;
-;         2 data inputs ; 281                         ;
-;         3 data inputs ; 155                         ;
-;     normal            ; 281                         ;
-;         0 data inputs ; 15                          ;
+; cycloneiii_lcell_comb ; 798                         ;
+;     arith             ; 492                         ;
+;         2 data inputs ; 301                         ;
+;         3 data inputs ; 191                         ;
+;     normal            ; 306                         ;
+;         0 data inputs ; 17                          ;
 ;         1 data inputs ; 25                          ;
-;         2 data inputs ; 49                          ;
-;         3 data inputs ; 37                          ;
-;         4 data inputs ; 155                         ;
+;         2 data inputs ; 50                          ;
+;         3 data inputs ; 35                          ;
+;         4 data inputs ; 179                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 11.40                       ;
-; Average LUT depth     ; 5.80                        ;
+; Max LUT depth         ; 10.00                       ;
+; Average LUT depth     ; 6.07                        ;
 +-----------------------+-----------------------------+
 
 
@@ -493,7 +493,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue Jan 10 15:13:53 2023
+    Info: Processing started: Tue Jan 10 21:34:09 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pingpong -c pingpong
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -513,30 +513,18 @@ Info (12021): Found 2 design units, including 1 entities, in source file pingpon
     Info (12022): Found design unit 1: PINGPONG-PINGPONG_bhv File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 63
     Info (12023): Found entity 1: PINGPONG File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 8
 Info (12127): Elaborating entity "pingpong" for the top level hierarchy
-Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:U0" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 241
-Info (12128): Elaborating entity "controlador_vga" for hierarchy "controlador_vga:u1" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 247
-Info (12128): Elaborating entity "imprime_pantalla" for hierarchy "imprime_pantalla:u2" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 271
+Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:U0" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 244
+Info (12128): Elaborating entity "controlador_vga" for hierarchy "controlador_vga:u1" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 250
+Info (12128): Elaborating entity "imprime_pantalla" for hierarchy "imprime_pantalla:u2" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 274
 Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(99): signal "encendido" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 99
 Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(115): signal "encendido" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 115
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(432): signal "R1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 432
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(432): signal "G1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 432
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(432): signal "B1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 432
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(437): signal "R1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 437
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(438): signal "G1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 438
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(439): signal "B1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 439
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(449): signal "R2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 449
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(449): signal "G2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 449
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(449): signal "B2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 449
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(454): signal "R2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 454
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(455): signal "G2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 455
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(456): signal "B2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 456
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(463): signal "Coord_x_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 463
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(464): signal "Coord_x_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 464
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(465): signal "Coord_y_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 465
-Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(466): signal "Coord_y_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 466
-Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:u3" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 315
-Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:u5" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 321
-Info (12128): Elaborating entity "marcador_dss" for hierarchy "marcador_dss:u4" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 327
+Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(479): signal "Coord_x_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 479
+Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(480): signal "Coord_x_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 480
+Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(481): signal "Coord_y_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 481
+Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(482): signal "Coord_y_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 482
+Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:u3" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 318
+Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:u5" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 324
+Info (12128): Elaborating entity "marcador_dss" for hierarchy "marcador_dss:u4" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 330
 Info (13000): Registers with preset signals will power-up high File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 137
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
@@ -552,12 +540,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "B[1]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 56
 Info (286030): Timing-Driven Synthesis is running
 Critical Warning (18061): Ignored Power-Up Level option on the following registers
-    Critical Warning (18010): Register imprime_pantalla:u2|Coord_x_pelota[8] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 196
-    Critical Warning (18010): Register imprime_pantalla:u2|Coord_x_pelota[6] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 196
-    Critical Warning (18010): Register imprime_pantalla:u2|Coord_y_pelota[7] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 196
-    Critical Warning (18010): Register imprime_pantalla:u2|Coord_y_pelota[6] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 196
-    Critical Warning (18010): Register imprime_pantalla:u2|Coord_y_pelota[5] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 196
-    Critical Warning (18010): Register imprime_pantalla:u2|Coord_y_pelota[4] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 196
     Critical Warning (18010): Register imprime_pantalla:u2|coord_y_raqueta1[7] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 137
     Critical Warning (18010): Register imprime_pantalla:u2|coord_y_raqueta1[6] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 137
     Critical Warning (18010): Register imprime_pantalla:u2|coord_y_raqueta1[5] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 137
@@ -567,6 +549,12 @@ Critical Warning (18061): Ignored Power-Up Level option on the following registe
     Critical Warning (18010): Register imprime_pantalla:u2|coord_y_raqueta2[6] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 137
     Critical Warning (18010): Register imprime_pantalla:u2|coord_y_raqueta2[5] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 137
     Critical Warning (18010): Register imprime_pantalla:u2|coord_y_raqueta2[4] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 137
+    Critical Warning (18010): Register imprime_pantalla:u2|Coord_x_pelota[8] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 196
+    Critical Warning (18010): Register imprime_pantalla:u2|Coord_x_pelota[6] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 196
+    Critical Warning (18010): Register imprime_pantalla:u2|Coord_y_pelota[7] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 196
+    Critical Warning (18010): Register imprime_pantalla:u2|Coord_y_pelota[6] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 196
+    Critical Warning (18010): Register imprime_pantalla:u2|Coord_y_pelota[5] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 196
+    Critical Warning (18010): Register imprime_pantalla:u2|Coord_y_pelota[4] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 196
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 6 input pin(s) that do not drive logic
@@ -576,14 +564,14 @@ Warning (21074): Design contains 6 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "R2" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 55
     Warning (15610): No output dependent on input pin "G2" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 55
     Warning (15610): No output dependent on input pin "B2" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 55
-Info (21057): Implemented 765 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 846 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 30 output pins
-    Info (21061): Implemented 724 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 53 warnings
-    Info: Peak virtual memory: 4788 megabytes
-    Info: Processing ended: Tue Jan 10 15:14:11 2023
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:31
+    Info (21061): Implemented 805 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 41 warnings
+    Info: Peak virtual memory: 4787 megabytes
+    Info: Processing ended: Tue Jan 10 21:34:26 2023
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:34
 
 
