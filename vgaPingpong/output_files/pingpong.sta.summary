@@ -3,91 +3,91 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'divisor_frec:u5|temporal'
-Slack : -12.729
-TNS   : -225.553
+Slack : -12.749
+TNS   : -233.133
 
 Type  : Slow 1200mV 85C Model Setup 'encendido'
-Slack : -9.852
-TNS   : -28.839
+Slack : -10.399
+TNS   : -30.510
 
 Type  : Slow 1200mV 85C Model Setup 'divisor_frec:U0|temporal'
-Slack : -4.939
-TNS   : -307.095
+Slack : -5.030
+TNS   : -302.369
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -4.050
-TNS   : -61.590
+Slack : -3.800
+TNS   : -65.008
 
 Type  : Slow 1200mV 85C Model Setup 'controlador_vga:u1|Hsync'
-Slack : -3.115
-TNS   : -27.916
+Slack : -3.057
+TNS   : -29.502
 
 Type  : Slow 1200mV 85C Model Setup 'divisor_frec:u3|temporal'
-Slack : -2.489
-TNS   : -44.249
+Slack : -2.745
+TNS   : -47.347
 
 Type  : Slow 1200mV 85C Model Hold 'divisor_frec:U0|temporal'
 Slack : 0.347
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'controlador_vga:u1|Hsync'
-Slack : 0.349
+Slack : 0.348
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'divisor_frec:u5|temporal'
-Slack : 0.425
+Slack : 0.443
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.438
+Slack : 0.639
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'divisor_frec:u3|temporal'
-Slack : 0.939
+Slack : 0.952
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'encendido'
-Slack : 2.080
+Slack : 2.160
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'divisor_frec:u5|temporal'
-Slack : -3.637
-TNS   : -74.541
+Slack : -2.581
+TNS   : -59.363
 
 Type  : Slow 1200mV 85C Model Recovery 'divisor_frec:u3|temporal'
-Slack : -2.564
-TNS   : -48.946
-
-Type  : Slow 1200mV 85C Model Recovery 'controlador_vga:u1|Hsync'
-Slack : -2.499
-TNS   : -48.563
+Slack : -2.035
+TNS   : -37.455
 
 Type  : Slow 1200mV 85C Model Recovery 'clk'
-Slack : -2.311
-TNS   : -82.163
+Slack : -2.031
+TNS   : -71.665
 
 Type  : Slow 1200mV 85C Model Recovery 'divisor_frec:U0|temporal'
-Slack : -2.190
-TNS   : -176.959
+Slack : -2.006
+TNS   : -144.010
+
+Type  : Slow 1200mV 85C Model Recovery 'controlador_vga:u1|Hsync'
+Slack : -1.861
+TNS   : -36.813
 
 Type  : Slow 1200mV 85C Model Removal 'divisor_frec:U0|temporal'
-Slack : 1.376
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Removal 'controlador_vga:u1|Hsync'
-Slack : 1.987
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Removal 'clk'
-Slack : 2.003
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Removal 'divisor_frec:u5|temporal'
-Slack : 2.104
+Slack : 1.184
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'divisor_frec:u3|temporal'
-Slack : 2.122
+Slack : 1.602
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'controlador_vga:u1|Hsync'
+Slack : 1.606
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'divisor_frec:u5|temporal'
+Slack : 1.814
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'clk'
+Slack : 1.832
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
@@ -116,90 +116,90 @@ TNS   : -28.060
 
 Type  : Slow 1200mV 0C Model Setup 'divisor_frec:u5|temporal'
 Slack : -11.768
-TNS   : -208.632
+TNS   : -215.652
 
 Type  : Slow 1200mV 0C Model Setup 'encendido'
-Slack : -9.139
-TNS   : -26.846
+Slack : -9.622
+TNS   : -28.254
 
 Type  : Slow 1200mV 0C Model Setup 'divisor_frec:U0|temporal'
-Slack : -4.502
-TNS   : -275.453
+Slack : -4.492
+TNS   : -271.376
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -3.720
-TNS   : -53.243
+Slack : -3.477
+TNS   : -56.702
 
 Type  : Slow 1200mV 0C Model Setup 'controlador_vga:u1|Hsync'
-Slack : -2.770
-TNS   : -23.535
+Slack : -2.749
+TNS   : -24.937
 
 Type  : Slow 1200mV 0C Model Setup 'divisor_frec:u3|temporal'
-Slack : -2.186
-TNS   : -39.271
+Slack : -2.485
+TNS   : -42.032
+
+Type  : Slow 1200mV 0C Model Hold 'controlador_vga:u1|Hsync'
+Slack : 0.311
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'divisor_frec:U0|temporal'
 Slack : 0.312
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'controlador_vga:u1|Hsync'
-Slack : 0.313
-TNS   : 0.000
-
 Type  : Slow 1200mV 0C Model Hold 'divisor_frec:u5|temporal'
-Slack : 0.392
+Slack : 0.407
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.402
+Slack : 0.588
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'divisor_frec:u3|temporal'
-Slack : 0.851
+Slack : 0.877
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'encendido'
-Slack : 1.802
+Slack : 1.914
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'divisor_frec:u5|temporal'
-Slack : -3.311
-TNS   : -67.823
-
-Type  : Slow 1200mV 0C Model Recovery 'divisor_frec:u3|temporal'
-Slack : -2.249
-TNS   : -42.876
-
-Type  : Slow 1200mV 0C Model Recovery 'controlador_vga:u1|Hsync'
-Slack : -2.232
-TNS   : -42.942
+Slack : -2.367
+TNS   : -54.439
 
 Type  : Slow 1200mV 0C Model Recovery 'divisor_frec:U0|temporal'
-Slack : -2.024
-TNS   : -155.586
+Slack : -1.839
+TNS   : -126.068
+
+Type  : Slow 1200mV 0C Model Recovery 'divisor_frec:u3|temporal'
+Slack : -1.790
+TNS   : -32.840
 
 Type  : Slow 1200mV 0C Model Recovery 'clk'
-Slack : -2.022
-TNS   : -72.019
+Slack : -1.786
+TNS   : -63.070
+
+Type  : Slow 1200mV 0C Model Recovery 'controlador_vga:u1|Hsync'
+Slack : -1.665
+TNS   : -32.749
 
 Type  : Slow 1200mV 0C Model Removal 'divisor_frec:U0|temporal'
-Slack : 1.260
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'divisor_frec:u5|temporal'
-Slack : 1.919
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'clk'
-Slack : 1.989
+Slack : 1.058
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'controlador_vga:u1|Hsync'
-Slack : 1.998
+Slack : 1.552
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'divisor_frec:u3|temporal'
-Slack : 2.112
+Slack : 1.604
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'divisor_frec:u5|temporal'
+Slack : 1.638
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'clk'
+Slack : 1.822
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
@@ -227,96 +227,96 @@ Slack : -1.403
 TNS   : -28.060
 
 Type  : Fast 1200mV 0C Model Setup 'divisor_frec:u5|temporal'
-Slack : -5.258
-TNS   : -92.978
+Slack : -5.260
+TNS   : -95.595
 
 Type  : Fast 1200mV 0C Model Setup 'encendido'
-Slack : -4.322
-TNS   : -12.578
+Slack : -4.357
+TNS   : -12.918
 
 Type  : Fast 1200mV 0C Model Setup 'divisor_frec:U0|temporal'
-Slack : -1.586
-TNS   : -79.342
+Slack : -1.543
+TNS   : -84.201
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -1.195
-TNS   : -6.756
+Slack : -1.160
+TNS   : -8.727
 
 Type  : Fast 1200mV 0C Model Setup 'controlador_vga:u1|Hsync'
-Slack : -1.067
-TNS   : -2.801
+Slack : -0.780
+TNS   : -2.636
 
 Type  : Fast 1200mV 0C Model Setup 'divisor_frec:u3|temporal'
-Slack : -0.460
-TNS   : -6.684
+Slack : -0.695
+TNS   : -8.761
 
 Type  : Fast 1200mV 0C Model Hold 'divisor_frec:U0|temporal'
-Slack : 0.152
+Slack : 0.151
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'controlador_vga:u1|Hsync'
-Slack : 0.153
+Slack : 0.152
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'divisor_frec:u5|temporal'
-Slack : 0.170
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'clk'
 Slack : 0.178
 TNS   : 0.000
 
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.247
+TNS   : 0.000
+
 Type  : Fast 1200mV 0C Model Hold 'divisor_frec:u3|temporal'
-Slack : 0.374
+Slack : 0.355
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'encendido'
-Slack : 0.923
+Slack : 0.918
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'divisor_frec:u5|temporal'
-Slack : -1.583
-TNS   : -32.541
+Slack : -1.136
+TNS   : -26.126
 
 Type  : Fast 1200mV 0C Model Recovery 'divisor_frec:u3|temporal'
-Slack : -1.259
-TNS   : -23.864
-
-Type  : Fast 1200mV 0C Model Recovery 'controlador_vga:u1|Hsync'
-Slack : -1.100
-TNS   : -19.919
+Slack : -0.946
+TNS   : -17.220
 
 Type  : Fast 1200mV 0C Model Recovery 'clk'
-Slack : -1.038
-TNS   : -36.875
+Slack : -0.916
+TNS   : -32.468
+
+Type  : Fast 1200mV 0C Model Recovery 'controlador_vga:u1|Hsync'
+Slack : -0.806
+TNS   : -14.086
 
 Type  : Fast 1200mV 0C Model Recovery 'divisor_frec:U0|temporal'
-Slack : -1.017
-TNS   : -78.914
+Slack : -0.788
+TNS   : -63.883
 
 Type  : Fast 1200mV 0C Model Removal 'divisor_frec:U0|temporal'
-Slack : 0.496
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'controlador_vga:u1|Hsync'
-Slack : 0.571
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'clk'
-Slack : 0.574
+Slack : 0.404
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'divisor_frec:u3|temporal'
-Slack : 0.704
+Slack : 0.440
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'controlador_vga:u1|Hsync'
+Slack : 0.444
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'clk'
+Slack : 0.491
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'divisor_frec:u5|temporal'
-Slack : 0.920
+Slack : 0.781
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -40.169
+TNS   : -40.170
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'encendido'
 Slack : -3.000

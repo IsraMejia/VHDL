@@ -31,7 +31,6 @@ entity controlador_vga is
 		--BUFFER : permiten retroalimentacion interna en la entidad, pero no desde otras entidades
 		--util usar buffers ya que se retrolimentan las señales de sincronizacion  con datos de esta propia entidad nada mas
 		--buffers de entrada
-		--Aqui usamos Buffers pero en "image_generator" no, PORQUE NO?
 		Hsync	: buffer std_logic; -- Horizontal sync pulse. señal de sincronizacion horizontal
 		Vsync	: buffer std_logic; -- Vertical sync pulse. señal de sincronizacion vertical
 		--buffers de salida 
