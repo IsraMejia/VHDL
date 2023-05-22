@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pingpong
-Wed Jan 11 03:37:45 2023
+Wed Jan 11 12:34:40 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -52,7 +52,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jan 11 03:37:45 2023       ;
+; Analysis & Synthesis Status        ; Successful - Wed Jan 11 12:34:40 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; pingpong                                    ;
 ; Top-level Entity Name              ; PINGPONG                                    ;
@@ -443,7 +443,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed Jan 11 03:37:24 2023
+    Info: Processing started: Wed Jan 11 12:34:23 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pingpong -c pingpong
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -460,21 +460,21 @@ Info (12021): Found 2 design units, including 1 entities, in source file divisor
     Info (12022): Found design unit 1: divisor_frec-divisor_frec_bhv File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/divisor_frec.vhd Line: 19
     Info (12023): Found entity 1: divisor_frec File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/divisor_frec.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file pingpong.vhd
-    Info (12022): Found design unit 1: PINGPONG-PINGPONG_bhv File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 61
+    Info (12022): Found design unit 1: PINGPONG-PINGPONG_bhv File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 63
     Info (12023): Found entity 1: PINGPONG File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 8
 Info (12127): Elaborating entity "pingpong" for the top level hierarchy
-Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:U0" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 205
-Info (12128): Elaborating entity "controlador_vga" for hierarchy "controlador_vga:u1" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 211
-Info (12128): Elaborating entity "imprime_pantalla" for hierarchy "imprime_pantalla:u2" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 235
+Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:U0" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 207
+Info (12128): Elaborating entity "controlador_vga" for hierarchy "controlador_vga:u1" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 213
+Info (12128): Elaborating entity "imprime_pantalla" for hierarchy "imprime_pantalla:u2" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 237
 Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(97): signal "encendido" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 97
 Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(113): signal "encendido" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 113
 Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(438): signal "Coord_x_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 438
 Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(439): signal "Coord_x_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 439
 Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(440): signal "Coord_y_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 440
 Warning (10492): VHDL Process Statement warning at imprime_pantalla.vhd(441): signal "Coord_y_pelota" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 441
-Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:u3" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 270
-Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:u5" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 276
-Info (12128): Elaborating entity "marcador_dss" for hierarchy "marcador_dss:u4" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 282
+Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:u3" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 272
+Info (12128): Elaborating entity "divisor_frec" for hierarchy "divisor_frec:u5" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 278
+Info (12128): Elaborating entity "marcador_dss" for hierarchy "marcador_dss:u4" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 284
 Info (13000): Registers with preset signals will power-up high File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 135
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
@@ -482,12 +482,12 @@ Warning (13004): Presettable and clearable registers converted to equivalent cir
     Warning (13310): Register "imprime_pantalla:u2|Direccion_pelota[0]" is converted into an equivalent circuit using register "imprime_pantalla:u2|Direccion_pelota[0]~_emulated" and latch "imprime_pantalla:u2|Direccion_pelota[0]~5" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 194
     Warning (13310): Register "imprime_pantalla:u2|Direccion_pelota[2]" is converted into an equivalent circuit using register "imprime_pantalla:u2|Direccion_pelota[2]~_emulated" and latch "imprime_pantalla:u2|Direccion_pelota[2]~9" File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 194
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "separador1_marcador" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 47
-    Warning (13410): Pin "separador2_marcador" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 48
-    Warning (13410): Pin "R[0]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 54
-    Warning (13410): Pin "G[0]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 54
-    Warning (13410): Pin "B[0]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 54
-    Warning (13410): Pin "B[1]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 54
+    Warning (13410): Pin "separador1_marcador" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 49
+    Warning (13410): Pin "separador2_marcador" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 50
+    Warning (13410): Pin "R[0]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 56
+    Warning (13410): Pin "G[0]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 56
+    Warning (13410): Pin "B[0]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 56
+    Warning (13410): Pin "B[1]" is stuck at GND File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 56
 Info (286030): Timing-Driven Synthesis is running
 Critical Warning (18061): Ignored Power-Up Level option on the following registers
     Critical Warning (18010): Register imprime_pantalla:u2|coord_y_raqueta1[7] will power up to High File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 135
@@ -512,9 +512,9 @@ Info (21057): Implemented 840 device resources after synthesis - the final resou
     Info (21059): Implemented 30 output pins
     Info (21061): Implemented 805 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
-    Info: Peak virtual memory: 4785 megabytes
-    Info: Processing ended: Wed Jan 11 03:37:45 2023
-    Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:39
+    Info: Peak virtual memory: 4784 megabytes
+    Info: Processing ended: Wed Jan 11 12:34:40 2023
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:32
 
 

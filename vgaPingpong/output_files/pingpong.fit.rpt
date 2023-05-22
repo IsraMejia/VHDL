@@ -1,5 +1,5 @@
 Fitter report for pingpong
-Wed Jan 11 03:38:07 2023
+Wed Jan 11 12:35:04 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Wed Jan 11 03:38:07 2023       ;
+; Fitter Status                      ; Successful - Wed Jan 11 12:35:04 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; pingpong                                    ;
 ; Top-level Entity Name              ; PINGPONG                                    ;
@@ -154,12 +154,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.09        ;
+; Average used               ; 1.08        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   9.0%      ;
+;     Processor 2            ;   7.9%      ;
 +----------------------------+-------------+
 
 
@@ -1683,7 +1683,7 @@ Warning (332125): Found combinational loop of 18 nodes File: C:/Users/IsraCode/D
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
-Info (176353): Automatically promoted node clk~input (placed in PIN N14 (CLK2p, DIFFIO_RX_R38p, DIFFOUT_R38p, High_Speed)) File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 37
+Info (176353): Automatically promoted node clk~input (placed in PIN N14 (CLK2p, DIFFIO_RX_R38p, DIFFOUT_R38p, High_Speed)) File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 39
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G9
 Info (176353): Automatically promoted node divisor_frec:U0|temporal  File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/divisor_frec.vhd Line: 31
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
@@ -1699,7 +1699,7 @@ Info (176353): Automatically promoted node controlador_vga:u1|Hsync  File: C:/Us
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node controlador_vga:u1|Hsync~2 File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/controlador_vga.vhd Line: 34
         Info (176357): Destination node imprime_pantalla:u2|contador_columnas[9]~23 File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/imprime_pantalla.vhd Line: 113
-        Info (176357): Destination node Hsync~output File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 40
+        Info (176357): Destination node Hsync~output File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/pingpong.vhd Line: 42
 Info (176353): Automatically promoted node divisor_frec:u3|temporal  File: C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/divisor_frec.vhd Line: 31
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
@@ -1726,7 +1726,7 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
-Info (11888): Total time spent on timing analysis during the Fitter is 1.41 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 1.28 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1735,9 +1735,9 @@ Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:04
 Info (144001): Generated suppressed messages file C:/Users/IsraCode/Documents/FI/2023-1/LabDDM/repoVHDL/VHDL/vgaPingpong/output_files/pingpong.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 24 warnings
     Info: Peak virtual memory: 5387 megabytes
-    Info: Processing ended: Wed Jan 11 03:38:08 2023
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:28
+    Info: Processing ended: Wed Jan 11 12:35:05 2023
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:27
 
 
 +----------------------------+

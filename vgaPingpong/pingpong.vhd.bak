@@ -4,15 +4,13 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
- 
-entity PINGPONG is  
+
+entity PINGPONG is
 	generic(
 	
-		divisor:integer := 2; --divisor de frecuencia por defecto, lo usa el reloj de pixeles
-		
-		-- con estos divisores, el reloj de la raqueta es aprox 2x mas rapido que el de la pelota 
-		divisor_raqueta : integer := 200000; --velocidad  jugadores (divisor de frecuencia)	
-		divisor_pelota : integer  := 415000; --velocidad pelota (divisor de frecuencia)	
+		divisor:integer := 2; --divisor de frecuencia por defecto
+		div_paddle : integer := 200000; --velocidad  jugadores 	(divisor de frecuencia)	
+		div_ball : integer 	 := 415000; --velocidad pelota (divisor de frecuencia)	
 	
 		--Marcos horizontales de pixeles visibles de una VGA de 640x480 visibles	
 		Psh: integer := 96; --Ancho del pulso de sincronización horizontal en píxeles
@@ -27,12 +25,11 @@ entity PINGPONG is
 		--33+2 // 32= BPV aqui es donde se empiezan a dibujar pixeles de forma vertical
 		Fvv: integer := 515;--Final del período de actividad vertical en líneas de píxeles, fin de la parte visible
 		--35+480
-		TotalVertical: integer := 525; --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
+		TotalVertical: integer := 525 --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
 		--515+10
 		
-		--Definicion de medidas finales del juego
-		MedidaVerticalRaqueta: integer := 95; --Medidas verticales de las raquetas de los jugadores
-		MedidaHorizontalRaqueta: integer := 15  --Medidas horizontales de las raquetas de los jugadores
+		MedidaVerticalRaqueta: integer := 10; --Medidas verticales de las raquetas de los jugadores
+		MedidaHorizontalRaqueta: integer := 5;  --Medidas horizontales de las raquetas de los jugadores
 	);
 
 	port(
@@ -42,7 +39,7 @@ entity PINGPONG is
 		Hsync	: buffer std_logic; -- Horizontal sync pulse. señal de sincronizacion horizontal
 		Vsync	: buffer std_logic; -- Vertical sync pulse. señal de sincronizacion vertical
 
-		palancasjugadores : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
+		direction_switch : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
 		start_game		: in std_logic; --Bit de control para saber si el juego ha iniciado
 		seg_marcador_j1 	: out std_logic_vector(6 downto 0);
 		seg_marcador_j2	: out std_logic_vector(6 downto 0);
@@ -56,22 +53,22 @@ entity PINGPONG is
 		R, G, B 		 : out std_logic_vector(3 downto 0)
 	);
 
-end  PINGPONG;
+end entity PINGPONG;
 
 
 
-architecture PINGPONG_bhv of PINGPONG is
+architecture PINGPONG_arch of PINGPONG is
 
 	--Relojes de imagenes
-	signal reloj_pixeles 		 :  std_logic;--Señal de reloj para contar los píxeles
-	signal reloj_raquetas		 :  std_logic;--Señal de reloj para las raquetas
-	signal reloj_pelota	     :  std_logic;--Señal de reloj para el balon
+	reloj_pixeles 		 : in std_logic;--Señal de reloj para contar los píxeles
+	reloj_raquetas		 : in std_logic;--Señal de reloj para las raquetas
+	reloj_paleta	     : in std_logic;--Señal de reloj para el balon
 	
-	signal Hactive :  std_logic; --indican cuando los píxeles deben ser mostrados en la pantalla.
+	Hactive : in std_logic; --indican cuando los píxeles deben ser mostrados en la pantalla.
 	-- '1' durante el período de actividad horizontal y '0' el resto del tiempo
-	signal Vactive :  std_logic;--indica cuando una línea de píxeles deben ser mostradas en la pantalla.
+	Vactive : in std_logic;--indica cuando una línea de píxeles deben ser mostradas en la pantalla.
 	-- '1' durante el período de actividad vertical y '0' el resto del tiempo.
-	signal habilitador :  std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
+	habilitador : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
 	
 	signal marcador_j1  : integer;
 	signal marcador_j2  : integer;
@@ -147,12 +144,12 @@ architecture PINGPONG_bhv of PINGPONG is
 			--33+2 // 32= BPV aqui es donde se empiezan a dibujar pixeles de forma vertical
 			Fvv: integer := 515;--Final del período de actividad vertical en líneas de píxeles, fin de la parte visible
 			--35+480
-			TotalVertical: integer := 525; --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
+			TotalVertical: integer := 525 --Ancho total de la señal vertical en líneas de píxeles o ciclos (visibles o no visibles)
 			--515+10
 			
-			MedidaVerticalRaqueta: integer := 70; --Medidas verticales de las raquetas de los jugadores
-			MedidaHorizontalRaqueta: integer := 15;  --Medidas horizontales de las raquetas de los jugadores
-			MedidaPelota: integer := 10 --tamaño de la pelota
+			MedidaVerticalRaqueta: integer := 10; --Medidas verticales de las raquetas de los jugadores
+			MedidaHorizontalRaqueta: integer := 5;  --Medidas horizontales de las raquetas de los jugadores
+			MedidaPelota: integer := 3 --tamaño de la pelota
 		); --TAMAÑO DE LA PELOTA
 		
 		port(
@@ -161,7 +158,7 @@ architecture PINGPONG_bhv of PINGPONG is
 			--Relojes de imagenes
 			reloj_pixeles 		 : in std_logic;--Señal de reloj para contar los píxeles
 			reloj_raquetas		 : in std_logic;--Señal de reloj para las raquetas
-			reloj_pelota	     : in std_logic;--Señal de reloj para el balon
+			reloj_paleta	     : in std_logic;--Señal de reloj para el balon
 			
 			--puertos de sincronizacion 
 			Hactive : in std_logic; --indican cuando los píxeles deben ser mostrados en la pantalla.
@@ -172,13 +169,13 @@ architecture PINGPONG_bhv of PINGPONG is
 			Vsync : in std_logic; -- Vertical sync pulse. señal de sincronizacion vertical
 			habilitador  : in std_logic; --1 cuando Hactive y Vactive son 1 -> mostrar pixeles en pantalla
 
-			palancasjugadores : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
+			direction_switch : in std_logic_vector(1 downto 0); --Switches/controles de cada jugador
 			start_game		 : in std_logic;	--Bit de control para saber si el juego ha iniciado
 			marcador_j1			 : buffer integer;
 			marcador_j2			 : buffer integer;
 			
 			--puertos de colores
-			R,G,B			 : out std_logic_vector(3 downto 0)
+			R,G,B			 : out std_logic_vector(3 downto 0))
 			
 		);
 	end component imprime_pantalla;
@@ -192,13 +189,37 @@ architecture PINGPONG_bhv of PINGPONG is
 
 			seg_marcador_j1	 : out std_logic_vector(6 downto 0); -- 7 segmentos del marcador 1
 			separador1_marcador	 : out std_logic; 	--barra que divide los marcadores de cada jugador
-			separador2_marcador	 : out std_logic; 	--barra que divide los marcadores de cada jugador
-			seg_marcador_j2	 : out std_logic_vector(6 downto 0) -- 7 segmentos del marcador 1
+			separador2_marcador	 : out std_logic 	--barra que divide los marcadores de cada jugador
+			seg_marcador_j2	 : out std_logic_vector(6 downto 0); -- 7 segmentos del marcador 1
 			
 		);
 	end component;
 	
-
+	--Pin assignments
+	--borrar y escribir en el trabajo escrito porque usamos cada pin 
+		attribute chip_pin : string;
+		
+		attribute chip_pin of clk	       : signal is "N14";
+		attribute chip_pin of encendido	   : signal is "F15";
+		
+		attribute chip_pin of direction_switch : signal is "C10,C11,C12,A12";
+		attribute chip_pin of start_game       : signal is "B8";
+		
+		
+		attribute chip_pin of Hsync	       : signal is "N3";
+		attribute chip_pin of Vsync	       : signal is "n1";
+		
+		attribute chip_pin of R		       : signal is "AA1, V1, Y2, Y1";
+		attribute chip_pin of G		       : signal is "W1, T2, R2, R1";
+		attribute chip_pin of B		       : signal is "P1, T1, P4, N2";
+		
+		attribute chip_pin of seg_marcador_j1	       : signal is "B22,C22,B21,A21,B19,A20,B20";
+		attribute chip_pin of seg_marcador_j2	       : signal is "C17,D17,E16,C16,C15,E15,C14";
+		attribute chip_pin of separador1_marcador	       : signal is "B17";
+		attribute chip_pin of separador1_marcador	       : signal is "N20";
+		
+		--attribute chip_pin of ball_speed   : signal is "B14,A14";
+	----borrar y escribir en el trabajo escrito porque usamos cada pin 
 			
 
 begin
@@ -236,7 +257,7 @@ begin
 	--Mapeando puertos para poder Dibujar en pantalla el videojuego
 	u2: imprime_pantalla	
 		generic map(
-			Psh => Psh,
+			Ha => Ha,
 			Ihv => Ihv,
 			Fhv => Fhv,
 			TotalHorizontal => TotalHorizontal,
@@ -244,20 +265,20 @@ begin
 			Ivv => Ivv,
 			Fvv => Fvv,
 			TotalVertical => TotalVertical,
-			MedidaVerticalRaqueta => medidaVerticalRaqueta,
-			MedidaHorizontalRaqueta => medidaHorizontalRaqueta
+			MedidaVerticalRaqueta => paddlesizeV,
+			MedidaHorizontalRaqueta => paddlesizeH
 		)		
 		port map(	
 			reloj_pixeles	=> reloj_pixeles,
 			reloj_raquetas	=> reloj_raquetas,
-			reloj_pelota	=> reloj_pelota,
+			reloj_paleta	=> reloj_paleta,
 			encendido	=> encendido,
 			Hactive		=> Hactive,
 			Vactive 	=> Vactive,
 			Hsync		=> Hsync,
 			Vsync		=> Vsync,
 			habilitador		=> habilitador,
-			palancasjugadores=> palancasjugadores,
+			direction_switch=> direction_switch,
 			start_game	=> start_game,
 			marcador_j1		=> marcador_j1,
 			marcador_j2		=> marcador_j2,
@@ -270,14 +291,14 @@ begin
 	
 	--Mapeando puertos para el reloj de los jugadores
 	u3: divisor_frec 
-		generic map (divisor => divisor_raqueta )
+		generic map (divisor => divisor_paddle)
 		port map(reloj_entrada => clk, encendido => encendido, reloj_salida => reloj_raquetas)
 	;
 	
 	----Mapeando puertos para el reloj de la pelota
 	u5: divisor_frec
-		generic map (divisor => divisor_pelota)
-		port map(reloj_entrada => clk, encendido => encendido, reloj_salida => reloj_pelota)
+		generic map (divisor => divisor_ball)
+		port map(reloj_entrada => clk, encendido => encendido, reloj_salida => reloj_paleta)
 	;
 	
 	----Mapeando puertos para mostrar en pantalla los marcadores
@@ -286,6 +307,20 @@ begin
 	;
 	
 
+		
+	
+	--Multiplexor to choose the speed of the ball
+		--process(ball_speed)
+		--begin		
+		--	case ball_speed is
+		--		when "00" => reloj_paleta <= reloj_paleta1;
+		--		when "01" => reloj_paleta <= reloj_paleta2;
+		--		when "10" => reloj_paleta <= reloj_paleta3;
+		--		when others => reloj_paleta <= reloj_paleta4;
+		--	end case;
+		--end process;
 
+	--Escribir multplexor para seleccionar color de los jugadores
 					
-end PINGPONG_bhv;
+					
+end PINGPONG_arch;
